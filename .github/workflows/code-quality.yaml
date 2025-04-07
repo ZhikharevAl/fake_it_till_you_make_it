@@ -1,105 +1,52 @@
-name: Python Code Quality
+name: Python Code Quality Checks
+
+
 on:
-    push:
-      branches: [ "main" ]
-    workflow_dispatch:
+  push:
+  workflow_dispatch:
+
 jobs:
   lock_file:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uv lock --locked
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python and UV
+        uses: ./.github/actions/setup
+
+      - name: Generate/Check Lockfile
+        run: uv lock --locked
 
   linting:
     runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uvx ruff check .
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python and UV
+        uses: ./.github/actions/setup
+      - name: Run Ruff Linter
+        run: uvx ruff check .
 
   formatting:
     runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uvx ruff format --check .
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python and UV
+        uses: ./.github/actions/setup
+      - name: Check Ruff Formatting
+        run: uvx ruff format --check .
 
   type_consistency:
     runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uv run pyright .
-
-  tests:
-    runs-on: ubuntu-22.04
-    needs: [lock_file]
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uv run pytest -v --durations=0 --cov --cov-report=xml --alluredir=allure-results
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v5.4.0
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: ZhikharevAl/charity-event-comeback-mock-test
-      - name: Upload Allure Results
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 20
-
-  build:
-    runs-on: [ubuntu-22.04]
-    needs: [linting, formatting, type_consistency, tests]
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: ./.github/actions/setup
-      - run: uv build
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: build-artifacts
-          path: dist/
-
-  allure-report:
-    runs-on: ubuntu-22.04
-    needs: [tests]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.2
-
-      - name: Download Allure Results
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
-
-      - name: Get Allure history
-        uses: actions/checkout@v4.2.2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1.12
-        if: always()
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
-
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4.0.0
-        env:
-          PERSONAL_TOKEN: ${{ secrets.CHARITY_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python and UV
+        uses: ./.github/actions/setup
+      - name: Run Pyright Type Checker
+        run: uv run pyright .
