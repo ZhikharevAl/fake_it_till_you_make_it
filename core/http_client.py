@@ -9,17 +9,17 @@ from utils.allure_utils import AllureUtils
 
 class HTTPClient:
     """
-    Низкоуровневый HTTP клиент.
+    Low-level HTTP client.
 
-    Использует Playwright APIRequestContext для выполнения запросов к API.
+    Uses the Playwright APIRequestContext to make requests to the API.
     """
 
     def __init__(self, api_context: APIRequestContext) -> None:
         """
-        Инициализирует HTTPClient c предоставленным APIRequestContext Playwright.
+        Initializes HTTPClient with the provided APIRequestContext Playwright.
 
         Args:
-            api_context: Экземпляр APIRequestContext, настроенный c базовым URL и т.д.
+            api_context: The APIRequestContext instance configured with the base URL, etc.
         """
         self.api_request_context: APIRequestContext = api_context
         self.logger = logging.getLogger(__name__)
@@ -31,15 +31,15 @@ class HTTPClient:
         params: dict[str, Any] | None = None,
     ) -> APIResponse:
         """
-        Отправляет GET запрос на указанный эндпоинт.
+        Sends a GET request to the specified endpoint.
 
         Args:
-            endpoint: Относительный путь к эндпоинту (относительно base_url контекста).
-            headers: Опциональный словарь заголовков запроса.
-            params: Опциональный словарь параметров URL запроса.
+            endpoint: Relative path to the endpoint (relative to the base_url of the context).
+            headers: Optional dictionary of request headers.
+            params: Optional dictionary of URL request parameters.
 
         Returns:
-            Объект APIResponse от Playwright.
+            APIResponse object by Playwright.
         """
         self.logger.info("Sending GET request to %s with params: %s", endpoint, params)
         response: APIResponse = self.api_request_context.get(
@@ -57,18 +57,18 @@ class HTTPClient:
         json: Any | None = None,
     ) -> APIResponse:
         """
-        Отправляет POST запрос на указанный эндпоинт.
+        Sends a POST request to the specified endpoint.
 
-        Предпочтительно использовать либо `data`, либо `json`, не oba сразу.
+        Preferably use either `data` or `json`, not oba immediately.
 
         Args:
-            endpoint: Относительный путь к эндпоинту.
-            headers: Опциональный словарь заголовков запроса.
-            data: Опциональные данные для отправки (например, form data).
-            json: Опциональные данные для отправки в формате JSON.
+            endpoint: Relative path to the endpoint.
+            headers: Optional dictionary of request headers.
+            data: Optional data to be sent (e.g. form data).
+            json: Optional data to send in JSON format.
 
         Returns:
-            Объект APIResponse от Playwright.
+            APIResponse object by Playwright.
         """
         self.logger.info("Sending POST request to %s", endpoint)
         response: APIResponse = self.api_request_context.post(
@@ -89,16 +89,16 @@ class HTTPClient:
         json: Any | None = None,
     ) -> APIResponse:
         """
-        Отправляет PUT запрос на указанный эндпоинт.
+        Sends a PUT request to the specified endpoint.
 
         Args:
-            endpoint: Относительный путь к эндпоинту.
-            headers: Опциональный словарь заголовков запроса.
-            data: Опциональные данные для отправки (например, form data).
-            json: Опциональные данные для отправки в формате JSON.
+            endpoint: Relative path to the endpoint.
+            headers: Optional dictionary of request headers.
+            data: Optional data to be sent (e.g. form data).
+            json: Optional data to send in JSON format.
 
         Returns:
-            Объект APIResponse от Playwright.
+            APIResponse object by Playwright.
         """
         self.logger.info("Sending PUT request to %s", endpoint)
         response: APIResponse = self.api_request_context.put(
@@ -118,15 +118,15 @@ class HTTPClient:
         params: dict[str, Any] | None = None,
     ) -> APIResponse:
         """
-        Отправляет DELETE запрос на указанный эндпоинт.
+        Sends a DELETE request to the specified endpoint.
 
         Args:
-            endpoint: Относительный путь к эндпоинту.
-            headers: Опциональный словарь заголовков запроса.
-            params: Опциональный словарь параметров URL запроса.
+            endpoint: Relative path to the endpoint.
+            headers: Optional query header dictionary.
+            params: Optional dictionary of URL request parameters.
 
         Returns:
-            Объект APIResponse от Playwright.
+            APIResponse object by Playwright.
         """
         self.logger.info("Sending DELETE request to %s", endpoint)
         response: APIResponse = self.api_request_context.delete(
@@ -144,16 +144,16 @@ class HTTPClient:
         json: Any | None = None,
     ) -> APIResponse:
         """
-        Отправляет PATCH запрос на указанный эндпоинт.
+        Sends a PATCH request to the specified endpoint.
 
         Args:
-            endpoint: Относительный путь к эндпоинту.
-            headers: Опциональный словарь заголовков запроса.
-            data: Опциональные данные для отправки (например, form data).
-            json: Опциональные данные для отправки в формате JSON.
+            endpoint: Relative path to the endpoint.
+            headers: Optional query header dictionary.
+            data: Optional data to send (e.g. form data).
+            json: Optional data to send in JSON format.
 
         Returns:
-            Объект APIResponse от Playwright.
+            APIResponse object by Playwright.
         """
         self.logger.info("Sending PATCH request to %s", endpoint)
         response: APIResponse = self.api_request_context.patch(
