@@ -1,6 +1,5 @@
 name: Python Code Quality Checks
 
-
 on:
   push:
   workflow_dispatch:
@@ -50,3 +49,137 @@ jobs:
         uses: ./.github/actions/setup
       - name: Run Pyright Type Checker
         run: uv run pyright .
+
+  tests:
+    runs-on: ubuntu-22.04
+    needs: [lock_file]
+    steps:
+      - name: Checkout Test Repo
+        uses: actions/checkout@v4
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y podman
+
+      - name: Checkout Server Repo
+        uses: actions/checkout@v4
+        with:
+          repository: ZhikharevAl/charity_event_comeback_oct2024
+          path: server-repo
+
+      - name: Build Server Image
+        run: |
+          podman build \
+            -t api-server-image:ci \
+            -f server-repo/Dockerfile \
+            server-repo
+          # Убедитесь, что Dockerfile сервера лежит в корне server-repo
+
+      - name: Build Test Runner Image
+        run: podman build -t charity-tests-runner:ci -f Containerfile .
+
+      - name: Create Podman Network
+        run: podman network create ci-net
+
+      - name: Start API Server Container
+        run: |
+          podman run -d --network ci-net --name api-server api-server-image:ci
+          # -d: запуск в фоновом режиме
+          # --network: подключаем к сети
+          # --name: даем имя для обращения
+
+      - name: Create directories for results
+        run: |
+          mkdir -p allure-results
+          mkdir -p coverage-results
+
+      - name: Run Pytest inside Podman Container
+        run: |
+          podman run --rm \
+            --network ci-net \
+            --env-file .env_ci \
+            -e API_BASE_URL=http://api-server:4040 \
+            -e TEST_USER_LOGIN=${{ secrets.TEST_USER_LOGIN }} \
+            -e TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} \
+            -e INVALID_USER_PASSWORD=${{ secrets.INVALID_USER_PASSWORD }} \
+            -v $(pwd)/allure-results:/app/allure-results \
+            -v $(pwd)/coverage-results:/app/coverage-results \
+            charity-tests-runner:ci \
+            /app/.venv/bin/python -m pytest \
+              -v --durations=0 \
+              --cov=/app \
+              --cov-report=xml:/app/coverage-results/coverage.xml \
+              --alluredir=/app/allure-results
+
+      - name: Stop API Server Container
+        if: always() # Гарантирует выполнение шага даже если тесты упали
+        run: podman stop api-server
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage-results/coverage.xml
+          slug: ZhikharevAl/fake_it_till_you_make_it
+
+      - name: Upload Allure Results
+        if: always() # Загружать результаты даже если тесты упали
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 20
+
+  build:
+    runs-on: ubuntu-22.04
+    needs: [linting, formatting, type_consistency, tests]
+    steps:
+      - name: Checkout Test Repo
+        uses: actions/checkout@v4
+      - name: Setup Python and UV
+        uses: ./.github/actions/setup
+      - name: Build Project
+        run: uv build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+
+  allure-report:
+    runs-on: ubuntu-22.04
+    needs: [tests]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Allure Results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action
+        uses: simple-elf/allure-report-action@v1.12
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 20
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.CHARITY_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
