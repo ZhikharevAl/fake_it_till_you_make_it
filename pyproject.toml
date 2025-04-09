@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "charity-event-mock-test"
 version = "0.1.0"
@@ -21,6 +25,9 @@ dev = [
     "playwright>=1.51.0",
 ]
 
+[tool.setuptools]
+packages = []
+
 [tool.pytest.ini_options]
 pythonpath = ["src", "."]
 
@@ -38,11 +45,9 @@ log_cli_level = "INFO"
 log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s [%(filename)s:%(lineno)s]"
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 
-
 testpaths = ["tests"]
 
 [tool.ruff]
-
 line-length = 100
 target-version = "py313"
 
@@ -85,11 +90,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
-"tests/**/*.py" = [
-    "S101",
-    "ANN101",
-    "ANN201",
-]
+"tests/**/*.py" = ["S101", "ANN101", "ANN201"]
 "conftest.py" = ["ANN201"]
 
 [tool.ruff.lint.isort]
@@ -110,7 +111,6 @@ extend-immutable-calls = ["pytest.mark.parametrize", "pytest.fixture"]
 
 [tool.ruff.lint.pep8-naming]
 classmethod-decorators = ["classmethod", "pytest.fixture"]
-
 
 [tool.pyright]
 exclude = [".venv", "**/__pycache__"]
