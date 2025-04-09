@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
+
   lock_file:
     runs-on: ubuntu-22.04
     steps:
@@ -58,13 +59,14 @@ jobs:
       - name: Install Podman
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y podman
+          sudo apt-get install -y podman curl
 
       - name: Checkout Server Repo
         uses: actions/checkout@v4
         with:
           repository: ZhikharevAl/charity_event_comeback_oct2024
           path: server-repo
+          # token: ${{ secrets.YOUR_PAT_IF_PRIVATE }}
 
       - name: Build Server Image
         run: |
@@ -80,6 +82,31 @@ jobs:
         run: |
           podman run -d --network=host --name api-server api-server-image:ci
 
+      - name: Wait for API Server
+        run: |
+          echo "Waiting for API server to be ready on http://localhost:4040..."
+          timeout=60
+          interval=5
+          url="http://localhost:4040/api/auth"
+          end_time=$(( $(date +%s) + timeout ))
+          while [ $(date +%s) -lt $end_time ]; do
+            if curl -sSf --connect-timeout 2 "$url" > /dev/null 2>&1 || [ $? -eq 22 ] || [ $? -eq 7 ]; then
+               curl_exit_code=$(curl -sSf --connect-timeout 2 "$url" > /dev/null 2>&1; echo $?)
+               if [ $curl_exit_code -ne 7 ]; then
+                  echo "API server is up!"
+                  sleep 2
+                  exit 0
+               fi
+            fi
+            echo "Server not ready yet. Retrying in $interval seconds..."
+            sleep $interval
+          done
+          echo "Timeout waiting for API server."
+          echo "--- API Server Logs ---"
+          podman logs api-server || echo "Could not get server logs."
+          echo "--- End API Server Logs ---"
+          exit 1
+
       - name: Create directories for results
         run: |
           mkdir -p allure-results
@@ -89,6 +116,7 @@ jobs:
         run: |
           podman run --rm \
             --network=host \
+            # --env-file .env_ci \ # <<< Строка удалена
             -e API_BASE_URL=http://localhost:4040 \
             -e TEST_USER_LOGIN=${{ secrets.TEST_USER_LOGIN }} \
             -e TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} \
