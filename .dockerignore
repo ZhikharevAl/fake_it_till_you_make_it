@@ -1,0 +1,43 @@
+# Исключаем файлы и папки, которые не должны попасть в образ
+
+# Виртуальное окружение
+.venv/
+venv/
+env/
+
+# Git
+.git/
+.gitignore
+
+# Кэши и временные файлы Python/Pytest/IDE
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+htmlcov/
+
+# Файлы зависимостей (уже скопированы и обработаны ранее)
+# pyproject.toml
+# requirements*.txt
+# uv.lock
+
+# Отчеты Allure (генерируются при запуске)
+allure-results/
+allure-report/
+
+# Локальные файлы конфигурации/секретов
+.env
+*.log
+
+# Сборки и дистрибутивы (если есть)
+dist/
+build/
+*.egg-info/
+
+# Другие специфичные для проекта исключения
+# node_modules/
