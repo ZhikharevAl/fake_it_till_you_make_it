@@ -116,7 +116,6 @@ jobs:
         run: |
           podman run --rm \
             --network=host \
-            # --env-file .env_ci \
             -e API_BASE_URL=http://localhost:4040 \
             -e TEST_USER_LOGIN=${{ secrets.TEST_USER_LOGIN }} \
             -e TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} \
