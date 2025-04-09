@@ -17,7 +17,9 @@ class AuthClient(BaseAPI):
     AUTH_ENDPOINT: LiteralString = f"{API_PREFIX}/auth"
 
     def login(
-        self, payload: AuthPayload, expected_status: int = 200
+        self,
+        payload: AuthPayload,
+        expected_status: int = 200,
     ) -> AuthSuccessResponse | APIResponse:
         """
         Executes a user authorization request (POST /api/auth).
@@ -38,11 +40,14 @@ class AuthClient(BaseAPI):
                            (called from BaseAPI._handle_response).
         """
         response: APIResponse = self.http.post(
-            endpoint=self.AUTH_ENDPOINT, json=payload.model_dump()
+            endpoint=self.AUTH_ENDPOINT,
+            json=payload.model_dump(),
         )
 
         if response.ok:
             return self._handle_response(
-                response, expected_status, response_model=AuthSuccessResponse
+                response,
+                expected_status,
+                response_model=AuthSuccessResponse,
             )
         return self._handle_response(response, expected_status)
