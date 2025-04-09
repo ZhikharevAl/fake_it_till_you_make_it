@@ -22,15 +22,15 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-pythonpath = ["src", "."] # Добавил ".", чтобы можно было запускать из корня
+pythonpath = ["src", "."]
 
 addopts = "-v --disable-warnings"
 
 markers = [
-    "smoke: Критически важные тесты (проверка базовой работоспособности)",
-    "auth: Тесты, связанные с авторизацией",
-    "positive: Позитивные тестовые сценарии (ожидается успех)",
-    "negative: Негативные тестовые сценарии (ожидаются ошибки)",
+    "smoke: Critical tests (basic performance testing)",
+    "auth: Tests related to authorization",
+    "positive: Positive test scenarios (success is expected)",
+    "negative: Negative test scenarios (errors are expected)",
 ]
 
 log_cli = true
@@ -61,23 +61,18 @@ ignore = [
     "D107",    # missing-docstring-in-init
     "S101",    # assert (разрешаем assert в тестах)
     "PLR2004", # magic-value-comparison
-    "COM812",  # missing-trailing-comma
     "ISC001",  # single-line-implicit-string-concatenation
     "N812",    # Lowercase `expected_conditions` imported as non-lowercase
     "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
     "PGH003",  # use specific rule codes when ignoring type issues
     "S105",    # hard-coded password (лучше избегать, но может быть нужно для тестов)
-    "ANN002",  # Missing type annotation for `*args`
-    "ANN003",  # Missing type annotation for `**kwargs`
-    "ANN201",  # Missing return type annotation for public function/method
-    "ANN202",  # Missing return type annotation for private function/method
     "ANN401",  # Dynamically typed expressions (Any) are disallowed
     "TRY003",  # Avoid specifying long messages outside the exception class
     "EM101",   # Exception must not use a string literal, assign to variable first
-    "EM102",   # Exception must not use an f-string literal, assign to variable first
     "FIX002",  # Line contains TODO
     "TD002",   # Missing author in TODO
     "TD003",   # Missing issue link or ticket in TODO
+    "COM812",  # Trailing comma missing
 ]
 fixable = ["ALL"]
 unfixable = []
