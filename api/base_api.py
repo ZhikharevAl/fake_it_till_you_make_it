@@ -93,10 +93,11 @@ class BaseAPI:
                     f"Body of the answer:\n{response.text()}",
                     attachment_type=allure.attachment_type.TEXT,
                 )
-                raise AssertionError(
+                msg = (
                     f"Model response validation error {response_model.__name__}: {e}.\n"
                     f"Body: {response.text()}"
-                ) from e
+                )
+                raise AssertionError(msg) from e
             except Exception as e:
                 self.logger.exception("Failed to parse response JSON or validate model: %s")
 
@@ -106,10 +107,11 @@ class BaseAPI:
                     f"Body of the answer:\n{response.text()}",
                     attachment_type=allure.attachment_type.TEXT,
                 )
-                raise AssertionError(
+                msg = (
                     f"Failed to parse or failed to validate the response: {e}.\n"
                     f"Body: {response.text()}"
-                ) from e
+                )
+                raise AssertionError(msg) from e
             else:
                 return parsed_model
         else:
