@@ -74,7 +74,7 @@ jobs:
             server-repo
 
       - name: Build Test Runner Image
-        run: podman build -t charity-tests-runner:ci -f Containerfile .
+        run: podman build -t charity-tests-runner:ci -f Dockerfile .
 
       - name: Start API Server Container
         run: |
@@ -89,7 +89,6 @@ jobs:
         run: |
           podman run --rm \
             --network=host \
-            --env-file .env_ci \
             -e API_BASE_URL=http://localhost:4040 \
             -e TEST_USER_LOGIN=${{ secrets.TEST_USER_LOGIN }} \
             -e TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} \
