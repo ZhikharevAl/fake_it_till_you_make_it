@@ -1,10 +1,13 @@
 import logging
+from typing import TypeVar
 
 import allure
 from playwright.sync_api import APIResponse
 from pydantic import BaseModel, ValidationError
 
 from core.http_client import HTTPClient
+
+T = TypeVar("T", bound=BaseModel)
 
 
 class BaseAPI:
@@ -29,8 +32,8 @@ class BaseAPI:
         self,
         response: APIResponse,
         expected_status: int,
-        response_model: type[BaseModel] | None = None,
-    ) -> BaseModel | APIResponse:
+        response_model: type[T] | None = None,
+    ) -> T | APIResponse:
         """
         A generic method to handle the API response.
 
