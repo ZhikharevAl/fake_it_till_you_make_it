@@ -74,7 +74,7 @@ jobs:
             server-repo
 
       - name: Build Test Runner Image
-        run: podman build -t charity-tests-runner:ci -f Dockerfile .
+        run: podman build -t charity-tests-runner:ci -f Containerfile .
 
       - name: Start API Server Container
         run: |
