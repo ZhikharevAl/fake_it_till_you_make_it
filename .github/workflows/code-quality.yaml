@@ -148,22 +148,6 @@ jobs:
           path: allure-results/
           retention-days: 20
 
-  build:
-    runs-on: ubuntu-22.04
-    needs: [linting, formatting, type_consistency, tests]
-    steps:
-      - name: Checkout Test Repo
-        uses: actions/checkout@v4
-      - name: Setup Python and UV
-        uses: ./.github/actions/setup
-      - name: Build Project
-        run: uv build
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: dist/
-
   allure-report:
     runs-on: ubuntu-22.04
     needs: [tests]
