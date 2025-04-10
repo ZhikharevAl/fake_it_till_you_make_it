@@ -1,0 +1,11 @@
+{
+    "x-powered-by": "Express",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "1033",
+    "date": "Thu, 10 Apr 2025 00:13:43 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+}

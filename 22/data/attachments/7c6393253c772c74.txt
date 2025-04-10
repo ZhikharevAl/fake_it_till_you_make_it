@@ -1,0 +1,4 @@
+INFO     tests.auth.test_auth_api:test_auth_api.py:64 
+Test: Incorrect login, correct password
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
+INFO     core.http_client:http_client.py:80 Received response 400 from http://localhost:4040/api/auth
