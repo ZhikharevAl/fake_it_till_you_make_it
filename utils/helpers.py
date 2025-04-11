@@ -1,5 +1,5 @@
 import logging
-from typing import Any, NoReturn
+from typing import NoReturn
 
 import allure
 from playwright.sync_api import APIResponse
@@ -7,7 +7,7 @@ from playwright.sync_api import APIResponse
 logger = logging.getLogger(__name__)
 
 
-def validate_list_of_strings(data: Any) -> list[str]:
+def validate_list_of_strings(data: list[str]) -> list[str]:
     """
     Проверяет, что переданные данные являются списком строк.
 
@@ -21,7 +21,8 @@ def validate_list_of_strings(data: Any) -> list[str]:
         ValueError: Если данные не являются списком строк.
     """
     if not isinstance(data, list) or not all(isinstance(item, str) for item in data):
-        raise ValueError("Данные не являются списком строк")
+        message = f"Данные не являются списком строк. Данные: {data}"
+        raise ValueError(message)
     return data
 
 
