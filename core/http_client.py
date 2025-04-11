@@ -53,8 +53,8 @@ class HTTPClient:
         self,
         endpoint: str,
         headers: dict[str, Any] | None = None,
-        data: Any | None = None,
-        json: Any | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: Any | None = None,  # noqa: ANN401
     ) -> APIResponse:
         """
         Sends a POST request to the specified endpoint.
@@ -85,8 +85,8 @@ class HTTPClient:
         self,
         endpoint: str,
         headers: dict[str, Any] | None = None,
-        data: Any | None = None,
-        json: Any | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: Any | None = None,  # noqa: ANN401
     ) -> APIResponse:
         """
         Sends a PUT request to the specified endpoint.
@@ -140,8 +140,8 @@ class HTTPClient:
         self,
         endpoint: str,
         headers: dict[str, Any] | None = None,
-        data: Any | None = None,
-        json: Any | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: Any | None = None,  # noqa: ANN401
     ) -> APIResponse:
         """
         Sends a PATCH request to the specified endpoint.
