@@ -126,7 +126,7 @@ jobs:
               -v --durations=0 \
               --cov=/app \
               --cov-report=xml:/app/coverage-results/coverage.xml \
-              --alluredir=/app/allure-results
+              --alluredir=/app/allure-results || true
 
       - name: Stop API Server Container
         if: always()
@@ -150,6 +150,7 @@ jobs:
   allure-report:
     runs-on: ubuntu-22.04
     needs: [tests]
+    if: always()
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
