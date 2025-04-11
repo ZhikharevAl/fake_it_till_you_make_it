@@ -17,4 +17,5 @@ INVALID_USER_PASSWORD = os.getenv("INVALID_USER_PASSWORD", "invalidPass123")
 
 
 if not TEST_USER_LOGIN or not TEST_USER_PASSWORD:
-    raise ValueError("TEST_USER_LOGIN and TEST_USER_PASSWORD must be set")
+    MESSAGE = "The TEST_USER_LOGIN and TEST_USER_PASSWORD environment variables must be set."
+    raise ValueError(MESSAGE)
