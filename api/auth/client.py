@@ -1,10 +1,8 @@
-from typing import LiteralString
-
 from playwright.sync_api import APIResponse
 
 from api.auth.models import AuthPayload, AuthSuccessResponse
 from api.base_api import BaseAPI
-from config.config import API_PREFIX
+from api.endpoints import APIEndpoints
 
 
 class AuthClient(BaseAPI):
@@ -13,8 +11,6 @@ class AuthClient(BaseAPI):
 
     Inherits from BaseAPI to use a generic HTTP client and handle responses.
     """
-
-    AUTH_ENDPOINT: LiteralString = f"{API_PREFIX}/auth"
 
     def login(
         self,
@@ -39,8 +35,9 @@ class AuthClient(BaseAPI):
                            or if AuthSuccessResponse model validation fails
                            (called from BaseAPI._handle_response).
         """
+        endpoint = APIEndpoints.AUTH
         response: APIResponse = self.http.post(
-            endpoint=self.AUTH_ENDPOINT,
+            endpoint=endpoint.format(),
             json=payload.model_dump(),
         )
 
