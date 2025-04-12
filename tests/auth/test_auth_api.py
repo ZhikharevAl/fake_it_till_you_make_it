@@ -5,6 +5,7 @@ from playwright.sync_api import APIResponse
 
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
+from api.endpoints import APIEndpoints
 from config.config import (
     INVALID_USER_PASSWORD,
     TEST_USER_LOGIN,
@@ -124,10 +125,11 @@ class TestAuthenticationAPI:
         """
         Verify API behavior with malformed payload.
 
-        Expected result: status code 400 Bad Request.
+        Ожидаемый результат: код состояния 400 Bad Request.
         """
         logger.info("\nTest: %s", description)
-        response = auth_client.http.post(endpoint=auth_client.AUTH_ENDPOINT, json=payload_dict)
+        endpoint = APIEndpoints.AUTH
+        response = auth_client.http.post(endpoint=endpoint.format(), json=payload_dict)
         assert response.status == expected_status, (
             f"Expected status {expected_status}, got {response.status}"
         )
@@ -137,9 +139,9 @@ class TestAuthenticationAPI:
     @pytest.mark.positive
     def test_login_success(self, auth_client: AuthClient) -> None:
         """
-        Verify successful authorization with valid credentials.
+        Убедитесь в успешной авторизации c помощью действительных учетных данных.
 
-        Expected result: 200 OK status and a valid JWT token in the response.
+        Ожидаемый результат: статус 200 OK и действительный JWT-токен в ответе.
         """
         logger.info("\nTest: Successful authorization")
         if not TEST_USER_LOGIN or not TEST_USER_PASSWORD:
