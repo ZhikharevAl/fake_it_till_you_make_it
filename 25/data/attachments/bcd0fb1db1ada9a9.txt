@@ -1,0 +1,4 @@
+INFO:tests.user.test_user_favourites_api:
+Test: Успешное получение избранного (GET /api/user/favourites)
+INFO:core.http_client:Sending GET request to /api/user/favourites with params: None
+INFO:core.http_client:Received response 403 from http://localhost:4040/api/user/favourites
