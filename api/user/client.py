@@ -4,18 +4,15 @@ import allure
 from playwright.sync_api import APIResponse
 
 from api.base_api import BaseAPI
+from api.endpoints import APIEndpoints
 from api.user.models import (
     FavouritesListResponse,
 )
-from config.config import API_PREFIX
 from utils.helpers import handle_api_parsing_error, validate_list_of_strings
 
 
 class UserClient(BaseAPI):
     """API клиент для эндпоинтов, связанных c пользователем (/api/user/*)."""
-
-    USER_ENDPOINT = f"{API_PREFIX}/user"
-    FAVOURITES_ENDPOINT = f"{USER_ENDPOINT}/favourites"
 
     def get_favourites(self, expected_status: int = 200) -> FavouritesListResponse | APIResponse:
         """
@@ -23,7 +20,8 @@ class UserClient(BaseAPI):
 
         Возвращает список ID (List[str]) при успехе (200) или APIResponse при ошибке (403, 500).
         """
-        response = self.http.get(endpoint=self.FAVOURITES_ENDPOINT)
+        endpoint = APIEndpoints.USER_FAVOURITES
+        response = self.http.get(endpoint=endpoint.format())
 
         processed_response = self._handle_response(response, expected_status)
 
