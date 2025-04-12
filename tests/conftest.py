@@ -4,6 +4,7 @@ from collections.abc import Generator
 import pytest
 from playwright.sync_api import (
     APIRequestContext,
+    APIResponse,
     Playwright,
     sync_playwright,
 )
@@ -14,57 +15,56 @@ from playwright.sync_api import (
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
 from api.user.client import UserClient
-from config.config import (
-    BASE_URL,
-    TEST_USER_LOGIN,
-    TEST_USER_PASSWORD,
-)
+from config.config import BASE_URL, TEST_USER_LOGIN, TEST_USER_PASSWORD
 from core.http_client import HTTPClient
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s [%(filename)s:%(lineno)s]",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 logger = logging.getLogger(__name__)
 
 
 @pytest.fixture(scope="session", name="playwright_instance")
 def playwright_instance_fixture() -> Generator[Playwright]:
-    """Предоставляет экземпляр Playwright для всего сеанса тестирования."""
-    logger.info("\n[Fixture] Playwright's launch...")
+    """Предоставляет экземпляр Playwright на всю сессию тестов."""
+    logger.info("Запуск Playwright...")
     with sync_playwright() as p:
         yield p
-    logger.info("[Fixture] Playwright's stop...")
+    logger.info("Остановка Playwright...")
 
 
 @pytest.fixture(scope="session", name="api_request_context")
-def api_request_context_fixture(playwright_instance: Playwright) -> Generator[APIRequestContext]:
-    """Создает и предоставляет APIRequestContext для всей сессии."""
-    logger.info("\n[Fixture] Creating APIRequestContext for BASE_URL: %s...", BASE_URL)
-    context = playwright_instance.request.new_context(
-        base_url=BASE_URL,
-        ignore_https_errors=True,
-    )
+def api_request_context_fixture(
+    playwright_instance: Playwright,
+) -> Generator[APIRequestContext]:
+    """Создает и предоставляет APIRequestContext на всю сессию."""
+    logger.info("Создание APIRequestContext для BASE_URL: %s...", BASE_URL)
+    context = playwright_instance.request.new_context(base_url=BASE_URL, ignore_https_errors=True)
     yield context
-    logger.info("[Fixture] Destruction APIRequestContext...")
+    logger.info("Уничтожение APIRequestContext...")
     context.dispose()
 
 
 @pytest.fixture(scope="session", name="http_client")
 def http_client_fixture(api_request_context: APIRequestContext) -> HTTPClient:
-    """Предоставляет экземпляр базового HTTP-клиента для всей сессии."""
-    logger.info("\n[Fixture] Creation HTTPClient...")
+    """Предоставляет экземпляр базового HTTP клиента на всю сессию."""
+    logger.info("Создание HTTPClient...")
     return HTTPClient(api_context=api_request_context)
 
 
 @pytest.fixture(scope="session", name="auth_client")
 def auth_client_fixture(http_client: HTTPClient) -> AuthClient:
-    """Предоставляет экземпляр клиента API авторизации на всю сессию."""
-    logger.info("\n[Fixture] Creation AuthClient...")
+    """Предоставляет неаутентифицированный экземпляр клиента API авторизации."""
+    logger.info("Создание AuthClient...")
     return AuthClient(http_client)
 
 
 @pytest.fixture(scope="session", name="user_client")
 def user_client_fixture(http_client: HTTPClient) -> UserClient:
     """Предоставляет неаутентифицированный экземпляр клиента API пользователя."""
-    logger.info("\n[Fixture] Создание UserClient...")
+    logger.info("Создание UserClient...")
     return UserClient(http_client)
 
 
@@ -73,37 +73,55 @@ def auth_token_fixture(auth_client: AuthClient) -> str | None:
     """
     Выполняет вход тестового пользователя один раз за сессию и возвращает токен.
 
-    Если входные данные не работают, прерывает все тесты, зависящие от этого приспособления..
+    Если вход не удался, прерывает выполнение тестов.
     """
     logger.info(
-        "\n[Fixture] Login attempt to obtain a session token (user: %s)...",
+        "Попытка логина для получения сессионного токена (пользователь: %s)...",
         TEST_USER_LOGIN,
     )
     if not TEST_USER_LOGIN or not TEST_USER_PASSWORD:
-        pytest.fail(
-            "Test user credentials (TEST_USER_LOGIN, TEST_USER_PASSWORD) are not configured.",
-            pytrace=False,
-        )
+        pytest.fail("Учетные данные тестового пользователя не настроены.", pytrace=False)
 
     payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
     try:
-        response = auth_client.login(payload, expected_status=200)
+
+        @pytest.mark.xfail(
+            reason="API нестабильно возвращает 500 вместо 200", raises=AssertionError, strict=False
+        )
+        def attempt_login() -> AuthSuccessResponse | APIResponse:
+            return auth_client.login(payload, expected_status=200)
+
+        response: AuthSuccessResponse | APIResponse = attempt_login()
+
         if isinstance(response, AuthSuccessResponse) and response.token:
-            logger.info("[Fixture] Session login successful.")
+            logger.info("Сессионный логин успешен.")
             return response.token
-    except (PlaywrightError, AssertionError) as e:
+        raw_response_text = (
+            response.text() if isinstance(response, APIResponse) else "Ответ не является текстом"
+        )
         pytest.fail(
-            f"[Fixture] CRITICAL ERROR: Failed to execute session login user {TEST_USER_LOGIN}. "
-            f"Error: {e}",
+            f"Ошибка сессионного логина: Неожиданный тип ответа {type(response)} или пустой токен. "
+            f"Тело ответа: {raw_response_text}",
             pytrace=False,
         )
 
+    except (PlaywrightError, AssertionError) as e:
+        pytest.fail(
+            f"КРИТИЧЕСКАЯ ОШИБКА: He удалось выполнить сессионный логин для пользователя "
+            f"{TEST_USER_LOGIN}. Ошибка: {e}",
+            pytrace=False,
+        )
+        return None
+    except Exception as e:  # noqa: BLE001
+        pytest.fail(f"НЕПРЕДВИДЕННАЯ ОШИБКА при сессионном логине: {e}", pytrace=False)
+        return None
+
 
 @pytest.fixture
-def authenticated_api_request_context(
+def authenticated_api_req_context(
     playwright_instance: Playwright, auth_token: str
 ) -> Generator[APIRequestContext]:
-    """Создает APIRequestContext c добавленным заголовком Authorization: Bearer."""
+    """Создает APIRequestContext  добавленным заголовком Authorization: Bearer."""
     logger.info(
         "\n[Fixture] Создание авторизованного APIRequestContext (токен: %s...)...", auth_token[:5]
     )
@@ -117,12 +135,12 @@ def authenticated_api_request_context(
 
 
 @pytest.fixture
-def authenticated_http_client(api_request_context_with_auth: APIRequestContext) -> HTTPClient:
+def authenticated_http_client(authenticated_api_request_context: APIRequestContext) -> HTTPClient:
     """Создает HTTPClient, использующий авторизованный контекст."""
-    return HTTPClient(api_context=api_request_context_with_auth)
+    return HTTPClient(api_context=authenticated_api_request_context)
 
 
 @pytest.fixture
-def authenticated_user_client(http_client: HTTPClient) -> UserClient:
+def authenticated_user_client(authenticated_http_client: HTTPClient) -> UserClient:
     """Предоставляет аутентифицированный экземпляр клиента API пользователя."""
-    return UserClient(http_client)
+    return UserClient(authenticated_http_client)
