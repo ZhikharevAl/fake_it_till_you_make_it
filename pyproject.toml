@@ -57,27 +57,15 @@ ignore = [
     "D203",    # one-blank-line-before-class
     "D212",    # multi-line-summary-first-line
     "D100",    # missing-docstring-in-public-module
-    "D101",    # missing-docstring-in-public-class
-    "D102",    # missing-docstring-in-public-method
-    "D103",    # missing-docstring-in-public-function
-    "D104",    # missing-docstring-in-public-package
-    "D105",    # missing-docstring-in-magic-method
-    "D106",    # missing-docstring-in-public-nested-class
-    "D107",    # missing-docstring-in-init
-    "S101",    # assert (разрешаем assert в тестах)
+    "S101",    # assert
     "PLR2004", # magic-value-comparison
+    "COM812",  # missing-trailing-comma
     "ISC001",  # single-line-implicit-string-concatenation
     "N812",    # Lowercase `expected_conditions` imported as non-lowercase
     "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
     "PGH003",  # use specific rule codes when ignoring type issues
-    "S105",    # hard-coded password (лучше избегать, но может быть нужно для тестов)
-    "ANN401",  # Dynamically typed expressions (Any) are disallowed
-    "TRY003",  # Avoid specifying long messages outside the exception class
-    "EM101",   # Exception must not use a string literal, assign to variable first
-    "FIX002",  # Line contains TODO
-    "TD002",   # Missing author in TODO
-    "TD003",   # Missing issue link or ticket in TODO
-    "COM812",  # Trailing comma missing
+    "S105",    # hard-coded password
+   # "AN401",
 ]
 fixable = ["ALL"]
 unfixable = []
@@ -89,9 +77,8 @@ max-complexity = 10
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["F401"]
-"tests/**/*.py" = ["S101", "ANN101", "ANN201"]
-"conftest.py" = ["ANN201"]
+"__init__.py" = ["F401", "D104"]
+
 
 [tool.ruff.lint.isort]
 known-third-party = ["pytest", "playwright", "pydantic", "allure", "dotenv"]

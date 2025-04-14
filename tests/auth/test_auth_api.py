@@ -1,10 +1,12 @@
 import logging
 
+import allure
 import pytest
 from playwright.sync_api import APIResponse
 
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
+from api.endpoints import APIEndpoints
 from config.config import (
     INVALID_USER_PASSWORD,
     TEST_USER_LOGIN,
@@ -14,10 +16,15 @@ from config.config import (
 logger = logging.getLogger(__name__)
 
 
+@allure.epic("Аутентификация")
+@allure.feature("Вход пользователя (POST /api/auth)")
 @pytest.mark.auth
 class TestAuthenticationAPI:
-    """Test suite for POST authorization endpoint /api/auth."""
+    """Класс тестов для эндпоинта авторизации POST /api/auth."""
 
+    @allure.story("Неуспешный вход - Неверные учетные данные")
+    @allure.title("Тест неуспешного входа: {description}")
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.negative
     @pytest.mark.parametrize(
         ("login", "password", "expected_status", "description"),
@@ -26,25 +33,22 @@ class TestAuthenticationAPI:
                 TEST_USER_LOGIN,
                 INVALID_USER_PASSWORD,
                 400,
-                "Correct login, wrong password",
+                "Корректный логин, неверный пароль",
                 id="invalid_password",
             ),
             pytest.param(
                 "nonexistent.user@example.com",
                 TEST_USER_PASSWORD,
                 400,
-                "Incorrect login, correct password",
+                "Неверный логин, корректный пароль",
                 id="invalid_login",
             ),
             pytest.param(
                 "nonexistent.user@example.com",
                 INVALID_USER_PASSWORD,
                 400,
-                "Wrong login, wrong password",
-                marks=pytest.mark.xfail(
-                    reason="API erratically returns 500 instead of 400", raises=AssertionError
-                ),
-                id="invalid_login_and_pass_xfail",
+                "Неверный логин, неверный пароль",
+                id="invalid_login_and_pass",
             ),
         ],
     )
@@ -57,17 +61,23 @@ class TestAuthenticationAPI:
         description: str,
     ) -> None:
         """
-        Verify unsuccessful authorization with incorrect credentials.
+        Проверка неуспешной авторизации c неверными учетными данными.
 
-        Expected result: status code 400 Bad Request.
+        Ожидаемый результат: статус код 400 Bad Request.
         """
-        logger.info("\nTest: %s", description)
+        allure.dynamic.description(
+            f"Проверяем, что API возвращает {expected_status} при попытке входа c: {description}"
+        )
+        logger.info("Тест: %s", description)
         payload = AuthPayload(login=login, password=password)
         response = auth_client.login(payload=payload, expected_status=expected_status)
         assert isinstance(response, APIResponse), (
-            f"APIResponse type was expected at status {expected_status}"
+            f"Ожидался тип APIResponse при статусе {expected_status}"
         )
 
+    @allure.story("Неуспешный вход - Некорректное тело запроса")
+    @allure.title("Тест неуспешного входа: {description}")
+    @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.negative
     @pytest.mark.parametrize(
         ("payload_dict", "expected_status", "description"),
@@ -75,42 +85,33 @@ class TestAuthenticationAPI:
             pytest.param(
                 {"login": TEST_USER_LOGIN},
                 400,
-                "No password field",
-                marks=pytest.mark.xfail(
-                    reason="API erratically returns 500 instead of 400", raises=AssertionError
-                ),
-                id="missing_password_xfail",
+                "Отсутствует поле password",
+                id="missing_password",
             ),
             pytest.param(
                 {"password": TEST_USER_PASSWORD},
                 400,
-                "No login field",
-                id="missing_login_400",
+                "Отсутствует поле login",
+                id="missing_login",
             ),
-            pytest.param({}, 400, "Empty request body", id="empty_payload_400"),
+            pytest.param({}, 400, "Пустое тело запроса", id="empty_payload_400"),
             pytest.param(
                 {"login": "", "password": TEST_USER_PASSWORD},
                 400,
-                "Empty string in the login field",
+                "Пустая строка в поле login",
                 id="empty_login_str_400",
             ),
             pytest.param(
                 {"login": TEST_USER_LOGIN, "password": ""},
                 400,
-                "Empty string in the password field",
-                marks=pytest.mark.xfail(
-                    reason="API erratically returns 500 instead of 400", raises=AssertionError
-                ),
-                id="empty_pass_str_xfail",
+                "Пустая строка в поле password",
+                id="empty_pass_str",
             ),
             pytest.param(
-                {"login": "not email", "password": TEST_USER_PASSWORD},
+                {"login": "не email", "password": TEST_USER_PASSWORD},
                 400,
-                "Incorrect login format (not email)",
-                marks=pytest.mark.xfail(
-                    reason="API erratically returns 500 instead of 400", raises=AssertionError
-                ),
-                id="bad_login_format_xfail",
+                "Некорректный формат login (не email)",
+                id="bad_login_format",
             ),
         ],
     )
@@ -122,38 +123,51 @@ class TestAuthenticationAPI:
         description: str,
     ) -> None:
         """
-        Verify API behavior with malformed payload.
+        Проверка реакции API на некорректно сформированное тело запроса.
 
-        Expected result: status code 400 Bad Request.
+        Ожидаемый результат: код состояния 400 Bad Request.
         """
-        logger.info("\nTest: %s", description)
-        response = auth_client.http.post(endpoint=auth_client.AUTH_ENDPOINT, json=payload_dict)
+        allure.dynamic.description(
+            f"Проверяем, что API возвращает {expected_status} при отправке некорректного тела: "
+            f"{description}"
+        )
+        logger.info("Тест: %s", description)
+        endpoint = APIEndpoints.AUTH
+        response = auth_client.http.post(endpoint=str(endpoint), json=payload_dict)
         assert response.status == expected_status, (
-            f"Expected status {expected_status}, got {response.status}"
+            f"Ожидался статус {expected_status}, но получен {response.status}. "
+            f"Тело: {response.text()}"
         )
         logger.info("Response status: %s, Body: %s", response.status, response.text())
 
+    @allure.story("Успешный вход")
+    @allure.title("Тест успешной авторизации пользователя")
+    @allure.description(
+        "Проверяем, что при валидных учетных данных возвращается статус 200 и JWT токен."
+    )
+    @allure.severity(allure.severity_level.BLOCKER)
     @pytest.mark.smoke
     @pytest.mark.positive
     def test_login_success(self, auth_client: AuthClient) -> None:
         """
-        Verify successful authorization with valid credentials.
+        Убедитесь в успешной авторизации c помощью действительных учетных данных.
 
-        Expected result: 200 OK status and a valid JWT token in the response.
+        Ожидаемый результат: статус 200 OK и действительный JWT-токен в ответе.
         """
-        logger.info("\nTest: Successful authorization")
+        logger.info("Тест: Успешная авторизация")
         if not TEST_USER_LOGIN or not TEST_USER_PASSWORD:
-            pytest.skip("Test Skip: The test user credentials are not configured.")
+            pytest.skip("Пропуск теста: Учетные данные тестового пользователя не настроены.")
 
         payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
         response = auth_client.login(payload=payload, expected_status=200)
 
-        assert isinstance(response, AuthSuccessResponse), (
-            "The response must be of type AuthSuccessResponse"
-        )
-        assert response.auth is True, "The 'auth' field must be true"
-        assert response.token is not None, "The 'token' field must not be empty (None)"
-        assert len(response.token) >= 10, (
-            f"Token length ({len(response.token)}) less than expected (>=10)"
-        )
-        logger.info("Token successfully received (first 10 characters): %s...", response.token[:10])
+        with allure.step("Проверка типа и полей ответа"):  # type: ignore
+            assert isinstance(response, AuthSuccessResponse), (
+                "Ответ должен быть типа AuthSuccessResponse"
+            )
+            assert response.auth is True, "Поле 'auth' должно быть true"
+            assert response.token is not None, "Поле 'token' не должно быть пустым (None)"
+            assert len(response.token) >= 10, (
+                f"Длина токена ({len(response.token)}) меньше ожидаемой (>=10)"
+            )
+        logger.info("Токен успешно получен (первые 10 символов): %s...", response.token[:10])

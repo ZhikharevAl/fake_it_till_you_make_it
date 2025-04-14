@@ -21,7 +21,6 @@ class AuthSuccessResponse(BaseModel):
     def check_auth_is_true(cls, auth_value: Literal[True]) -> Literal[True]:
         """Checks that the 'auth' flag is True on success."""
         if auth_value is not True:
-            raise ValueError(
-                "The 'auth' field should be true on successful authorization"
-            )  # For the custom message
+            msg = "The 'auth' field should be true on successful authorization"
+            raise ValueError(msg)  # For the custom message
         return auth_value
