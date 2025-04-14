@@ -135,9 +135,9 @@ def authenticated_api_req_context(
 
 
 @pytest.fixture
-def authenticated_http_client(authenticated_api_request_context: APIRequestContext) -> HTTPClient:
+def authenticated_http_client(authenticated_api_req_context: APIRequestContext) -> HTTPClient:
     """Создает HTTPClient, использующий авторизованный контекст."""
-    return HTTPClient(api_context=authenticated_api_request_context)
+    return HTTPClient(api_context=authenticated_api_req_context)
 
 
 @pytest.fixture
