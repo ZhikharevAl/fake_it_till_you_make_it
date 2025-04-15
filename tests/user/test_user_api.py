@@ -3,6 +3,7 @@ import uuid
 
 import allure
 import pytest
+from playwright.sync_api import APIResponse
 
 from api.user.client import UserClient
 from api.user.models import Contacts, SocialContacts, UserDataResponse
@@ -68,3 +69,19 @@ class TestUserAPI:
 
             assert response.favourite_requests == []
         logger.info("Получены данные пользователя ID: %s", response.id)
+
+    @allure.feature("Профиль пользователя (GET /api/user)")
+    @allure.story("Получение профиля")
+    @allure.title("Тест получения данных пользователя без аутентификации")
+    @allure.description("Проверяем, что неавторизованный пользователь получает ошибку 401.")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.negative
+    def test_get_user_info_unauthorized(self, user_client: UserClient) -> None:
+        """
+        Проверка получения информации o пользователе без аутентификации.
+
+        Ожидаемый результат: статус 401 Unauthorized.
+        """
+        logger.info("Тест: Получение данных пользователя без авторизации (GET /api/user)")
+        response = user_client.get_user_info(expected_status=401)  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
