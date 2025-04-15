@@ -9,6 +9,7 @@ from api.endpoints import APIEndpoints
 from api.user.models import (
     AddToFavouritesPayload,
     FavouritesListResponse,
+    UserDataResponse,
 )
 from utils.helpers import handle_api_parsing_error, validate_list_of_strings
 
@@ -86,3 +87,19 @@ class UserClient(BaseAPI):
                 attachment_type=allure.attachment_type.TEXT,
             )
         return processed_response
+
+    @allure.step("Получение данных текущего пользователя")
+    def get_user_info(self, expected_status: int = 200) -> UserDataResponse | APIResponse:
+        """
+        Выполняет GET /api/user. Требует аутентификации.
+
+        Возвращает UserDataResponse при успехе (200) или APIResponse при ошибке (401, 500).
+        """
+        endpoint = APIEndpoints.USER
+        logger.info("Вызов GET %s", endpoint.value)
+        response = self.http.get(endpoint=endpoint.value)
+        return self._handle_response(
+            response,
+            expected_status,
+            response_model=UserDataResponse if expected_status == 200 else None,
+        )
