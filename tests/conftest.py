@@ -56,7 +56,7 @@ def http_client_fixture(api_request_context: APIRequestContext) -> HTTPClient:
 
 @pytest.fixture(scope="session", name="auth_client")
 def auth_client_fixture(http_client: HTTPClient) -> AuthClient:
-    """Предоставляет неаутентифицированный экземпляр клиента API авторизации."""
+    """Предоставляет аутентифицированный экземпляр клиента API авторизации."""
     logger.info("Создание AuthClient...")
     return AuthClient(http_client)
 
