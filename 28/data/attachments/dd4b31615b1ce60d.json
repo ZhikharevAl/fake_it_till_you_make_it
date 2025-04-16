@@ -1,0 +1,40 @@
+{
+    "id": "5aa84df7-e69a-4cc7-bc26-4baf029c4cfe",
+    "name": "Ульян",
+    "lastName": "Ситников",
+    "birthdate": "1999-11-27T19:00:23.003Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -54.3583,
+            "longitude": 137.66,
+            "district": "Приморский край",
+            "city": "Тайшет"
+        },
+        {
+            "latitude": -81.2437,
+            "longitude": 24.8989,
+            "district": "Сахалинская область",
+            "city": "Кырен"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Районный страховой агент",
+            "graduationYear": 2008
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79144712294",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
