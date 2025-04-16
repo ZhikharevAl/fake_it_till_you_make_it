@@ -4,6 +4,7 @@ import uuid
 
 import allure
 import pytest
+from playwright.sync_api import APIResponse
 
 from api.request.client import RequestClient
 from api.request.models import (
@@ -131,3 +132,24 @@ class TestRequestAPI:
             response.id,
             response.title,
         )
+
+    @allure.feature("Детали запроса (GET /api/request/{id})")
+    @allure.story("Получение деталей")
+    @allure.title("Тест получения деталей несуществующего запроса")
+    @allure.description("Проверяем получение ошибки 404 при запросе деталей по несуществующему ID.")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_get_request_details_not_found(self, request_client: RequestClient) -> None:
+        """
+        Проверка получения деталей несуществующего запроса.
+
+        Ожидаемый результат: статус 404 Not Found.
+        """
+        logger.info(
+            "Тест: Получение деталей несуществующего запроса (GET /api/request/%s)",
+            NON_EXISTENT_REQUEST_ID,
+        )
+        response = request_client.get_request_details(
+            request_id=NON_EXISTENT_REQUEST_ID, expected_status=404
+        )  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
