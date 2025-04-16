@@ -85,3 +85,37 @@ class TestUserAPI:
         logger.info("Тест: Получение данных пользователя без авторизации (GET /api/user)")
         response = user_client.get_user_info(expected_status=401)  # type: ignore
         assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+
+    @allure.feature("Избранное пользователя (DELETE /api/user/favourites/{id})")
+    @allure.story("Удаление из избранного")
+    @allure.title("Тест успешного удаления запроса из избранного")
+    @allure.description("Проверяем удаление ранее добавленного элемента из избранного.")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    @pytest.mark.usefixtures("setup_favourite")
+    def test_remove_from_favourites_success(self, authenticated_user_client: UserClient) -> None:
+        """
+        Проверка успешного удаления запроса из избранного.
+
+        Ожидаемый результат: статус 200 и текстовое сообщение o успехе.
+        """
+        logger.info("Тест: Успешное удаление из избранного (DELETE .../%s)", FAV_REQUEST_ID_TO_TEST)
+        response = authenticated_user_client.remove_from_favourites(
+            request_id=FAV_REQUEST_ID_TO_TEST, expected_status=200
+        )  # type: ignore
+
+        with allure.step("Проверка статус кода и текста ответа"):  # type: ignore
+            assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+            expected_text = "Запрос успешно удален из избранного."
+            assert expected_text in response.text(), (
+                f"Ожидался текст '{expected_text}', получен '{response.text()}'"
+            )
+        logger.info("Ответ сервера: %s", response.text())
+
+        with allure.step("Проверка отсутствия элемента в списке избранного после удаления"):  # type: ignore
+            favourites_list = authenticated_user_client.get_favourites(expected_status=200)
+            assert isinstance(favourites_list, list)
+            assert FAV_REQUEST_ID_TO_TEST not in favourites_list, (
+                f"ID {FAV_REQUEST_ID_TO_TEST} все еще найден в списке избранного после удаления"
+            )
+            logger.info("Список избранного после удаления: %s", favourites_list)
