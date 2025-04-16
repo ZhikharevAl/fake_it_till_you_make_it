@@ -49,3 +49,21 @@ class RequestClient(BaseAPI):
                 )
                 return validated_list
         return processed_response
+
+    @allure.step("Получение деталей запроса помощи: id={request_id}")
+    def get_request_details(
+        self, request_id: str, expected_status: int = 200
+    ) -> HelpRequestData | APIResponse:
+        """
+        Выполняет GET /api/request/{id}. Аутентификация не требуется по Swagger.
+
+        Возвращает HelpRequestData при успехе (200) или APIResponse при ошибке (400, 404, 500).
+        """
+        endpoint = APIEndpoints.REQUEST_DETAIL.format(id=request_id)
+        logger.info("Вызов GET %s", endpoint)
+        response = self.http.get(endpoint=endpoint)
+        return self._handle_response(
+            response,
+            expected_status,
+            response_model=HelpRequestData if expected_status == 200 else None,
+        )
