@@ -135,3 +135,25 @@ class TestUserAPI:
         logger.info("Тест: Удаление из избранного без авторизации (DELETE ...)")
         response = user_client.remove_from_favourites(request_id="any-id", expected_status=401)  # type: ignore
         assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
+
+    @allure.feature("Избранное пользователя (DELETE /api/user/favourites/{id})")
+    @allure.story("Удаление из избранного")
+    @allure.title("Тест удаления несуществующего ID из избранного")
+    @allure.description(
+        "Проверяем, что при попытке удалить несуществующий ID возвращается ошибка 400."
+    )
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_remove_from_favourites_not_found(self, authenticated_user_client: UserClient) -> None:
+        """
+        Проверка удаления несуществующего запроса из избранного.
+
+        Ожидаемый результат: статус 400 Bad Request .
+        """
+        logger.info(
+            "Тест: Удаление несуществующего ID из избранного (DELETE .../%s)", NON_EXISTENT_ID
+        )
+        response = authenticated_user_client.remove_from_favourites(
+            request_id=NON_EXISTENT_ID, expected_status=400
+        )  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
