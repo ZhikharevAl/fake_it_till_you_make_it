@@ -119,3 +119,19 @@ class TestUserAPI:
                 f"ID {FAV_REQUEST_ID_TO_TEST} все еще найден в списке избранного после удаления"
             )
             logger.info("Список избранного после удаления: %s", favourites_list)
+
+    @allure.feature("Избранное пользователя (DELETE /api/user/favourites/{id})")
+    @allure.story("Удаление из избранного")
+    @allure.title("Тест удаления из избранного без аутентификации")
+    @allure.description("Проверяем, что неавторизованный пользователь получает ошибку 401.")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.negative
+    def test_remove_from_favourites_unauthorized(self, user_client: UserClient) -> None:
+        """
+        Проверка удаления из избранного без аутентификации.
+
+        Ожидаемый результат: статус 401 Unauthorized.
+        """
+        logger.info("Тест: Удаление из избранного без авторизации (DELETE ...)")
+        response = user_client.remove_from_favourites(request_id="any-id", expected_status=401)  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
