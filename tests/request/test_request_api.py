@@ -153,3 +153,24 @@ class TestRequestAPI:
             request_id=NON_EXISTENT_REQUEST_ID, expected_status=404
         )  # type: ignore
         assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+
+    @allure.feature("Детали запроса (GET /api/request/{id})")
+    @allure.story("Получение деталей")
+    @allure.title("Тест получения деталей запроса c некорректным ID")
+    @allure.description(
+        "Проверяем получение ошибки 400 при запросе деталей c ID, должен быть отклонен сервером."
+    )
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_get_request_details_bad_request(self, request_client: RequestClient) -> None:
+        """
+        Проверка получения деталей запроса c некорректным ID (если сервер должен возвращать 400).
+
+        Ожидаемый результат: статус 400 Bad Request.
+        """
+        invalid_id = "invalid-id-format"
+        logger.info(
+            "Тест: Получение деталей запроса c невалидным ID (GET /api/request/%s)", invalid_id
+        )
+        response = request_client.get_request_details(request_id=invalid_id, expected_status=400)  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
