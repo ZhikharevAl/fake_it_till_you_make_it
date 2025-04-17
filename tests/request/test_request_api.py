@@ -152,7 +152,7 @@ class TestRequestAPI:
         response = request_client.get_request_details(
             request_id=NON_EXISTENT_REQUEST_ID, expected_status=404
         )  # type: ignore
-        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
 
     @allure.feature("Детали запроса (GET /api/request/{id})")
     @allure.story("Получение деталей")
@@ -173,7 +173,7 @@ class TestRequestAPI:
             "Тест: Получение деталей запроса c невалидным ID (GET /api/request/%s)", invalid_id
         )
         response = request_client.get_request_details(request_id=invalid_id, expected_status=400)  # type: ignore
-        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
 
     @allure.feature("Вклад в запрос (POST /api/request/{id}/contribution)")
     @allure.story("Внесение вклада")
@@ -196,9 +196,32 @@ class TestRequestAPI:
         )  # type: ignore
 
         with allure.step("Проверка статус кода и текста ответа"):  # type: ignore
-            assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+            assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
             expected_text = "Вклад успешно внесен."
             assert expected_text in response.text(), (
                 f"Ожидался текст '{expected_text}', получен '{response.text()}'"
             )
         logger.info("Ответ сервера: %s", response.text())
+
+    @allure.feature("Вклад в запрос (POST /api/request/{id}/contribution)")
+    @allure.story("Внесение вклада")
+    @allure.title("Тест внесения вклада в несуществующий запрос")
+    @allure.description(
+        "Проверяем получение ошибки 404 при попытке внести вклад в несуществующий запрос."
+    )
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_contribute_not_found(self, request_client: RequestClient) -> None:
+        """
+        Проверка внесения вклада для несуществующего запроса.
+
+        Ожидаемый результат: статус 404 Not Found.
+        """
+        logger.info(
+            "Тест: Внесение вклада в несуществующий запрос (POST /api/request/%s/contribution)",
+            NON_EXISTENT_REQUEST_ID,
+        )
+        response = request_client.contribute_to_request(
+            request_id=NON_EXISTENT_REQUEST_ID, expected_status=404
+        )  # type: ignore
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
