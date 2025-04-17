@@ -67,3 +67,22 @@ class RequestClient(BaseAPI):
             expected_status,
             response_model=HelpRequestData if expected_status == 200 else None,
         )
+
+    @allure.step("Внесение вклада в запрос помощи: id={request_id}")
+    def contribute_to_request(self, request_id: str, expected_status: int = 200) -> APIResponse:
+        """
+        Выполняет POST /api/request/{id}/contribution. Аутентификация не требуется по Swagger.
+
+        Возвращает APIResponse. Тело при успехе (200) - text/plain.
+        """
+        endpoint = APIEndpoints.REQUEST_CONTRIBUTION.format(id=request_id)
+        logger.info("Вызов POST %s", endpoint)
+        response = self.http.post(endpoint=endpoint)  # POST без тела
+        processed_response = self._handle_response(response, expected_status)
+        if response.status == 200 and expected_status == 200:
+            allure.attach(
+                name="Тело ответа (200 OK, text/plain)",
+                body=response.text(),
+                attachment_type=allure.attachment_type.TEXT,
+            )
+        return processed_response
