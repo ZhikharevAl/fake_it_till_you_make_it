@@ -84,7 +84,7 @@ class TestUserAPI:
         """
         logger.info("Тест: Получение данных пользователя без авторизации (GET /api/user)")
         response = user_client.get_user_info(expected_status=401)  # type: ignore
-        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
 
     @allure.feature("Избранное пользователя (DELETE /api/user/favourites/{id})")
     @allure.story("Удаление из избранного")
