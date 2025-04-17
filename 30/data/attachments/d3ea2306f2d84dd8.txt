@@ -1,0 +1,22 @@
+2025-04-17 00:31:40 [INFO] tests.conftest: 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)... [conftest.py:125]
+2025-04-17 00:31:40 [INFO] tests.user.conftest: Setup: Добавление test-fav-bc7b3951-fa06-4de5-a880-8c6c2b49d169 в избранное... [conftest.py:17]
+2025-04-17 00:31:40 [INFO] api.user.client: Вызов POST /api/user/favourites c payload: request_id='test-fav-bc7b3951-fa06-4de5-a880-8c6c2b49d169' [client.py:61]
+2025-04-17 00:31:40 [INFO] core.http_client: Sending POST request to /api/user/favourites [http_client.py:73]
+2025-04-17 00:31:40 [INFO] core.http_client: Received response 400 from http://localhost:4040/api/user/favourites [http_client.py:80]
+2025-04-17 00:31:40 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
+2025-04-17 00:31:40 [ERROR] tests.user.conftest: Setup: He удалось добавить элемент test-fav-bc7b3951-fa06-4de5-a880-8c6c2b49d169 в избранное [conftest.py:25]
+Traceback (most recent call last):
+  File "/app/tests/user/conftest.py", line 20, in setup_favourite
+    response = authenticated_user_client.add_to_favourites(payload=payload, expected_status=200)  # type: ignore
+  File "/app/.venv/lib/python3.13/site-packages/allure_commons/_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "/app/api/user/client.py", line 63, in add_to_favourites
+    processed_response = self._handle_response(response, expected_status)
+  File "/app/api/base_api.py", line 69, in _handle_response
+    assert response.status == expected_status, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: The status was pending 200, but received 400. URL: http://localhost:4040/api/user/favourites
+Body of the answer:
+Failed to add request to favourites
+2025-04-17 00:31:40 [INFO] tests.conftest: [Fixture] Уничтожение авторизованного APIRequestContext... [conftest.py:133]
