@@ -174,3 +174,31 @@ class TestRequestAPI:
         )
         response = request_client.get_request_details(request_id=invalid_id, expected_status=400)  # type: ignore
         assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+
+    @allure.feature("Вклад в запрос (POST /api/request/{id}/contribution)")
+    @allure.story("Внесение вклада")
+    @allure.title("Тест успешного внесения вклада в существующий запрос")
+    @allure.description("Проверяем возможность внести вклад в существующий запрос.")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    def test_contribute_success(self, request_client: RequestClient) -> None:
+        """
+        Проверка успешного внесения вклада (без тела запроса).
+
+        Ожидаемый результат: статус 200 и текстовое сообщение.
+        """
+        logger.info(
+            "Тест: Успешное внесение вклада (POST /api/request/%s/contribution)",
+            EXISTING_REQUEST_ID,
+        )
+        response = request_client.contribute_to_request(
+            request_id=EXISTING_REQUEST_ID, expected_status=200
+        )  # type: ignore
+
+        with allure.step("Проверка статус кода и текста ответа"):  # type: ignore
+            assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+            expected_text = "Вклад успешно внесен."
+            assert expected_text in response.text(), (
+                f"Ожидался текст '{expected_text}', получен '{response.text()}'"
+            )
+        logger.info("Ответ сервера: %s", response.text())
