@@ -56,7 +56,7 @@ class TestUserFavouritesAPI:
         """
         logger.info("Тест: Получение избранного без авторизации (GET /api/user/favourites)")
         response = user_client.get_favourites(expected_status=403)  # Swagger 401
-        assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+        assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
 
     @allure.story("Добавление в избранное")
     @allure.title("Тест успешного добавления запроса в избранное")
@@ -80,7 +80,7 @@ class TestUserFavouritesAPI:
         response = authenticated_user_client.add_to_favourites(payload=payload, expected_status=200)  # type: ignore
 
         with allure.step("Проверка статус кода и текста ответа"):  # type: ignore
-            assert isinstance(response, APIResponse), "Ожидался сырой ответ APIResponse"
+            assert isinstance(response, APIResponse), "Ожидался объект HTTP-ответа"
             expected_text = "Запрос успешно добавлен в избранное."
             assert expected_text in response.text(), (
                 f"Ожидался текст '{expected_text}', получен '{response.text()}'"
