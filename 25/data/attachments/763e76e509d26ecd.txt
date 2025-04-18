@@ -1,5 +1,0 @@
-INFO     tests.auth.test_auth_api:test_auth_api.py:130 
-Test: Incorrect login format (not email)
-INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
-INFO     core.http_client:http_client.py:80 Received response 400 from http://localhost:4040/api/auth
-INFO     tests.auth.test_auth_api:test_auth_api.py:136 Response status: 400, Body: {"message":"Invalid username or password"}
