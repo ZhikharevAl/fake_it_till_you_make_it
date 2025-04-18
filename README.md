@@ -196,6 +196,33 @@
     podman stop api-server
     ```
 
+<pre lang="markdown">
+┌────────────────────────────┐
+│    Podman Network:         │
+│      my-test-net           │
+│                            │
+│  ┌──────────────────────┐  │
+│  │  Container:          │  │
+│  │  api-server          │  │
+│  │  Image:              │  │
+│  │  api-server-image:   │  │
+│  │  local               │  │
+│  │  Port: 4040          │  │
+│  └──────────────────────┘  │
+│              ▲             │
+│              │             │  HTTP Requests
+│              ▼             │
+│  ┌──────────────────────┐  │
+│  │  Container:          │  │
+│  │  charity-tests-runner│  │
+│  │  Image:              │  │
+│  │  charity-tests-runner│  │
+│  │  :local              │  │
+│  └──────────────────────┘  │
+│                            │
+└────────────────────────────┘
+</pre>
+
 ### Просмотр отчетов
 
 1. **Сгенерируйте Allure отчет** (если запускали с `--alluredir`):
