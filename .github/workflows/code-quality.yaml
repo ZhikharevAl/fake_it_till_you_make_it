@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - uses: ./.github/actions/run-linters
 
   tests:
