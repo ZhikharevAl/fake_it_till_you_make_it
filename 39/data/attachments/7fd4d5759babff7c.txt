@@ -1,0 +1,4 @@
+2025-04-18 20:09:42 [INFO] tests.auth.test_auth_api: Тест: Пустая строка в поле password [test_auth_api.py:134]
+2025-04-18 20:09:42 [INFO] core.http_client: Sending POST request to APIEndpoints.AUTH [http_client.py:73]
+2025-04-18 20:09:42 [INFO] core.http_client: Received response 500 from http://localhost:4040/APIEndpoints.AUTH [http_client.py:80]
+2025-04-18 20:09:42 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
