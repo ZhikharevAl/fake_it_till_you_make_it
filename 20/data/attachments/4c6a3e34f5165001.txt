@@ -1,4 +1,0 @@
-{
-    "auth": true,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg0OTM1N2ZlLTk5ZDYtNGI5YS1hYjFkLWFlMTE4NmUxNzNlNyIsImlhdCI6MTc0NDI0MzM0OCwiZXhwIjoxNzQ0MjQ2OTQ4fQ.xmbaGCwqhhkIK2enfdXZ4CNch9TTkcXt-qAKQVOZrZQ"
-}
