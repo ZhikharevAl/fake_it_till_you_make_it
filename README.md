@@ -143,7 +143,7 @@
 
 **Предварительные требования:**
 
-* Установлен Podman.
+* Установлен Podman.  [Инструкции по установке](https://podman.io/getting-started/installation).
 * Собран образ для API сервера (например, `api-server-image:local`). [Инструкции по сборке](https://github.com/ZhikharevAl/charity_event_comeback_oct2024.git).
 * Собран образ для тестов из этого репозитория (например, `charity-tests-runner:local`):
 
