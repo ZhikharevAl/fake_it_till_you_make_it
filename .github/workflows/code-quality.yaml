@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
+      - name: List directory contents
+        run: ls -la .github/actions/run-linters
       - uses: ./.github/actions/run-linters
 
   tests:
