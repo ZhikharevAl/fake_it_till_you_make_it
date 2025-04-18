@@ -1,0 +1,18 @@
+name: "Run Linters"
+description: "Runs all linter checks (Ruff linting, formatting, and Pyright type checking)"
+runs:
+  using: composite
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+    - name: Setup Python and UV
+      uses: ./.github/actions/setup
+    - name: Run Ruff Linter
+      run: uvx ruff check .
+      shell: bash
+    - name: Check Ruff Formatting
+      run: uvx ruff format --check .
+      shell: bash
+    - name: Run Pyright Type Checker
+      run: uv run pyright .
+      shell: bash
