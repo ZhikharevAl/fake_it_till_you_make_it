@@ -1,4 +1,0 @@
-INFO:tests.auth.test_auth_api:
-Test: Empty string in the password field
-INFO:core.http_client:Sending POST request to /api/auth
-INFO:core.http_client:Received response 500 from http://localhost:4040/api/auth
