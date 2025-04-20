@@ -7,7 +7,7 @@ from playwright.sync_api import APIResponse
 from api.user.client import UserClient
 from api.user.models import AddToFavouritesPayload
 
-TEST_REQUEST_ID = "request-id-for-test-123"
+TEST_REQUEST_ID = "request-id-1"
 ANOTHER_REQUEST_ID = "another-request-id-456"
 
 logger = logging.getLogger(__name__)
