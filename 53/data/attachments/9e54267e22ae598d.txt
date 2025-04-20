@@ -1,0 +1,17 @@
+INFO     tests.conftest:conftest.py:32 Запуск Playwright...
+INFO     tests.conftest:conftest.py:43 Создание APIRequestContext для BASE_URL: http://localhost:4040...
+INFO     tests.conftest:conftest.py:53 Создание HTTPClient...
+INFO     tests.conftest:conftest.py:60 Создание AuthClient...
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Пустая строка в поле login
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Пустая строка в поле login
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Пустая строка в поле login
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/APIEndpoints.AUTH
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Пустая строка в поле login
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
