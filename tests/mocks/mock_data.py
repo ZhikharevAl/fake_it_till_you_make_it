@@ -5,7 +5,7 @@ MOCK_AUTH_SUCCESS = {
 }
 
 # Ошибка 400 для /api/auth
-MOCK_AUTH_FAILURE_400 = {"error": "Invalid credentials", "message": "Неверный логин или пароль"}
+MOCK_AUTH_FAILURE_400 = {"error": "Bad Request", "message": "Invalid username or password"}
 
 # Ошибка 403 (например, для токена)
 MOCK_FORBIDDEN_403 = {"message": "No token provided."}
