@@ -42,6 +42,8 @@ markers = [
     "positive: Positive test scenarios (success is expected)",
     "negative: Negative test scenarios (errors are expected)",
     "request: Tests related to request",
+    "favourites: Tests related to favourites",
+    "dependencies: Tests that use external dependencies",
     "mocked: Tests that use mocked data",
 ]
 
