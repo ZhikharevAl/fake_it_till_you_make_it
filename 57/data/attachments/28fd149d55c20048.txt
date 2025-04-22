@@ -1,0 +1,8 @@
+2025-04-22 02:20:26 [INFO] tests.auth.test_auth_api: Тест: Успешная авторизация [test_auth_api.py:157]
+2025-04-22 02:20:26 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
+2025-04-22 02:20:26 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/auth [http_client.py:80]
+2025-04-22 02:20:26 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
+2025-04-22 02:20:26 [INFO] tests.auth.test_auth_api: Тест: Успешная авторизация [test_auth_api.py:157]
+2025-04-22 02:20:26 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
+2025-04-22 02:20:26 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/auth [http_client.py:80]
+2025-04-22 02:20:26 [INFO] tests.auth.test_auth_api: Токен успешно получен (первые 10 символов): eyJhbGciOi... [test_auth_api.py:173]
