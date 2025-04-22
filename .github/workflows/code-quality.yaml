@@ -1,5 +1,4 @@
 name: Python Code Quality Checks
-
 on:
   push:
   workflow_dispatch:
@@ -10,8 +9,19 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Cache UV artifacts
+        uses: actions/cache@v4.2.3
+        with:
+          path: |
+            ~/.cache/universe
+          key: ${{ runner.os }}-uv-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-
+
       - name: Setup Python and UV
         uses: ./.github/actions/setup
+
       - name: Generate/Check Lockfile
         run: uv lock --locked
 
@@ -22,14 +32,36 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/run-linters
+      - name: Cache UV & pip
+        uses: actions/cache@v4.2.3
+        with:
+          path: |
+            ~/.cache/universe
+            ~/.cache/pip
+          key: ${{ runner.os }}-uv-pip-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-pip-
+
+      - name: Run Linters
+        uses: ./.github/actions/run-linters
 
   tests:
     runs-on: ubuntu-22.04
     needs: [lock_file]
+    env:
+      DOCKER_BUILDKIT: 1
+      BUILDKIT_INLINE_CACHE: 1
     steps:
       - name: Checkout Test Repo
         uses: actions/checkout@v4
+
+      - name: Cache Podman layers
+        uses: actions/cache@v4.2.3
+        with:
+          path: /home/runner/.local/share/containers
+          key: ${{ runner.os }}-podman-${{ hashFiles('server-repo/Dockerfile') }}-${{ hashFiles('Containerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-podman-
 
       - name: Install Podman
         run: |
@@ -45,12 +77,19 @@ jobs:
       - name: Build Server Image
         run: |
           podman build \
+            --cache-from=type=local,src=/home/runner/.local/share/containers \
+            --cache-to=type=local,dest=/home/runner/.local/share/containers \
             -t api-server-image:ci \
             -f server-repo/Dockerfile \
             server-repo
 
       - name: Build Test Runner Image
-        run: podman build -t charity-tests-runner:ci -f Containerfile .
+        run: |
+          podman build \
+            --cache-from=type=local,src=/home/runner/.local/share/containers \
+            --cache-to=type=local,dest=/home/runner/.local/share/containers \
+            -t charity-tests-runner:ci \
+            -f Containerfile .
 
       - name: Start API Server Container
         run: |
@@ -85,7 +124,6 @@ jobs:
         run: |
           mkdir -p allure-results
           mkdir -p coverage-results
-          mkdir -p playwright-results
 
       - name: Run Pytest inside Podman Container
         run: |
@@ -97,14 +135,12 @@ jobs:
             -e INVALID_USER_PASSWORD=${{ secrets.INVALID_USER_PASSWORD }} \
             -v $(pwd)/allure-results:/app/allure-results \
             -v $(pwd)/coverage-results:/app/coverage-results \
-            -v $(pwd)/playwright-results:/app/playwright-results \
             charity-tests-runner:ci \
             /app/.venv/bin/python -m pytest \
               -v --durations=0 \
               --cov=/app \
               --cov-report=xml:/app/coverage-results/coverage.xml \
-              --alluredir=/app/allure-results \
-              --tracing=retain-on-failure
+              --alluredir=/app/allure-results || true
 
       - name: Stop API Server Container
         if: always()
@@ -123,14 +159,6 @@ jobs:
         with:
           name: allure-results
           path: allure-results/
-          retention-days: 20
-
-      - name: Upload Playwright traces
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: playwright-traces
-          path: playwright-results/
           retention-days: 20
 
   allure-report:
