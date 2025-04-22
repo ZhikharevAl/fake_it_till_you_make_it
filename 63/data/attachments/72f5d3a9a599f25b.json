@@ -1,0 +1,40 @@
+{
+    "id": "5efa391d-94dc-4258-8b90-27c96159574f",
+    "name": "Эраст",
+    "lastName": "Колобов",
+    "birthdate": "2002-11-28T11:56:47.053Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -5.7779,
+            "longitude": -2.2826,
+            "district": "Забайкальский край",
+            "city": "Красная Поляна"
+        },
+        {
+            "latitude": 67.1231,
+            "longitude": 13.0593,
+            "district": "Хабаровский край",
+            "city": "Тикси"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Областной операционный техник",
+            "graduationYear": 2003
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79348170367",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

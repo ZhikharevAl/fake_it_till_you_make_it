@@ -1,0 +1,8 @@
+2025-04-22 03:10:52 [INFO] tests.request.test_request_api: Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution) [test_request_api.py:220]
+2025-04-22 03:10:52 [INFO] api.request.client: Вызов POST /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [client.py:79]
+2025-04-22 03:10:52 [INFO] core.http_client: Sending POST request to /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [http_client.py:73]
+2025-04-22 03:10:52 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [http_client.py:80]
+2025-04-22 03:10:52 [INFO] tests.request.test_request_api: Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution) [test_request_api.py:220]
+2025-04-22 03:10:52 [INFO] api.request.client: Вызов POST /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [client.py:79]
+2025-04-22 03:10:52 [INFO] core.http_client: Sending POST request to /api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [http_client.py:73]
+2025-04-22 03:10:52 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-3a6b934f-721f-411d-9aa0-de6a97bbbd7c/contribution [http_client.py:80]
