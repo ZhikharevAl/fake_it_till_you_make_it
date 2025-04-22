@@ -1,0 +1,40 @@
+{
+    "id": "3d1ef1e2-afed-45e8-8d0a-d6445448c33c",
+    "name": "Феофан",
+    "lastName": "Стрелков",
+    "birthdate": "2005-12-25T04:01:26.762Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 69.6032,
+            "longitude": -91.2332,
+            "district": "Воронежская область",
+            "city": "Ессентуки"
+        },
+        {
+            "latitude": 54.2382,
+            "longitude": 5.4994,
+            "district": "Калининградская область",
+            "city": "Коломна"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Региональный интеграционный агент",
+            "graduationYear": 2012
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79273961843",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
