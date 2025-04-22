@@ -1,0 +1,10 @@
+{
+    "x-powered-by": "Express",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "905",
+    "etag": "W/\"389-427kSKKcvXitatkKhLGKc2mf/1w\"",
+    "date": "Tue, 22 Apr 2025 02:32:00 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+}
