@@ -127,7 +127,7 @@ jobs:
 
       - name: Upload Playwright traces
         uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+        if: failure()
         with:
           name: playwright-traces
           path: playwright-results/
