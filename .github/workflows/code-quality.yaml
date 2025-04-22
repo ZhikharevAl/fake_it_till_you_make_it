@@ -85,6 +85,7 @@ jobs:
         run: |
           mkdir -p allure-results
           mkdir -p coverage-results
+          mkdir -p playwright-results
 
       - name: Run Pytest inside Podman Container
         run: |
@@ -109,14 +110,6 @@ jobs:
         if: always()
         run: podman stop api-server
 
-      - name: Upload Playwright traces
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces
-          path: ./playwright-results/
-          retention-days: 20
-
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
@@ -130,6 +123,14 @@ jobs:
         with:
           name: allure-results
           path: allure-results/
+          retention-days: 20
+
+      - name: Upload Playwright traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: playwright-results/
           retention-days: 20
 
   allure-report:
