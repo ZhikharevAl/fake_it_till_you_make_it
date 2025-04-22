@@ -96,6 +96,7 @@ jobs:
             -e INVALID_USER_PASSWORD=${{ secrets.INVALID_USER_PASSWORD }} \
             -v $(pwd)/allure-results:/app/allure-results \
             -v $(pwd)/coverage-results:/app/coverage-results \
+            -v $(pwd)/playwright-results:/app/playwright-results \
             charity-tests-runner:ci \
             /app/.venv/bin/python -m pytest \
               -v --durations=0 \
@@ -113,7 +114,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-traces
-          path: ./playwright-results/traces
+          path: ./playwright-results/
           retention-days: 20
 
       - name: Upload Coverage to Codecov
