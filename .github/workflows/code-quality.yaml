@@ -55,16 +55,12 @@ jobs:
       - name: Build Server Image
         run: |
           podman build \
-            --cache-from=api-server-image:ci \
-            --cache-to=api-server-image:ci \
             -t api-server-image:ci \
             -f server-repo/Dockerfile \
             server-repo
       - name: Build Test Runner Image
         run: |
           podman build \
-            --cache-from=charity-tests-runner:ci \
-            --cache-to=charity-tests-runner:ci \
             -t charity-tests-runner:ci \
             -f Containerfile .
       - name: Start API Server Container
