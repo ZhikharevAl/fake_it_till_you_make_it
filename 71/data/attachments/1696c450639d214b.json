@@ -1,0 +1,40 @@
+{
+    "id": "2461f976-1de1-402f-aabd-aed380840943",
+    "name": "Никифор",
+    "lastName": "Гусев",
+    "birthdate": "2005-12-26T23:28:27.389Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -66.5334,
+            "longitude": -136.8094,
+            "district": "Приморский край",
+            "city": "Сузун"
+        },
+        {
+            "latitude": -25.9556,
+            "longitude": -176.0325,
+            "district": "Приморский край",
+            "city": "Беслан"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Генеральный логистический помощник",
+            "graduationYear": 2011
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79507879901",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

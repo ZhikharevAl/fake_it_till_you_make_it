@@ -1,5 +1,0 @@
-INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-6c7ac0a0-69fe-4039-b36c-26fb78caf835)
-INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-6c7ac0a0-69fe-4039-b36c-26fb78caf835
-INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-6c7ac0a0-69fe-4039-b36c-26fb78caf835 with params: None
-INFO     core.http_client:http_client.py:48 Received response 500 from http://localhost:4040/api/request/non-existent-6c7ac0a0-69fe-4039-b36c-26fb78caf835
-WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
