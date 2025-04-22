@@ -102,8 +102,7 @@ jobs:
               --cov=/app \
               --cov-report=xml:/app/coverage-results/coverage.xml \
               --alluredir=/app/allure-results \
-              --tracing=retain-on-failure \
-              --trace-dir=/app/playwright-results/traces || true
+              --tracing=retain-on-failure || true
 
       - name: Stop API Server Container
         if: always()
