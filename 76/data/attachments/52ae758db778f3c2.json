@@ -1,0 +1,40 @@
+{
+    "id": "7d454cdb-e76d-4aa6-a145-cd281d1831d5",
+    "name": "Филарет",
+    "lastName": "Рожков",
+    "birthdate": "2006-08-08T20:42:47.006Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -49.1648,
+            "longitude": -6.8498,
+            "district": "Карачаево - Черкесская Республика",
+            "city": "Ухта"
+        },
+        {
+            "latitude": 73.0947,
+            "longitude": 27.8438,
+            "district": "Краснодарский край",
+            "city": "Муравленко"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Международный оптимизационный планировщик",
+            "graduationYear": 2010
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79128303702",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

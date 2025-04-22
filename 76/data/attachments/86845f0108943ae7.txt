@@ -1,0 +1,9 @@
+INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-5fe14ad4-e613-4044-8b75-1a784d474bb3
