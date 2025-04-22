@@ -1,0 +1,40 @@
+{
+  "id": "5c4638a4-4941-4aa8-b630-8c549a8e3b12",
+  "name": "Исидор",
+  "last_name": "Пестов",
+  "birthdate": "1991-05-05T05:16:30.005000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 1.9266,
+      "longitude": 22.4902,
+      "district": "Ямало-ненецкий автономный округ",
+      "city": "Усмань"
+    },
+    {
+      "latitude": 38.5541,
+      "longitude": 36.8587,
+      "district": "Свердловская область",
+      "city": "Ярославль"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Главный оптимизационный архитектор",
+      "graduation_year": 2010
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79222925235",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
