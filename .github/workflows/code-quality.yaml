@@ -102,10 +102,19 @@ jobs:
               --cov=/app \
               --cov-report=xml:/app/coverage-results/coverage.xml \
               --alluredir=/app/allure-results || true
+              --tracing=retain-on-failure
 
       - name: Stop API Server Container
         if: always()
         run: podman stop api-server
+
+      - name: Upload Playwright traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: ./playwright-results/traces
+          retention-days: 20
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
