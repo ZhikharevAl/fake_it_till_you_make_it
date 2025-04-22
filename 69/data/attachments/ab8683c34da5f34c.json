@@ -1,0 +1,40 @@
+{
+    "id": "9920d05b-f15d-4d10-a746-c769e0e67952",
+    "name": "Герасим",
+    "lastName": "Морозов",
+    "birthdate": "1996-03-01T16:17:41.200Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 11.688,
+            "longitude": -16.0415,
+            "district": "Ставропольский край",
+            "city": "Ессентуки"
+        },
+        {
+            "latitude": 36.6028,
+            "longitude": -1.2611,
+            "district": "Брянская область",
+            "city": "Архангельск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Областной операционный сотрудник",
+            "graduationYear": 2006
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79259447379",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
