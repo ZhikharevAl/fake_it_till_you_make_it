@@ -17,6 +17,7 @@ jobs:
           key: ${{ runner.os }}-uv-${{ hashFiles('uv.lock') }}
           restore-keys: |
             ${{ runner.os }}-uv-
+
       - name: Setup Python and UV
         uses: ./.github/actions/setup
       - name: Generate/Check Lockfile
@@ -122,6 +123,7 @@ jobs:
       - name: Stop API Server Container
         if: always()
         run: podman stop api-server
+        
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
