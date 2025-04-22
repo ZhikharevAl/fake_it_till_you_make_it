@@ -1,0 +1,40 @@
+{
+  "id": "04830047-ee76-407e-9a21-e55fd5228a16",
+  "name": "Роман",
+  "last_name": "Бобылев",
+  "birthdate": "2004-06-30T01:24:07.219000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 61.3371,
+      "longitude": -113.4281,
+      "district": "Республика Тыва",
+      "city": "Саранск"
+    },
+    {
+      "latitude": -20.8722,
+      "longitude": 85.6473,
+      "district": "Пензенская область",
+      "city": "Брянск"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Национальный коммуникационный сотрудник",
+      "graduation_year": 2005
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79643919104",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
