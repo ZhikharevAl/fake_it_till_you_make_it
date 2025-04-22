@@ -104,7 +104,7 @@ jobs:
               --cov=/app \
               --cov-report=xml:/app/coverage-results/coverage.xml \
               --alluredir=/app/allure-results \
-              --tracing=retain-on-failure || true
+              --tracing=retain-on-failure
 
       - name: Stop API Server Container
         if: always()
@@ -126,8 +126,8 @@ jobs:
           retention-days: 20
 
       - name: Upload Playwright traces
-        if: always()
         uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
         with:
           name: playwright-traces
           path: playwright-results/
