@@ -1,0 +1,40 @@
+{
+  "id": "5cb1a6e2-ac39-4ff9-9128-65697714c992",
+  "name": "Ермолай",
+  "last_name": "Сазонов",
+  "birthdate": "1992-06-23T00:59:41.084000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -36.1838,
+      "longitude": -161.6531,
+      "district": "Ростовская область",
+      "city": "Усть-Ордынский"
+    },
+    {
+      "latitude": -26.5973,
+      "longitude": -29.7193,
+      "district": "Иркутская область",
+      "city": "Сосьва (Хант.)"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Главный функциональный агент",
+      "graduation_year": 2007
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79825737425",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
