@@ -1,4 +1,0 @@
-2025-04-18 20:04:10 [INFO] tests.request.test_request_api: Тест: Успешное получение деталей запроса (GET /api/request/request-id-1) [test_request_api.py:72]
-2025-04-18 20:04:10 [INFO] api.request.client: Вызов GET /api/request/request-id-1 [client.py:63]
-2025-04-18 20:04:10 [INFO] core.http_client: Sending GET request to /api/request/request-id-1 with params: None [http_client.py:44]
-2025-04-18 20:04:10 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/request-id-1 [http_client.py:48]
