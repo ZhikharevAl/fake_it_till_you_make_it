@@ -1,4 +1,0 @@
-2025-04-20 18:19:41 [INFO] tests.auth.test_auth_api: Тест: Успешная авторизация [test_auth_api.py:157]
-2025-04-20 18:19:41 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
-2025-04-20 18:19:41 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/auth [http_client.py:80]
-2025-04-20 18:19:41 [INFO] tests.auth.test_auth_api: Токен успешно получен (первые 10 символов): eyJhbGciOi... [test_auth_api.py:173]

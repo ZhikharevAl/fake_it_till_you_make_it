@@ -1,0 +1,17 @@
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/request/non-existent-643ee0a5-60fa-4ab4-9459-eb69a800cea5/contribution
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.

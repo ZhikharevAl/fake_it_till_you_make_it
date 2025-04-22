@@ -1,0 +1,40 @@
+{
+  "id": "f3a1de58-dc4c-48cf-8c17-247dd1bf30e9",
+  "name": "Яков",
+  "last_name": "Попов",
+  "birthdate": "1992-01-06T08:01:49.690000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -55.8107,
+      "longitude": 84.3736,
+      "district": "Республика Тыва",
+      "city": "Ижевск"
+    },
+    {
+      "latitude": -6.3345,
+      "longitude": 21.3054,
+      "district": "Республика Бурятия",
+      "city": "Ноябрьск"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Международный операционный сотрудник",
+      "graduation_year": 2002
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79608710629",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
