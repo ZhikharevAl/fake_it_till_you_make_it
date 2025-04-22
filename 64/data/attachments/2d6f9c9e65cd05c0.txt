@@ -1,0 +1,18 @@
+INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45 with params: None
+INFO     core.http_client:http_client.py:48 Received response 500 from http://localhost:4040/api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-fc3ae971-5fda-4cf7-ab0e-ceec56960a45

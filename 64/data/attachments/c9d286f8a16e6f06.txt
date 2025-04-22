@@ -1,0 +1,12 @@
+INFO     tests.request.test_request_api:test_request_api.py:190 Тест: Успешное внесение вклада (POST /api/request/request-id-1/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/request-id-1/contribution
+INFO     tests.request.test_request_api:test_request_api.py:190 Тест: Успешное внесение вклада (POST /api/request/request-id-1/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/request-id-1/contribution
+INFO     tests.request.test_request_api:test_request_api.py:190 Тест: Успешное внесение вклада (POST /api/request/request-id-1/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/request-id-1/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/request-id-1/contribution
