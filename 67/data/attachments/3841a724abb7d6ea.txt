@@ -1,0 +1,6 @@
+2025-04-22 04:22:36 [INFO] tests.request.conftest: Создание UserClient... [conftest.py:14]
+2025-04-22 04:22:36 [INFO] tests.request.test_request_api: Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-0e308b67-537e-4a73-959b-e851829c7659) [test_request_api.py:148]
+2025-04-22 04:22:36 [INFO] api.request.client: Вызов GET /api/request/non-existent-0e308b67-537e-4a73-959b-e851829c7659 [client.py:63]
+2025-04-22 04:22:36 [INFO] core.http_client: Sending GET request to /api/request/non-existent-0e308b67-537e-4a73-959b-e851829c7659 with params: None [http_client.py:44]
+2025-04-22 04:22:36 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/request/non-existent-0e308b67-537e-4a73-959b-e851829c7659 [http_client.py:48]
+2025-04-22 04:22:36 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
