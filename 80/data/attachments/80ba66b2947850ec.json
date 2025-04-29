@@ -1,0 +1,40 @@
+{
+  "id": "8e8adf78-5922-402a-9ee1-ba6502467263",
+  "name": "Эрнест",
+  "last_name": "Тимофеев",
+  "birthdate": "2007-07-23T18:49:52.839000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 25.1311,
+      "longitude": 164.3721,
+      "district": "Калужская область",
+      "city": "Моршанск"
+    },
+    {
+      "latitude": -8.0199,
+      "longitude": 97.2166,
+      "district": "Владимирская область",
+      "city": "Анадырь"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Генеральный функциональный инженер",
+      "graduation_year": 2019
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79939617255",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
