@@ -1,0 +1,2 @@
+2025-04-29 23:33:11 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
+2025-04-29 23:33:11 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/auth [http_client.py:80]
