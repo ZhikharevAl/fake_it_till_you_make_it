@@ -43,7 +43,7 @@ class TestAuthenticationMockedFactory:
         payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
         response = mock_auth_client.login(payload=payload, expected_status=200)
 
-        with allure.step("Проверка типа и полей ответа"): # type: ignore
+        with allure.step("Проверка типа и полей ответа"):  # type: ignore
             assert isinstance(response, AuthSuccessResponse), (
                 "Ответ должен быть типа AuthSuccessResponse"
             )
