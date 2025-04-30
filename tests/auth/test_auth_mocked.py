@@ -1,32 +1,52 @@
+import logging  # noqa: I001
+
 import allure
 import pytest
 
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
-from core.mock_http_client import MockHTTPClient
+from config.config import TEST_USER_LOGIN, TEST_USER_PASSWORD
+from tests.mocks.conftest import mock_auth_client, mock_http_client, mock_factory  # noqa: F401
+from tests.mocks.mock_data import MOCK_TOKEN
 from utils.mock_factory import MockFactory
 
+logger = logging.getLogger(__name__)
 
-@allure.epic("Аутентификация")
-@allure.feature("POST /api/auth")
+
+@allure.epic("Аутентификация (Моки)")
+@allure.feature("Вход пользователя (POST /api/auth)")
+@pytest.mark.auth
 @pytest.mark.mocked
-class TestAuthenticationMocked:
-    """Тесты для эндпоинта авторизации POST /api/auth c использованием моков."""
+class TestAuthenticationMockedFactory:
+    """
+    Мок-тесты для эндпоинта авторизации POST /api/auth.
 
-    @allure.story("Успешная авторизация")
-    @allure.title("Авторизация c валидными данными")
+    Используют MockFactory для настройки ответов.
+    """
+
+    @allure.story("Успешный вход (Мок)")
+    @allure.title("Тест успешной авторизации пользователя (c MockFactory)")
+    @allure.description("Проверяем успешный ответ и валидацию токена при мокированном ответе API.")
     @allure.severity(allure.severity_level.BLOCKER)
-    def test_successful_authentication(
-        self, mock_auth_client: AuthClient, mock_http_client: MockHTTPClient
+    @pytest.mark.smoke
+    @pytest.mark.positive
+    def test_login_success_mocked(
+        self,
+        mock_auth_client: AuthClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
     ) -> None:
-        """Проверка успешной авторизации c валидными учетными данными."""
-        factory = MockFactory(mock_http_client)
-        factory.auth.successful_login()
+        """Проверка успешного входа c мокированным ответом 200."""
+        logger.info("Тест: Успешная авторизация (Мок Factory)")
 
-        payload = AuthPayload(login="user@example.com", password="password123")  # noqa: S106
+        mock_factory.auth.success()
 
-        result = mock_auth_client.login(payload=payload, expected_status=200)
+        payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
+        response = mock_auth_client.login(payload=payload, expected_status=200)
 
-        assert isinstance(result, AuthSuccessResponse)
-        assert result.auth is True
-        assert result.token == "valid-jwt-token-12345"
+        with allure.step("Проверка типа и полей ответа"):
+            assert isinstance(response, AuthSuccessResponse), (
+                "Ответ должен быть типа AuthSuccessResponse"
+            )
+            assert response.auth is True
+            assert response.token == MOCK_TOKEN
+        logger.info("Мок-токен успешно получен и провалидирован.")
