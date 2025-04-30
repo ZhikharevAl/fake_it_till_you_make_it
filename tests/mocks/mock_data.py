@@ -1,4 +1,3 @@
-
 # --- Auth ---
 MOCK_TOKEN = "mocked-jwt-via-factory-abc123xyz"
 MOCK_AUTH_SUCCESS = {"auth": True, "token": MOCK_TOKEN}
