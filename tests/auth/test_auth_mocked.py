@@ -3,28 +3,30 @@ import pytest
 
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
-from config.config import TEST_USER_LOGIN, TEST_USER_PASSWORD
+from core.mock_http_client import MockHTTPClient
+from utils.mock_factory import MockFactory
 
 
 @allure.epic("Аутентификация")
-@allure.feature("Вход пользователя (POST /api/auth)")
-@pytest.mark.auth
-class TestAuthenticationAPI:
-    """Тесты для эндпоинта POST /api/auth (авторизация)."""
+@allure.feature("POST /api/auth")
+@pytest.mark.mocked
+class TestAuthenticationMocked:
+    """Тесты для эндпоинта авторизации POST /api/auth c использованием моков."""
 
     @allure.story("Успешная авторизация")
-    @allure.title("Позитивный кейс: Валидные данные → Получаем JWT")
+    @allure.title("Авторизация c валидными данными")
     @allure.severity(allure.severity_level.BLOCKER)
-    @pytest.mark.smoke
-    @pytest.mark.positive
-    def test_successful_login(self, auth_client: AuthClient) -> None:
-        """Проверка успешной авторизации c валидными данными."""
-        if not TEST_USER_LOGIN or not TEST_USER_PASSWORD:
-            pytest.skip("Учетные данные не настроены.")
+    def test_successful_authentication(
+        self, mock_auth_client: AuthClient, mock_http_client: MockHTTPClient
+    ) -> None:
+        """Проверка успешной авторизации c валидными учетными данными."""
+        factory = MockFactory(mock_http_client)
+        factory.auth.successful_login()
 
-        payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
-        result = auth_client.login(payload=payload, expected_status=200)
+        payload = AuthPayload(login="user@example.com", password="password123")  # noqa: S106
+
+        result = mock_auth_client.login(payload=payload, expected_status=200)
 
         assert isinstance(result, AuthSuccessResponse)
         assert result.auth is True
-        assert len(result.token) >= 10
+        assert result.token == "valid-jwt-token-12345"
