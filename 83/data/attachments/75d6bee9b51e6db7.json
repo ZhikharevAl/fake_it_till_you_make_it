@@ -1,0 +1,4 @@
+{
+  "auth": true,
+  "token": "mocked-jwt-via-factory-abc123xyz"
+}
