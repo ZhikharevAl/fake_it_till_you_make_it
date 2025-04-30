@@ -17,7 +17,6 @@ from api.auth.models import AuthPayload, AuthSuccessResponse
 from api.user.client import UserClient
 from config.config import BASE_URL, TEST_USER_LOGIN, TEST_USER_PASSWORD
 from core.http_client import HTTPClient
-from core.mock_http_client import MockHTTPClient
 
 logging.basicConfig(
     level=logging.INFO,
@@ -145,15 +144,3 @@ def authenticated_http_client(authenticated_api_req_context: APIRequestContext) 
 def authenticated_user_client(authenticated_http_client: HTTPClient) -> UserClient:
     """Предоставляет аутентифицированный экземпляр клиента API пользователя."""
     return UserClient(authenticated_http_client)
-
-
-@pytest.fixture
-def mock_http_client() -> MockHTTPClient:
-    """Возвращает мок HTTP клиента."""
-    return MockHTTPClient()
-
-
-@pytest.fixture
-def mock_auth_client(mock_http_client: MockHTTPClient) -> AuthClient:
-    """Возвращает AuthClient, использующий мок HTTP клиента."""
-    return AuthClient(http_client=mock_http_client)
