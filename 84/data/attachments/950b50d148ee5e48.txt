@@ -1,0 +1,20 @@
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/APIEndpoints.AUTH
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/APIEndpoints.AUTH
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.auth.test_auth_api:test_auth_api.py:134 Тест: Некорректный формат login (не email)
+INFO     core.http_client:http_client.py:73 Sending POST request to APIEndpoints.AUTH
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/APIEndpoints.AUTH
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
