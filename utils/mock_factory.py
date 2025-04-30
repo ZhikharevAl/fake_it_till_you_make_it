@@ -1,86 +1,109 @@
-from typing import Any, Protocol
+import json
+import logging
+from enum import Enum
+from typing import Protocol
 from unittest.mock import Mock
+
+from api.endpoints import APIEndpoints
+from tests.mocks import mock_data
+
+logger = logging.getLogger(__name__)
 
 
 class MockHTTPClientProtocol(Protocol):
-    """
-    Интерфейс для мок-HTTP клиента.
+    """Интерфейс для мок-HTTP клиента."""
 
-    Определяет методы, которые должны быть реализованы в классе MockHTTPClient.
-    """
-
-    def set_mock_response(self, method: str, endpoint: str, response: Mock) -> None: ...  # noqa: D102
+    def set_mock_response(self, method: str, endpoint: str, response: Mock) -> None:
+        """Настраивает мок-ответ для заданного метода и эндпоинта."""
+    def clear_mocks(self) -> None:
+        """Очищает все настроенные моки."""
 
 
 class MockFactory:
-    """
-    Фабрика для создания моков HTTP клиента.
-
-    Используется для настройки ответов на HTTP запросы в тестах.
-    """
+    """Фабрика для удобной настройки моков в MockHTTPClient."""
 
     def __init__(self, mock_http_client: MockHTTPClientProtocol) -> None:
-        """
-        Инициализирует MockFactory c заданным мок-HTTP клиентом.
+        """Инициализирует MockFactory."""
+        self.mock_http_client: MockHTTPClientProtocol = mock_http_client
+        self.auth = self.Auth(self)
+        logger.debug("MockFactory инициализирована.")
 
-        Args:
-            mock_http_client: экземпляр MockHTTPClient
-        """
-        self.mock_http_client = mock_http_client
-
-    def _setup_mock(
+    def _create_mock_response(
         self,
-        method: str,
-        endpoint: str,
         status: int,
-        json_data: dict[str, Any] | None = None,
-    ) -> None:
-        """Базовый метод для настройки мока."""
+        json_data: dict | list | None = None,
+        text_data: str | None = None,
+        is_ok: bool | None = None,
+    ) -> Mock:
+        """Создает объект Mock, имитирующий APIResponse."""
         mock_response = Mock()
         mock_response.status = status
-        mock_response.json.return_value = json_data or {}
-        self.mock_http_client.set_mock_response(method, endpoint, mock_response)
+        mock_response.ok = is_ok if is_ok is not None else (200 <= status < 300)
+        if json_data is not None:
+            mock_response.json.return_value = json_data
+            try:
+                mock_response.text.return_value = json.dumps(json_data, ensure_ascii=False)
+            except TypeError:
+                mock_response.text.return_value = str(json_data)
+        elif text_data is not None:
+            mock_response.json.side_effect = json.JSONDecodeError("Expecting value", "", 0)
+            mock_response.text.return_value = text_data
+        else:
+            mock_response.json.side_effect = json.JSONDecodeError("Expecting value", "", 0)
+            mock_response.text.return_value = ""
+        return mock_response
 
     def setup_mock(
         self,
         method: str,
-        endpoint: str,
+        endpoint: APIEndpoints | str,
         status: int,
-        json_data: dict[str, Any] | None = None,
+        json_data: dict | list | None = None,
+        text_data: str | None = None,
+        is_ok: bool | None = None,
     ) -> None:
-        """
-        Настраивает мок для заданного метода и эндпоинта.
+        """Настраивает мок-ответ для заданного метода и эндпоинта."""
+        endpoint_str = endpoint.value if isinstance(endpoint, Enum) else str(endpoint)
 
-        Args:
-            method: HTTP метод ('GET', 'POST' и т.д.)
-            endpoint: URL эндпоинта
-            status: ожидаемый HTTP статус код
-            json_data: тело ответа в виде словаря
-        """
-        self._setup_mock(method, endpoint, status, json_data)
+        mock_response = self._create_mock_response(status, json_data, text_data, is_ok)
+        self.mock_http_client.set_mock_response(method, endpoint_str, mock_response)
+
+    def clear_all_mocks(self) -> None:
+        """Очищает все моки, настроенные через эту фабрику."""
+        self.mock_http_client.clear_mocks()
 
     class Auth:
-        """Класс для настройки моков аутентификации."""
-
+        """Класс для настройки моков, связанных c аутентификацией."""
         def __init__(self, outer: "MockFactory") -> None:
-            """
-            Инициализирует Auth c ссылкой на родительский MockFactory.
-
-            Args:
-                outer: экземпляр MockFactory
-            """
+            """Инициализирует Auth."""
             self.outer = outer
 
-        def successful_login(self) -> None:
-            """Настраивает мок для успешной авторизации."""
+        def success(self) -> None:
+            """Настраивает мок для успешной аутентификации."""
             self.outer.setup_mock(
-                method="POST",
-                endpoint="/api/auth",
-                status=200,
-                json_data={"auth": True, "token": "valid-jwt-token-12345"},
+                "POST", APIEndpoints.AUTH, 200, json_data=mock_data.MOCK_AUTH_SUCCESS
             )
 
-    @property
-    def auth(self) -> Auth:
-        """Возвращает экземпляр Auth для настройки моков аутентификации."""
-        return self.Auth(self)
+        def invalid_credentials(self) -> None:
+            """Настраивает мок для невалидных учетных данных."""
+            self.outer.setup_mock(
+                "POST",
+                APIEndpoints.AUTH,
+                400,
+                json_data=mock_data.MOCK_AUTH_FAILURE_400_CREDENTIALS,
+            )
+
+        def bad_request(self) -> None:
+            """Настраивает мок для некорректного запроса."""
+            self.outer.setup_mock(
+                "POST",
+                APIEndpoints.AUTH,
+                400,
+                json_data=mock_data.MOCK_AUTH_FAILURE_400_BAD_REQUEST,
+            )
+
+        def server_error(self) -> None:
+            """Настраивает мок для ошибки сервера."""
+            self.outer.setup_mock(
+                "POST", APIEndpoints.AUTH, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
+            )
