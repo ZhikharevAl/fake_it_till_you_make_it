@@ -146,8 +146,14 @@ def authenticated_user_client(authenticated_http_client: HTTPClient) -> UserClie
     """Предоставляет аутентифицированный экземпляр клиента API пользователя."""
     return UserClient(authenticated_http_client)
 
+
 @pytest.fixture
-def mock_auth_client() -> AuthClient:
-    """Создает AuthClient c моком HTTP клиента."""
-    mock_http = MockHTTPClient()
-    return AuthClient(mock_http)
+def mock_http_client() -> MockHTTPClient:
+    """Возвращает мок HTTP клиента."""
+    return MockHTTPClient()
+
+
+@pytest.fixture
+def mock_auth_client(mock_http_client: MockHTTPClient) -> AuthClient:
+    """Возвращает AuthClient, использующий мок HTTP клиента."""
+    return AuthClient(http_client=mock_http_client)
