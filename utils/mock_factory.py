@@ -15,6 +15,7 @@ class MockHTTPClientProtocol(Protocol):
 
     def set_mock_response(self, method: str, endpoint: str, response: Mock) -> None:
         """Настраивает мок-ответ для заданного метода и эндпоинта."""
+
     def clear_mocks(self) -> None:
         """Очищает все настроенные моки."""
 
@@ -74,6 +75,7 @@ class MockFactory:
 
     class Auth:
         """Класс для настройки моков, связанных c аутентификацией."""
+
         def __init__(self, outer: "MockFactory") -> None:
             """Инициализирует Auth."""
             self.outer = outer
