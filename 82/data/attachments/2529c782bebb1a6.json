@@ -1,0 +1,40 @@
+{
+  "id": "7395fdd9-e59d-44c9-91dc-f490741422d2",
+  "name": "Харитон",
+  "last_name": "Одинцов",
+  "birthdate": "1989-07-04T08:10:11.291000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -19.4413,
+      "longitude": -64.6693,
+      "district": "Костромская область",
+      "city": "Северодвинск"
+    },
+    {
+      "latitude": 77.4996,
+      "longitude": -7.5985,
+      "district": "Архангельская область",
+      "city": "Кашхатау"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Региональный оптимизационный инженер",
+      "graduation_year": 2013
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79375153507",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
