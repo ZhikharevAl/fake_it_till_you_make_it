@@ -9,7 +9,11 @@ from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
 from config.config import INVALID_USER_PASSWORD, TEST_USER_LOGIN, TEST_USER_PASSWORD
 from tests.mocks.conftest import mock_auth_client, mock_factory, mock_http_client  # noqa: F401
-from tests.mocks.mock_data import MOCK_AUTH_FAILURE_400_CREDENTIALS, MOCK_TOKEN
+from tests.mocks.mock_data import (
+    MOCK_AUTH_FAILURE_400_CREDENTIALS,
+    MOCK_SERVER_ERROR_500,
+    MOCK_TOKEN,
+)
 from utils.mock_factory import MockFactory
 
 logger = logging.getLogger(__name__)
@@ -107,3 +111,32 @@ class TestAuthenticationMockedFactory:
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 400 не является валидным JSON")
         logger.info("Мок-ответ 400 (неверные креды) успешно обработан.")
+
+    @allure.story("Неуспешный вход (Мок)")
+    @allure.title("Тест серверной ошибки при авторизации (c MockFactory)")
+    @allure.description("Проверяем ответ 500 при имитации серверной ошибки.")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_server_error_mocked(
+        self,
+        mock_auth_client: AuthClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Тест серверной ошибки при авторизации."""
+        logger.info("Тест: Серверная ошибка (Мок Factory)")
+        mock_factory.auth.server_error()
+        payload = AuthPayload(login=TEST_USER_LOGIN, password=TEST_USER_PASSWORD)
+        response = mock_auth_client.login(payload=payload, expected_status=500)
+
+        with allure.step("Проверка типа ответа и статус кода"):  # type: ignore
+            assert not isinstance(response, AuthSuccessResponse), (
+                "При ошибке не должен возвращаться AuthSuccessResponse"
+            )
+            assert isinstance(response, Mock), "Ожидался объект Mock при статусе 500"
+            assert response.status == 500, "Ожидался статус 500"
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_SERVER_ERROR_500["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 500 не является валидным JSON")
+        logger.info("Мок-ответ 500 (серверная ошибка) успешно обработан.")
