@@ -1,8 +1,0 @@
-INFO     tests.request.test_request_api:test_request_api.py:172 Тест: Получение деталей запроса c невалидным ID (GET /api/request/invalid-id-format)
-INFO     api.request.client:client.py:63 Вызов GET /api/request/invalid-id-format
-INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/invalid-id-format with params: None
-INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/invalid-id-format
-INFO     tests.request.test_request_api:test_request_api.py:172 Тест: Получение деталей запроса c невалидным ID (GET /api/request/invalid-id-format)
-INFO     api.request.client:client.py:63 Вызов GET /api/request/invalid-id-format
-INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/invalid-id-format with params: None
-INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/invalid-id-format
