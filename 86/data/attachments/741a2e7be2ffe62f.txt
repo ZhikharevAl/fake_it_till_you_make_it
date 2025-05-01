@@ -1,0 +1,12 @@
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-9d0993fa-fdff-486e-9bce-5fc784a00749/contribution

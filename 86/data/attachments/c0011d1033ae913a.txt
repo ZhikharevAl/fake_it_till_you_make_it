@@ -1,0 +1,4 @@
+2025-05-01 23:46:29 [INFO] tests.request.test_request_api: Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-56f6a4d0-cdcc-40d0-9c1f-6cb364c37c10) [test_request_api.py:148]
+2025-05-01 23:46:29 [INFO] api.request.client: Вызов GET /api/request/non-existent-56f6a4d0-cdcc-40d0-9c1f-6cb364c37c10 [client.py:63]
+2025-05-01 23:46:29 [INFO] core.http_client: Sending GET request to /api/request/non-existent-56f6a4d0-cdcc-40d0-9c1f-6cb364c37c10 with params: None [http_client.py:44]
+2025-05-01 23:46:29 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-56f6a4d0-cdcc-40d0-9c1f-6cb364c37c10 [http_client.py:48]
