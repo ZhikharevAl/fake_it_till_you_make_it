@@ -13,3 +13,6 @@ wheels/
 
 # Test reports
 allure-results
+
+# VS Code settings
+.vscode/
