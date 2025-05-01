@@ -1,6 +1,6 @@
 import json
 import logging
-from unittest.mock import Mock  # noqa: I001
+from unittest.mock import Mock
 
 import allure
 import pytest
@@ -8,7 +8,7 @@ import pytest
 from api.auth.client import AuthClient
 from api.auth.models import AuthPayload, AuthSuccessResponse
 from config.config import INVALID_USER_PASSWORD, TEST_USER_LOGIN, TEST_USER_PASSWORD
-from tests.mocks.conftest import mock_auth_client, mock_http_client, mock_factory  # noqa: F401
+from tests.mocks.conftest import mock_auth_client, mock_factory, mock_http_client  # noqa: F401
 from tests.mocks.mock_data import MOCK_AUTH_FAILURE_400_CREDENTIALS, MOCK_TOKEN
 from utils.mock_factory import MockFactory
 
@@ -95,7 +95,7 @@ class TestAuthenticationMockedFactory:
         payload = AuthPayload(login=login, password=password)
         response = mock_auth_client.login(payload=payload, expected_status=400)
 
-        with allure.step("Проверка типа ответа и статус кода"): # type: ignore
+        with allure.step("Проверка типа ответа и статус кода"):  # type: ignore
             assert not isinstance(response, AuthSuccessResponse), (
                 "При ошибке не должен возвращаться AuthSuccessResponse"
             )
