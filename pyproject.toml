@@ -16,7 +16,7 @@ dependencies = []
 dev = [
     "allure-pytest>=2.13.5",
     "pydantic[email]>=2.11.2",
-    "pyright>=1.1.398",
+    "pyright>=1.1.400",
     "pytest-cov>=6.1.0",
     "pytest-playwright>=0.7.0",
     "python-dotenv>=1.1.0",
@@ -25,6 +25,7 @@ dev = [
     "playwright>=1.51.0",
     "pytest-rerunfailures>=15.0",
     "pytest-xdist>=3.6.1",
+    "pre-commit>=4.0.0",
 ]
 
 [tool.setuptools]
