@@ -54,7 +54,7 @@ class TestAuthenticationMockedFactory:
         logger.info("Мок-токен успешно получен и провалидирован.")
 
     @allure.story("Неуспешный вход (Мок)")
-    @allure.title("Тест неуспешного входа: {description} (с MockFactory)")
+    @allure.title("Тест неуспешного входа: {description} (c MockFactory)")
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.negative
     @pytest.mark.parametrize(
