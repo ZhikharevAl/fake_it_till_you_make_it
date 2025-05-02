@@ -127,3 +127,10 @@ class MockFactory:
             self.outer.setup_mock(
                 "GET", APIEndpoints.USER, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
+
+        def remove_favourite_success(self, request_id: str) -> None:
+            """Настраивает мок для успешного удаления запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 200, text_data=mock_data.MOCK_FAVOURITES_DELETE_SUCCESS_TEXT
+            )
