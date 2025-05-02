@@ -14,6 +14,7 @@ from api.user.models import (
 from tests.mocks.conftest import mock_factory, mock_http_client, mock_user_client  # noqa: F401
 from tests.mocks.mock_data import (
     MOCK_FAVOURITES_DELETE_SUCCESS_TEXT,
+    MOCK_FAVOURITES_ERROR_400,
     MOCK_FAVOURITES_LIST,
     MOCK_UNAUTHORIZED_401,
     MOCK_USER_DATA,
@@ -113,3 +114,28 @@ class TestUserAPIMockedFactory:
             assert response.status == 200
             assert MOCK_FAVOURITES_DELETE_SUCCESS_TEXT in response.text()
         logger.info("Мок-ответ o успешном удалении получен.")
+
+    @allure.feature("Избранное пользователя (GET, POST, DELETE)")
+    @allure.story("Удаление из избранного (Мок)")
+    @allure.title("Тест удаления несуществующего ID из избранного (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_remove_from_favourites_not_found_mocked(
+        self,
+        mock_user_client: UserClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка удаления несуществующего ID c моком 400."""
+        logger.info("Тест: Удаление несуществующего ID из избранного (DELETE ...) - MOK 400")
+        mock_factory.user.remove_favourite_bad_request(request_id=MOCK_NON_EXISTENT_FAV_ID)
+        response = mock_user_client.remove_from_favourites(
+            request_id=MOCK_NON_EXISTENT_FAV_ID, expected_status=400
+        )  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert isinstance(response, Mock), "Ожидался объект Mock при статусе 400"
+            assert response.status == 400
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_FAVOURITES_ERROR_400["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 400 не является валидным JSON")
