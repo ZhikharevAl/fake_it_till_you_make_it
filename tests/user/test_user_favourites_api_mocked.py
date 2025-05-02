@@ -94,3 +94,32 @@ class TestUserFavouritesAPIMockedFactory:
             assert isinstance(response, Mock)
             assert MOCK_FAVOURITES_ADD_SUCCESS_TEXT in response.text()
         logger.info("Мок-ответ o успешном добавлении получен.")
+
+    @allure.story("Добавление в избранное (Мок)")
+    @allure.title("Тест добавления в избранное без аутентификации (c MockFactory)")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.negative
+    def test_add_to_favourites_unauthorized_mocked(
+        self,
+        mock_user_client: UserClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка получения 401 при добавлении в избранное без аутентификации."""
+        logger.info(
+            "Тест: Добавление в избранное без авторизации (POST /api/user/favourites) - MOK 401"
+        )
+        # Настраиваем мок
+        mock_factory.user.add_favourite_unauthorized()
+        # Готовим payload
+        payload = AddToFavouritesPayload(requestId="any-id")
+        # Вызываем метод клиента
+        response = mock_user_client.add_to_favourites(payload=payload, expected_status=401)  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert isinstance(response, Mock)
+            assert response.status == 401
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_UNAUTHORIZED_401["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 401 не является валидным JSON")
+        logger.info("Мок-ответ 401 для POST favourites успешно обработан.")
