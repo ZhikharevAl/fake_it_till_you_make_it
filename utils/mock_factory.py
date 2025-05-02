@@ -154,3 +154,9 @@ class MockFactory:
             self.outer.setup_mock(
                 "GET", APIEndpoints.USER_FAVOURITES, 200, json_data=mock_data.MOCK_FAVOURITES_LIST
             )
+
+        def get_favourites_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа к избранным запросам."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
