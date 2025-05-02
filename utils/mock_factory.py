@@ -160,3 +160,12 @@ class MockFactory:
             self.outer.setup_mock(
                 "GET", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
+
+        def add_favourite_success(self) -> None:
+            """Настраивает мок для успешного добавления запроса в избранное."""
+            self.outer.setup_mock(
+                "POST",
+                APIEndpoints.USER_FAVOURITES,
+                200,
+                text_data=mock_data.MOCK_FAVOURITES_ADD_SUCCESS_TEXT,
+            )
