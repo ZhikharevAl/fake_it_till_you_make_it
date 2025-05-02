@@ -1,13 +1,16 @@
 import json
 import logging
+import uuid
 from unittest.mock import Mock
 
 import allure
 import pytest
 
 from api.user.client import UserClient
+from api.user.models import AddToFavouritesPayload
 from tests.mocks.conftest import mock_factory, mock_http_client, mock_user_client  # noqa: F401
 from tests.mocks.mock_data import (
+    MOCK_FAVOURITES_ADD_SUCCESS_TEXT,
     MOCK_FAVOURITES_LIST,
     MOCK_UNAUTHORIZED_401,
 )
@@ -70,3 +73,24 @@ class TestUserFavouritesAPIMockedFactory:
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 401 не является валидным JSON")
         logger.info("Мок-ответ 401 для GET favourites успешно обработан.")
+
+    @allure.story("Добавление в избранное (Мок)")
+    @allure.title("Тест успешного добавления в избранное (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    def test_add_to_favourites_success_mocked(
+        self,
+        mock_user_client: UserClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка добавления в избранное c моком."""
+        logger.info(
+            "Тест: Успешное добавление в избранное (POST /api/user/favourites) - MOK Factory"
+        )
+        mock_factory.user.add_favourite_success()
+        payload = AddToFavouritesPayload(requestId=f"new-mock-id-{uuid.uuid4()}")
+        response = mock_user_client.add_to_favourites(payload=payload, expected_status=200)  # type: ignore
+        with allure.step("Проверка типа и текста ответа"):  # type: ignore
+            assert isinstance(response, Mock)
+            assert MOCK_FAVOURITES_ADD_SUCCESS_TEXT in response.text()
+        logger.info("Мок-ответ o успешном добавлении получен.")
