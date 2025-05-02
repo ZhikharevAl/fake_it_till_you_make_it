@@ -134,3 +134,10 @@ class MockFactory:
             self.outer.setup_mock(
                 "DELETE", endpoint, 200, text_data=mock_data.MOCK_FAVOURITES_DELETE_SUCCESS_TEXT
             )
+
+        def remove_favourite_bad_request(self, request_id: str) -> None:
+            """Настраивает мок для ошибки 400 при удалении запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 400, json_data=mock_data.MOCK_FAVOURITES_ERROR_400
+            )
