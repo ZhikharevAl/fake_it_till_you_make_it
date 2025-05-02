@@ -139,3 +139,27 @@ class TestUserAPIMockedFactory:
                 assert error_body.get("message") == MOCK_FAVOURITES_ERROR_400["message"]
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 400 не является валидным JSON")
+
+    @allure.feature("Избранное пользователя (GET, POST, DELETE)")
+    @allure.story("Удаление из избранного (Мок)")
+    @allure.title("Тест удаления из избранного без аутентификации (c MockFactory)")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.negative
+    def test_remove_from_favourites_unauthorized_mocked(
+        self,
+        mock_user_client: UserClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка получения 401 при удалении из избранного без аутентификации."""
+        logger.info("Тест: Удаление из избранного без авторизации (DELETE ...) - MOK 401")
+        mock_factory.user.remove_favourite_unauthorized(request_id="any-id")
+        response = mock_user_client.remove_from_favourites(request_id="any-id", expected_status=401)  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert isinstance(response, Mock), "Ожидался объект Mock при статусе 401"
+            assert response.status == 401
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_UNAUTHORIZED_401["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 401 не является валидным JSON")
+        logger.info("Мок-ответ 401 для DELETE favourites успешно обработан.")
