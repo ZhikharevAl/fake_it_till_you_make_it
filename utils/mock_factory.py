@@ -169,3 +169,9 @@ class MockFactory:
                 200,
                 text_data=mock_data.MOCK_FAVOURITES_ADD_SUCCESS_TEXT,
             )
+
+        def add_favourite_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа при добавлении запроса в избранное."""
+            self.outer.setup_mock(
+                "POST", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
