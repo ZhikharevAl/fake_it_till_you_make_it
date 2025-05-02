@@ -27,6 +27,7 @@ class MockFactory:
         """Инициализирует MockFactory."""
         self.mock_http_client: MockHTTPClientProtocol = mock_http_client
         self.auth = self.Auth(self)
+        self.user = self.User(self)
         logger.debug("MockFactory инициализирована.")
 
     def _create_mock_response(
@@ -109,3 +110,14 @@ class MockFactory:
             self.outer.setup_mock(
                 "POST", APIEndpoints.AUTH, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
             )
+
+    class User:
+        """Класс для настройки моков, связанных c пользователем."""
+
+        def __init__(self, outer: "MockFactory") -> None:
+            """Инициализирует User."""
+            self.outer = outer
+
+        def get_info_success(self) -> None:
+            """Настраивает мок для успешного получения информации o пользователе."""
+            self.outer.setup_mock("GET", APIEndpoints.USER, 200, json_data=mock_data.MOCK_USER_DATA)
