@@ -1,0 +1,9 @@
+2025-05-02 22:29:24 [INFO] tests.conftest: 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)... [conftest.py:125]
+2025-05-02 22:29:24 [INFO] tests.user.test_user_favourites_api: Тест: Успешное получение избранного (GET /api/user/favourites) [test_user_favourites_api.py:35]
+2025-05-02 22:29:24 [INFO] core.http_client: Sending GET request to /api/user/favourites with params: None [http_client.py:44]
+2025-05-02 22:29:24 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/user/favourites [http_client.py:48]
+2025-05-02 22:29:25 [INFO] tests.user.test_user_favourites_api: Получен список избранного: [] [test_user_favourites_api.py:44]
+2025-05-02 22:29:25 [INFO] tests.conftest: [Fixture] Уничтожение авторизованного APIRequestContext... [conftest.py:133]
+2025-05-02 22:29:25 [INFO] tests.conftest: Уничтожение APIRequestContext... [conftest.py:46]
+2025-05-02 22:29:25 [INFO] tests.conftest: Остановка Playwright... [conftest.py:35]
