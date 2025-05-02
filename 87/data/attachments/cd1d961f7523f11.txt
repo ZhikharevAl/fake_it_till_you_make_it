@@ -1,0 +1,7 @@
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:57 Тест: Получение избранного без авторизации (GET /api/user/favourites)
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user/favourites with params: None
+INFO     core.http_client:http_client.py:48 Received response 500 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:57 Тест: Получение избранного без авторизации (GET /api/user/favourites)
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user/favourites with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/user/favourites

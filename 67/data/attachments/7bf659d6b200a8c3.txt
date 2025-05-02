@@ -1,8 +1,0 @@
-2025-04-22 04:22:36 [INFO] tests.auth.conftest: Создан временный BrowserContext для мокирования. [conftest.py:23]
-2025-04-22 04:22:36 [INFO] tests.auth.conftest: Регистрация обработчика маршрутов на BrowserContext... [conftest.py:39]
-2025-04-22 04:22:36 [INFO] tests.auth.conftest: Обработчик маршрутов зарегистрирован. [conftest.py:42]
-2025-04-22 04:22:36 [INFO] tests.auth.test_auth_api_mocked: Тест: Неверный логин (Мок) [test_auth_api_mocked.py:82]
-2025-04-22 04:22:36 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
-2025-04-22 04:22:36 [INFO] core.http_client: Received response 400 from http://localhost:4040/api/auth [http_client.py:80]
-2025-04-22 04:22:36 [INFO] tests.auth.conftest: Удаление обработчиков маршрутов... [conftest.py:46]
-2025-04-22 04:22:36 [INFO] tests.auth.conftest: Уничтожение временного BrowserContext... [conftest.py:25]
