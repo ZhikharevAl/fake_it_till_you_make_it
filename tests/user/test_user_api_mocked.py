@@ -13,6 +13,7 @@ from api.user.models import (
 )
 from tests.mocks.conftest import mock_factory, mock_http_client, mock_user_client  # noqa: F401
 from tests.mocks.mock_data import (
+    MOCK_FAVOURITES_DELETE_SUCCESS_TEXT,
     MOCK_FAVOURITES_LIST,
     MOCK_UNAUTHORIZED_401,
     MOCK_USER_DATA,
@@ -90,3 +91,25 @@ class TestUserAPIMockedFactory:
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 401 не является валидным JSON")
         logger.info("Мок-ответ 401 успешно обработан")
+
+    @allure.feature("Избранное пользователя (GET, POST, DELETE)")
+    @allure.story("Удаление из избранного (Мок)")
+    @allure.title("Тест успешного удаления из избранного (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    def test_remove_from_favourites_success_mocked(
+        self,
+        mock_user_client: UserClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка успешного удаления из избранного c моком."""
+        logger.info("Тест: Успешное удаление из избранного (DELETE ...) - MOK")
+        mock_factory.user.remove_favourite_success(request_id=MOCK_FAV_ID_EXISTS)
+        response = mock_user_client.remove_from_favourites(
+            request_id=MOCK_FAV_ID_EXISTS, expected_status=200
+        )  # type: ignore
+        with allure.step("Проверка типа и текста ответа"):  # type: ignore
+            assert isinstance(response, Mock), "Ожидался объект Mock при статусе 200 (text/plain)"
+            assert response.status == 200
+            assert MOCK_FAVOURITES_DELETE_SUCCESS_TEXT in response.text()
+        logger.info("Мок-ответ o успешном удалении получен.")
