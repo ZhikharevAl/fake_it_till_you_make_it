@@ -148,3 +148,9 @@ class MockFactory:
             self.outer.setup_mock(
                 "DELETE", endpoint, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
+
+        def get_favourites_success_list(self) -> None:
+            """Настраивает мок для успешного получения списка избранных запросов."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER_FAVOURITES, 200, json_data=mock_data.MOCK_FAVOURITES_LIST
+            )
