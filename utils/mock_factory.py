@@ -27,6 +27,7 @@ class MockFactory:
         """Инициализирует MockFactory."""
         self.mock_http_client: MockHTTPClientProtocol = mock_http_client
         self.auth = self.Auth(self)
+        self.user = self.User(self)
         logger.debug("MockFactory инициализирована.")
 
     def _create_mock_response(
@@ -108,4 +109,42 @@ class MockFactory:
             """Настраивает мок для ошибки сервера."""
             self.outer.setup_mock(
                 "POST", APIEndpoints.AUTH, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
+            )
+
+    class User:
+        """Класс для настройки моков, связанных c пользователем."""
+
+        def __init__(self, outer: "MockFactory") -> None:
+            """Инициализирует User."""
+            self.outer = outer
+
+        def get_info_success(self) -> None:
+            """Настраивает мок для успешного получения информации o пользователе."""
+            self.outer.setup_mock("GET", APIEndpoints.USER, 200, json_data=mock_data.MOCK_USER_DATA)
+
+        def get_info_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа к информации o пользователе."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
+
+        def remove_favourite_success(self, request_id: str) -> None:
+            """Настраивает мок для успешного удаления запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 200, text_data=mock_data.MOCK_FAVOURITES_DELETE_SUCCESS_TEXT
+            )
+
+        def remove_favourite_bad_request(self, request_id: str) -> None:
+            """Настраивает мок для ошибки 400 при удалении запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 400, json_data=mock_data.MOCK_FAVOURITES_ERROR_400
+            )
+
+        def remove_favourite_unauthorized(self, request_id: str) -> None:
+            """Настраивает мок для неавторизованного доступа при удалении запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
