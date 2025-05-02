@@ -141,3 +141,10 @@ class MockFactory:
             self.outer.setup_mock(
                 "DELETE", endpoint, 400, json_data=mock_data.MOCK_FAVOURITES_ERROR_400
             )
+
+        def remove_favourite_unauthorized(self, request_id: str) -> None:
+            """Настраивает мок для неавторизованного доступа при удалении запроса из избранного."""
+            endpoint = APIEndpoints.USER_FAVOURITES_DETAIL.format(requestId=request_id)
+            self.outer.setup_mock(
+                "DELETE", endpoint, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
