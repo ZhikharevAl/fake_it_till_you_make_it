@@ -121,3 +121,9 @@ class MockFactory:
         def get_info_success(self) -> None:
             """Настраивает мок для успешного получения информации o пользователе."""
             self.outer.setup_mock("GET", APIEndpoints.USER, 200, json_data=mock_data.MOCK_USER_DATA)
+
+        def get_info_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа к информации o пользователе."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
