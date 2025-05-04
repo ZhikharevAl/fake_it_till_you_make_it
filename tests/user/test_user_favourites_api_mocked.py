@@ -108,11 +108,9 @@ class TestUserFavouritesAPIMockedFactory:
         logger.info(
             "Тест: Добавление в избранное без авторизации (POST /api/user/favourites) - MOK 401"
         )
-        # Настраиваем мок
         mock_factory.user.add_favourite_unauthorized()
         # Готовим payload
         payload = AddToFavouritesPayload(requestId="any-id")
-        # Вызываем метод клиента
         response = mock_user_client.add_to_favourites(payload=payload, expected_status=401)  # type: ignore
         with allure.step("Проверка типа и тела ответа"):  # type: ignore
             assert isinstance(response, Mock)
