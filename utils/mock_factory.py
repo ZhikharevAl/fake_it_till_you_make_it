@@ -194,3 +194,13 @@ class MockFactory:
                 self.outer.setup_mock(
                     "GET", APIEndpoints.REQUESTS, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
                 )
+
+            def get_details_success(self, request_id: str) -> None:
+                """Настраивает мок для успешного получения деталей запроса помощи."""
+                endpoint = APIEndpoints.REQUEST_DETAIL.format(id=request_id)
+                data = (
+                    mock_data.MOCK_HELP_REQUEST_DATA
+                    if request_id == mock_data.MOCK_HELP_REQUEST_DATA["id"]
+                    else {}
+                )
+                self.outer.setup_mock("GET", endpoint, 200, json_data=data)
