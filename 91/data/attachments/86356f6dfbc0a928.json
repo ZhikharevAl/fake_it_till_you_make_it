@@ -1,0 +1,40 @@
+{
+    "id": "82344c85-0586-4406-9002-9b45fbdbe902",
+    "name": "Твердислав",
+    "lastName": "Савельев",
+    "birthdate": "1996-12-18T09:36:20.761Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -57.0717,
+            "longitude": -6.4411,
+            "district": "Сахалинская область",
+            "city": "Ростов"
+        },
+        {
+            "latitude": 1.8476,
+            "longitude": -58.8618,
+            "district": "Республика Коми",
+            "city": "Снежинск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Региональный маркетинговый аналитик",
+            "graduationYear": 2008
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79546806105",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
