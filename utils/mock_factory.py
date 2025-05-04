@@ -204,3 +204,8 @@ class MockFactory:
                     else {}
                 )
                 self.outer.setup_mock("GET", endpoint, 200, json_data=data)
+
+            def get_details_not_found(self, request_id: str) -> None:
+                """Настраивает мок для ошибки 404 при получении деталей запроса помощи."""
+                endpoint = APIEndpoints.REQUEST_DETAIL.format(id=request_id)
+                self.outer.setup_mock("GET", endpoint, 404, json_data=mock_data.MOCK_NOT_FOUND_404)
