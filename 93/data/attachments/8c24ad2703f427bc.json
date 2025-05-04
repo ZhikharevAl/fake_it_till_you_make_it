@@ -1,0 +1,40 @@
+{
+  "id": "f29c3d2b-a5fb-4d40-935a-7ab636e9be16",
+  "name": "Сергей",
+  "last_name": "Шарапов",
+  "birthdate": "1991-07-11T03:55:42.926000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -25.0011,
+      "longitude": -93.6469,
+      "district": "Республика Мордовия",
+      "city": "Хабаровск"
+    },
+    {
+      "latitude": 42.5526,
+      "longitude": -151.41,
+      "district": "Рязанская область",
+      "city": "Можга"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Центральный логистический консультант",
+      "graduation_year": 2008
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79075091386",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}

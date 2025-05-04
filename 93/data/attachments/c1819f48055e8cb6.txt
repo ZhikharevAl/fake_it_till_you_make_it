@@ -1,0 +1,4 @@
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-64514ea0-76e1-4e58-858c-01b392259579)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-64514ea0-76e1-4e58-858c-01b392259579
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-64514ea0-76e1-4e58-858c-01b392259579 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-64514ea0-76e1-4e58-858c-01b392259579
