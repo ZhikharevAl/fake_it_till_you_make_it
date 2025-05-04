@@ -28,6 +28,7 @@ class MockFactory:
         self.mock_http_client: MockHTTPClientProtocol = mock_http_client
         self.auth = self.Auth(self)
         self.user = self.User(self)
+        self.request = self.user.Request(self)
         logger.debug("MockFactory инициализирована.")
 
     def _create_mock_response(
@@ -175,3 +176,15 @@ class MockFactory:
             self.outer.setup_mock(
                 "POST", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
+
+        class Request:
+            """Класс для настройки моков, связанных c запросами помощи."""
+
+            def __init__(self, outer: "MockFactory") -> None:
+                """Инициализирует Request."""
+                self.outer = outer
+
+            def get_all_success(self, *, empty: bool = False) -> None:
+                """Настраивает мок для успешного получения списка всех запросов."""
+                data = [] if empty else mock_data.MOCK_REQUESTS_LIST
+                self.outer.setup_mock("GET", APIEndpoints.REQUESTS, 200, json_data=data)
