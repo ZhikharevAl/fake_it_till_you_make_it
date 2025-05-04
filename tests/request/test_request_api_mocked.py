@@ -1,5 +1,7 @@
+import json
 import logging
 import uuid
+from unittest.mock import Mock
 
 import allure
 import pytest
@@ -10,6 +12,7 @@ from tests.mocks.conftest import mock_factory, mock_http_client, mock_request_cl
 from tests.mocks.mock_data import (
     MOCK_HELP_REQUEST_DATA,
     MOCK_REQUESTS_LIST,
+    MOCK_SERVER_ERROR_500,
 )
 from utils.mock_factory import MockFactory
 
@@ -52,3 +55,28 @@ class TestRequestAPIMockedFactory:
                 assert isinstance(response[0], HelpRequestData)
                 assert response[0].id == MOCK_REQUESTS_LIST[0]["id"]
         logger.info("Мок-список запросов получен.")
+
+    @allure.feature("Список запросов (GET /api/request)")
+    @allure.story("Получение списка (Мок)")
+    @allure.title("Тест ошибки сервера при получении списка запросов (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_get_all_requests_error_mocked(
+        self,
+        mock_request_client: RequestClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка обработки 500 ошибки при получении списка запросов."""
+        logger.info("Тест: Ошибка сервера при получении всех запросов (GET /api/request) - MOK 500")
+        mock_factory.request.get_all_server_error()
+        response = mock_request_client.get_all_requests(expected_status=500)  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert not isinstance(response, list)
+            assert isinstance(response, Mock)
+            assert response.status == 500
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_SERVER_ERROR_500["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 500 не является валидным JSON")
+        logger.info("Мок-ответ 500 для GET /api/request обработан.")
