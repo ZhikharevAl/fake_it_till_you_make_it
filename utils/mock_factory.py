@@ -28,6 +28,7 @@ class MockFactory:
         self.mock_http_client: MockHTTPClientProtocol = mock_http_client
         self.auth = self.Auth(self)
         self.user = self.User(self)
+        self.request = self.user.Request(self)
         logger.debug("MockFactory инициализирована.")
 
     def _create_mock_response(
@@ -148,3 +149,75 @@ class MockFactory:
             self.outer.setup_mock(
                 "DELETE", endpoint, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
             )
+
+        def get_favourites_success_list(self) -> None:
+            """Настраивает мок для успешного получения списка избранных запросов."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER_FAVOURITES, 200, json_data=mock_data.MOCK_FAVOURITES_LIST
+            )
+
+        def get_favourites_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа к избранным запросам."""
+            self.outer.setup_mock(
+                "GET", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
+
+        def add_favourite_success(self) -> None:
+            """Настраивает мок для успешного добавления запроса в избранное."""
+            self.outer.setup_mock(
+                "POST",
+                APIEndpoints.USER_FAVOURITES,
+                200,
+                text_data=mock_data.MOCK_FAVOURITES_ADD_SUCCESS_TEXT,
+            )
+
+        def add_favourite_unauthorized(self) -> None:
+            """Настраивает мок для неавторизованного доступа при добавлении запроса в избранное."""
+            self.outer.setup_mock(
+                "POST", APIEndpoints.USER_FAVOURITES, 401, json_data=mock_data.MOCK_UNAUTHORIZED_401
+            )
+
+        class Request:
+            """Класс для настройки моков, связанных c запросами помощи."""
+
+            def __init__(self, outer: "MockFactory") -> None:
+                """Инициализирует Request."""
+                self.outer = outer
+
+            def get_all_success(self, *, empty: bool = False) -> None:
+                """Настраивает мок для успешного получения списка всех запросов."""
+                data = [] if empty else mock_data.MOCK_REQUESTS_LIST
+                self.outer.setup_mock("GET", APIEndpoints.REQUESTS, 200, json_data=data)
+
+            def get_all_server_error(self) -> None:
+                """Настраивает мок для ошибки сервера при получении списка запросов."""
+                self.outer.setup_mock(
+                    "GET", APIEndpoints.REQUESTS, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
+                )
+
+            def get_details_success(self, request_id: str) -> None:
+                """Настраивает мок для успешного получения деталей запроса помощи."""
+                endpoint = APIEndpoints.REQUEST_DETAIL.format(id=request_id)
+                data = (
+                    mock_data.MOCK_HELP_REQUEST_DATA
+                    if request_id == mock_data.MOCK_HELP_REQUEST_DATA["id"]
+                    else {}
+                )
+                self.outer.setup_mock("GET", endpoint, 200, json_data=data)
+
+            def get_details_not_found(self, request_id: str) -> None:
+                """Настраивает мок для ошибки 404 при получении деталей запроса помощи."""
+                endpoint = APIEndpoints.REQUEST_DETAIL.format(id=request_id)
+                self.outer.setup_mock("GET", endpoint, 404, json_data=mock_data.MOCK_NOT_FOUND_404)
+
+            def contribute_success(self, request_id: str) -> None:
+                """Настраивает мок для успешного внесения вклада в запрос помощи."""
+                endpoint = APIEndpoints.REQUEST_CONTRIBUTION.format(id=request_id)
+                self.outer.setup_mock(
+                    "POST", endpoint, 200, text_data=mock_data.MOCK_CONTRIBUTION_SUCCESS_TEXT
+                )
+
+            def contribute_not_found(self, request_id: str) -> None:
+                """Настраивает мок для ошибки 404 при внесении вклада в запрос помощи."""
+                endpoint = APIEndpoints.REQUEST_CONTRIBUTION.format(id=request_id)
+                self.outer.setup_mock("POST", endpoint, 404, json_data=mock_data.MOCK_NOT_FOUND_404)

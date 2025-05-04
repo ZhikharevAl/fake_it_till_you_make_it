@@ -23,7 +23,6 @@ from utils.mock_factory import MockFactory
 
 logger = logging.getLogger(__name__)
 
-# ID для тестов
 MOCK_FAV_ID_EXISTS = MOCK_FAVOURITES_LIST[0]
 MOCK_NON_EXISTENT_FAV_ID = f"non-existent-fav-{uuid.uuid4()}"
 

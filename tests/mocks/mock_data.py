@@ -42,3 +42,24 @@ MOCK_FAVOURITES_ERROR_400 = {
     "error": "Bad Request",
     "message": "Ошибка операции c избранным (мок Factory)",
 }
+# --- Request ---
+MOCK_HELP_REQUEST_DATA = {
+    "id": "mock-factory-request-789",
+    "title": "Мок Запрос (Factory)",
+    "organization": {"title": "Мок Фонд (Factory)", "isVerified": True},
+    "description": "Описание (мок Factory).",
+    "goalDescription": "Цель (мок Factory).",
+    "actionsSchedule": [],
+    "endingDate": datetime.date.today().isoformat(),  # noqa: DTZ011
+    "location": None,
+    "contacts": {"email": "req.factory@example.com"},
+    "requesterType": "organization",
+    "helpType": "finance",
+    "helperRequirements": None,
+    "contributorsCount": 2,
+    "requestGoal": 1000,
+    "requestGoalCurrentValue": 20,
+}
+MOCK_REQUESTS_LIST = [MOCK_HELP_REQUEST_DATA]
+MOCK_NOT_FOUND_404 = {"error": "Not Found", "message": "Resource не найден (мок Factory)"}
+MOCK_CONTRIBUTION_SUCCESS_TEXT = "Вклад успешно внесен."
