@@ -158,3 +158,29 @@ class TestRequestAPIMockedFactory:
             assert response.status == 200
             assert MOCK_CONTRIBUTION_SUCCESS_TEXT in response.text()
         logger.info("Мок-ответ o успешном вкладе получен.")
+
+    @allure.feature("Вклад в запрос (POST /api/request/{id}/contribution)")
+    @allure.story("Внесение вклада (Мок)")
+    @allure.title("Тест внесения вклада в несуществующий запрос (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_contribute_not_found_mocked(
+        self,
+        mock_request_client: RequestClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка получения 404 при вкладе в несуществующий запрос c моком."""
+        logger.info("Тест: Внесение вклада в несуществующий запрос (POST ...) - MOK 404")
+        mock_factory.request.contribute_not_found(request_id=MOCK_NON_EXISTENT_REQUEST_ID)
+        response = mock_request_client.contribute_to_request(
+            request_id=MOCK_NON_EXISTENT_REQUEST_ID, expected_status=404
+        )  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert isinstance(response, Mock)
+            assert response.status == 404
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_NOT_FOUND_404["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 404 не является валидным JSON")
+        logger.info("Мок-ответ 404 (Not Found) для вклада успешно обработан.")
