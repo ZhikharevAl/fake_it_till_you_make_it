@@ -1,0 +1,3 @@
+2025-05-04 22:34:34 [INFO] tests.user.test_user_favourites_api: Тест: Получение избранного без авторизации (GET /api/user/favourites) [test_user_favourites_api.py:57]
+2025-05-04 22:34:34 [INFO] core.http_client: Sending GET request to /api/user/favourites with params: None [http_client.py:44]
+2025-05-04 22:34:34 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/user/favourites [http_client.py:48]
