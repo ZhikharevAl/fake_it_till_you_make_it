@@ -188,3 +188,9 @@ class MockFactory:
                 """Настраивает мок для успешного получения списка всех запросов."""
                 data = [] if empty else mock_data.MOCK_REQUESTS_LIST
                 self.outer.setup_mock("GET", APIEndpoints.REQUESTS, 200, json_data=data)
+
+            def get_all_server_error(self) -> None:
+                """Настраивает мок для ошибки сервера при получении списка запросов."""
+                self.outer.setup_mock(
+                    "GET", APIEndpoints.REQUESTS, 500, json_data=mock_data.MOCK_SERVER_ERROR_500
+                )
