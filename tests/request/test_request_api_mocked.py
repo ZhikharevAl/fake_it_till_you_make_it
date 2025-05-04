@@ -10,6 +10,7 @@ from api.request.client import RequestClient
 from api.request.models import HelpRequestData
 from tests.mocks.conftest import mock_factory, mock_http_client, mock_request_client  # noqa: F401
 from tests.mocks.mock_data import (
+    MOCK_CONTRIBUTION_SUCCESS_TEXT,
     MOCK_HELP_REQUEST_DATA,
     MOCK_NOT_FOUND_404,
     MOCK_REQUESTS_LIST,
@@ -135,3 +136,25 @@ class TestRequestAPIMockedFactory:
                 assert error_body.get("message") == MOCK_NOT_FOUND_404["message"]
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 404 не является валидным JSON")
+
+    @allure.feature("Вклад в запрос (POST /api/request/{id}/contribution)")
+    @allure.story("Внесение вклада (Мок)")
+    @allure.title("Тест успешного внесения вклада (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    def test_contribute_success_mocked(
+        self,
+        mock_request_client: RequestClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка успешного вклада c моком."""
+        logger.info("Тест: Успешное внесение вклада (POST ...) - MOK Factory")
+        mock_factory.request.contribute_success(request_id=MOCK_EXISTING_REQUEST_ID)
+        response = mock_request_client.contribute_to_request(
+            request_id=MOCK_EXISTING_REQUEST_ID, expected_status=200
+        )  # type: ignore
+        with allure.step("Проверка типа и текста ответа"):  # type: ignore
+            assert isinstance(response, Mock)
+            assert response.status == 200
+            assert MOCK_CONTRIBUTION_SUCCESS_TEXT in response.text()
+        logger.info("Мок-ответ o успешном вкладе получен.")
