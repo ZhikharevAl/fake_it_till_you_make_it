@@ -80,3 +80,29 @@ class TestRequestAPIMockedFactory:
             except json.JSONDecodeError:
                 pytest.fail("Тело ответа 500 не является валидным JSON")
         logger.info("Мок-ответ 500 для GET /api/request обработан.")
+
+    @allure.feature("Детали запроса (GET /api/request/{id})")
+    @allure.story("Получение деталей (Мок)")
+    @allure.title("Тест успешного получения деталей существующего запроса (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.positive
+    def test_get_request_details_success_mocked(
+        self,
+        mock_request_client: RequestClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка получения деталей существующего запроса c моком."""
+        logger.info(
+            "Тест: Успешное получение деталей запроса (GET /api/request/{id}) - MOK Factory"
+        )
+        mock_factory.request.get_details_success(request_id=MOCK_EXISTING_REQUEST_ID)
+        response = mock_request_client.get_request_details(
+            request_id=MOCK_EXISTING_REQUEST_ID, expected_status=200
+        )  # type: ignore
+        with allure.step("Проверка типа и данных ответа"):  # type: ignore
+            assert isinstance(response, HelpRequestData)
+            assert response.id == MOCK_HELP_REQUEST_DATA["id"]
+            assert response.title == MOCK_HELP_REQUEST_DATA["title"]
+            assert response.description == MOCK_HELP_REQUEST_DATA["description"]
+
+        logger.info("Мок-детали запроса успешно получены и проверены.")
