@@ -1,8 +1,0 @@
-2025-04-22 04:36:34 [INFO] tests.conftest: Запуск Playwright... [conftest.py:32]
-2025-04-22 04:36:34 [INFO] tests.conftest: Создание APIRequestContext для BASE_URL: http://localhost:4040... [conftest.py:43]
-2025-04-22 04:36:34 [INFO] tests.conftest: Создание HTTPClient... [conftest.py:53]
-2025-04-22 04:36:34 [INFO] tests.conftest: Создание AuthClient... [conftest.py:60]
-2025-04-22 04:36:34 [INFO] tests.auth.test_auth_api: Тест: Корректный логин, неверный пароль [test_auth_api.py:71]
-2025-04-22 04:36:34 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
-2025-04-22 04:36:35 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/auth [http_client.py:80]
-2025-04-22 04:36:35 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
