@@ -216,3 +216,8 @@ class MockFactory:
                 self.outer.setup_mock(
                     "POST", endpoint, 200, text_data=mock_data.MOCK_CONTRIBUTION_SUCCESS_TEXT
                 )
+
+            def contribute_not_found(self, request_id: str) -> None:
+                """Настраивает мок для ошибки 404 при внесении вклада в запрос помощи."""
+                endpoint = APIEndpoints.REQUEST_CONTRIBUTION.format(id=request_id)
+                self.outer.setup_mock("POST", endpoint, 404, json_data=mock_data.MOCK_NOT_FOUND_404)
