@@ -1,0 +1,8 @@
+INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 140138574901200 инициализирован. Mocks: {}
+INFO     tests.request.test_request_api_mocked:test_request_api_mocked.py:50 Тест: Успешное получение всех запросов (GET /api/request) - MOK Factory
+INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 140138574901200 установил мок для: 'GET:/api/request' (Статус: 200). Текущие моки: ['GET:/api/request']
+INFO     api.request.client:client.py:28 Вызов GET /api/request
+INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 140138574901200 ищет мок для ключа: 'GET:/api/request'. Текущие моки: ['GET:/api/request']
+INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: GET:/api/request
+INFO     tests.request.test_request_api_mocked:test_request_api_mocked.py:59 Мок-список запросов получен.
+INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 140138574901200 очищает моки. Было: ['GET:/api/request']
