@@ -257,6 +257,7 @@
 
 * **Покрытие тестами:**
   * ![Codecov Coverage](./attachment/codecov.png)
+  * ![Codecov Coverege](./attachment/codecov_05-05-2025.png)
 
 ## Планы и улучшения
 
