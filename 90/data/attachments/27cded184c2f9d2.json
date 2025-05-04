@@ -1,0 +1,40 @@
+{
+    "id": "850a69fe-f78a-485e-b4dd-3d37a299d5fa",
+    "name": "Авдей",
+    "lastName": "Богданов",
+    "birthdate": "1998-05-19T10:11:12.833Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -45.3546,
+            "longitude": -175.8186,
+            "district": "Магаданская область",
+            "city": "Вуктыл"
+        },
+        {
+            "latitude": -11.5924,
+            "longitude": -4.7331,
+            "district": "Чувашская Республика",
+            "city": "Кяхта"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Генеральный маркетинговый техник",
+            "graduationYear": 2000
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79986018043",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

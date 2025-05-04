@@ -1,0 +1,32 @@
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:74 Тест: Успешное добавление в избранное (POST /api/user/favourites), ID: request-id-1
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='request-id-1'
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/user/favourites
+INFO     core.http_client:http_client.py:80 Received response 400 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:74 Тест: Успешное добавление в избранное (POST /api/user/favourites), ID: request-id-1
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='request-id-1'
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/user/favourites
+INFO     core.http_client:http_client.py:80 Received response 400 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:74 Тест: Успешное добавление в избранное (POST /api/user/favourites), ID: request-id-1
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='request-id-1'
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/user/favourites
+INFO     core.http_client:http_client.py:80 Received response 400 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_favourites_api:test_user_favourites_api.py:74 Тест: Успешное добавление в избранное (POST /api/user/favourites), ID: request-id-1
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='request-id-1'
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/user/favourites
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...

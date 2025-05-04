@@ -1,0 +1,4 @@
+2025-05-04 21:35:12 [INFO] tests.conftest: Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)... [conftest.py:78]
+2025-05-04 21:35:12 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
+2025-05-04 21:35:12 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/auth [http_client.py:80]
+2025-05-04 21:35:12 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
