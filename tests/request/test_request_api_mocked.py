@@ -11,6 +11,7 @@ from api.request.models import HelpRequestData
 from tests.mocks.conftest import mock_factory, mock_http_client, mock_request_client  # noqa: F401
 from tests.mocks.mock_data import (
     MOCK_HELP_REQUEST_DATA,
+    MOCK_NOT_FOUND_404,
     MOCK_REQUESTS_LIST,
     MOCK_SERVER_ERROR_500,
 )
@@ -106,3 +107,31 @@ class TestRequestAPIMockedFactory:
             assert response.description == MOCK_HELP_REQUEST_DATA["description"]
 
         logger.info("Мок-детали запроса успешно получены и проверены.")
+
+    @allure.feature("Детали запроса (GET /api/request/{id})")
+    @allure.story("Получение деталей (Мок)")
+    @allure.title("Тест получения деталей несуществующего запроса (c MockFactory)")
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.negative
+    def test_get_request_details_not_found_mocked(
+        self,
+        mock_request_client: RequestClient,  # noqa: F811
+        mock_factory: MockFactory,  # noqa: F811
+    ) -> None:
+        """Проверка получения 404 для несуществующего запроса c моком."""
+        logger.info(
+            "Тест: Получение деталей несуществующего запроса (GET /api/request/{id}) - MOK 404"
+        )
+        mock_factory.request.get_details_not_found(request_id=MOCK_NON_EXISTENT_REQUEST_ID)
+        response = mock_request_client.get_request_details(
+            request_id=MOCK_NON_EXISTENT_REQUEST_ID, expected_status=404
+        )  # type: ignore
+        with allure.step("Проверка типа и тела ответа"):  # type: ignore
+            assert not isinstance(response, HelpRequestData)
+            assert isinstance(response, Mock)
+            assert response.status == 404
+            try:
+                error_body = response.json()
+                assert error_body.get("message") == MOCK_NOT_FOUND_404["message"]
+            except json.JSONDecodeError:
+                pytest.fail("Тело ответа 404 не является валидным JSON")
