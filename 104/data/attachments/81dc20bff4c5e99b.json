@@ -1,0 +1,26 @@
+[
+  {
+    "id": "mock-factory-request-789",
+    "title": "Мок Запрос (Factory)",
+    "organization": {
+      "title": "Мок Фонд (Factory)",
+      "is_verified": null
+    },
+    "description": "Описание (мок Factory).",
+    "goal_description": null,
+    "actions_schedule": [],
+    "ending_date": null,
+    "location": null,
+    "contacts": {
+      "email": "req.factory@example.com",
+      "phone": null,
+      "website": null
+    },
+    "requester_type": null,
+    "help_type": null,
+    "helper_requirements": null,
+    "contributors_count": null,
+    "request_goal": null,
+    "request_goal_current_value": null
+  }
+]

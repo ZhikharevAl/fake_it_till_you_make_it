@@ -1,9 +1,0 @@
-INFO     tests.conftest:conftest.py:67 Создание UserClient...
-INFO     tests.user.test_user_api:test_user_api.py:135 Тест: Удаление из избранного без авторизации (DELETE ...)
-INFO     api.user.client:client.py:80 Вызов DELETE /api/user/favourites/any-id
-INFO     core.http_client:http_client.py:131 Sending DELETE request to /api/user/favourites/any-id
-INFO     core.http_client:http_client.py:135 Received response 403 from http://localhost:4040/api/user/favourites/any-id
-INFO     tests.user.test_user_api:test_user_api.py:135 Тест: Удаление из избранного без авторизации (DELETE ...)
-INFO     api.user.client:client.py:80 Вызов DELETE /api/user/favourites/any-id
-INFO     core.http_client:http_client.py:131 Sending DELETE request to /api/user/favourites/any-id
-INFO     core.http_client:http_client.py:135 Received response 403 from http://localhost:4040/api/user/favourites/any-id

@@ -1,0 +1,40 @@
+{
+    "id": "665ae844-2f3a-4ff8-bec7-338282034836",
+    "name": "Осип",
+    "lastName": "Зуев",
+    "birthdate": "1992-12-31T23:19:17.658Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -51.1157,
+            "longitude": 16.6128,
+            "district": "Республика Алтай",
+            "city": "Троицк (Челяб.)"
+        },
+        {
+            "latitude": -33.6551,
+            "longitude": -40.1821,
+            "district": "Магаданская область",
+            "city": "Нягань"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Областной коммуникационный планировщик",
+            "graduationYear": 2018
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79326394351",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
