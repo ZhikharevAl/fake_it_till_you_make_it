@@ -19,7 +19,7 @@
   * [Запуск в контейнерах Podman (сеть)](#запуск-в-контейнерах-podman-сеть)
   * [Просмотр отчетов](#просмотр-отчетов)
 * [Тестирование с Моками](#тестирование-с-моками)
-* [CI/CD](#cicd)
+* [CI/CD](#инструменты-контроля-качества)
 * [Планы и улучшения](#планы-и-улучшения)
 
 ## Основные возможности и покрытие
@@ -45,7 +45,7 @@
 * **HTTP Клиент:** Playwright (APIRequestContext)
 * **Валидация данных:** Pydantic
 * **Отчетность:** Allure Report
-* **Мокирование:** Playwright (`BrowserContext.route`, `route.fulfill`)
+* **Мокирование:** Stubbing с использованием библиотеки unittest.mock
 * **Менеджер пакетов:** uv
 * **Контейнеризация:** Podman
 * **CI/CD:** GitHub Actions
@@ -54,21 +54,21 @@
 
 ```bash
 .
+├── .github/          # Настройки CI/CD (GitHub Actions)
+│   ├── actions/      # Reusable actions (setup, run-linters)
+│   └── workflows/    # Пайплайны CI/CD
 ├── api/              # Клиенты API и модели данных (Pydantic)
 │   ├── auth/
 │   ├── request/
 │   └── user/
 ├── config/           # Конфигурационные файлы (базовый URL, таймауты)
-├── core/             # Базовые компоненты фреймворка (HTTP клиент)
+├── core/             # Базовые компоненты фреймворка (HTTP клиент, Mock Http клиент)
 ├── tests/            # Тестовые сценарии pytest
 │   ├── auth/         # Тесты аутентификации (+ test_auth_api_mocked.py)
 │   ├── mocks/        # Инфраструктура для мок-тестов (фикстуры, хендлеры, данные)
 │   ├── request/      # Тесты запросов помощи (+ test_request_api_mocked.py)
 │   └── user/         # Тесты пользователя (+ test_user_api_mocked.py)
 ├── utils/            # Вспомогательные утилиты (Allure, хелперы)
-├── .github/          # Настройки CI/CD (GitHub Actions)
-│   ├── actions/      # Reusable actions (setup, run-linters)
-│   └── workflows/    # Пайплайны CI/CD
 ├── .env.example      # Пример файла с переменными окружения
 ├── .gitignore
 ├── Containerfile        # Containerfile для сборки образа тестов
@@ -247,17 +247,20 @@
 * **Структура:** Инфраструктура для моков (фикстуры, данные, обработчики) находится в папке `tests/mocks/`. Тестовые файлы с моками (например, `test_user_api_mocked.py`) располагаются рядом с соответствующими интеграционными тестами.
 * **Запуск:** Мок-тесты помечены маркером `mocked` (`pytest -m mocked`).
 
-## CI/CD
+## Инструменты контроля качества
 
 Проект использует GitHub Actions для автоматической проверки качества кода (linting, formatting, type checking) и запуска тестов при каждом пуше. Используется Podman для запуска интеграционных тестов в контейнеризованном окружении. Результаты тестов и отчет о покрытии загружаются автоматически. Allure отчет генерируется и деплоится на GitHub Pages.
 
-* **Allure отчёт:**
-  * ![Allure All Tests](./attachment/allure-all-tests.png)
-  * ![Allure Report](./attachment/allure-report.png)
+**Интеграция в рабочий процесс разработки**
+![Интеграция](./attachment/integretion.png)
 
-* **Покрытие тестами:**
-  * ![Codecov Coverage](./attachment/codecov.png)
-  * ![Codecov Coverege](./attachment/codecov_05-05-2025.png)
+**Allure отчёт**
+![Allure All Tests](./attachment/allure-all-tests.png)
+![Allure Report](./attachment/allure-report.png)
+
+**Покрытие тестами**
+![Codecov Coverage](./attachment/codecov.png)
+![Codecov Coverage](./attachment/codecov_05-05-2025.png)
 
 ## Планы и улучшения
 
