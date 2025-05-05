@@ -1,0 +1,21 @@
+INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-fb4171f6-6271-4e45-a8d7-afa746612dbf/contribution

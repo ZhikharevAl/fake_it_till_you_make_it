@@ -1,0 +1,11 @@
+2025-05-05 22:20:20 [INFO] tests.conftest: Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)... [conftest.py:78]
+2025-05-05 22:20:20 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
+2025-05-05 22:20:20 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/auth [http_client.py:80]
+2025-05-05 22:20:20 [INFO] tests.conftest: Сессионный логин успешен. [conftest.py:97]
+2025-05-05 22:20:20 [INFO] tests.conftest: 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)... [conftest.py:125]
+2025-05-05 22:20:20 [INFO] tests.user.test_user_favourites_api: Тест: Успешное получение избранного (GET /api/user/favourites) [test_user_favourites_api.py:35]
+2025-05-05 22:20:20 [INFO] core.http_client: Sending GET request to /api/user/favourites with params: None [http_client.py:44]
+2025-05-05 22:20:20 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/user/favourites [http_client.py:48]
+2025-05-05 22:20:20 [INFO] tests.user.test_user_favourites_api: Получен список избранного: [] [test_user_favourites_api.py:44]
+2025-05-05 22:20:20 [INFO] tests.conftest: [Fixture] Уничтожение авторизованного APIRequestContext... [conftest.py:133]

@@ -1,0 +1,10 @@
+INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 140028657311056 инициализирован. Mocks: {}
+INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:87 Тест: Успешное добавление в избранное (POST /api/user/favourites) - MOK Factory
+INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 140028657311056 установил мок для: 'POST:/api/user/favourites' (Статус: 200). Текущие моки: ['POST:/api/user/favourites']
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='new-mock-id-d7973104-998a-43ec-88b2-788c322987b9'
+INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 140028657311056 ищет мок для ключа: 'POST:/api/user/favourites'. Текущие моки: ['POST:/api/user/favourites']
+INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: POST:/api/user/favourites
+INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:96 Мок-ответ o успешном добавлении получен.
+INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 140028657311056 очищает моки. Было: ['POST:/api/user/favourites']
+INFO     tests.conftest:conftest.py:46 Уничтожение APIRequestContext...
+INFO     tests.conftest:conftest.py:35 Остановка Playwright...

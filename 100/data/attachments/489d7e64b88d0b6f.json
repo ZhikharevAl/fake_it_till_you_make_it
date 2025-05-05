@@ -1,0 +1,40 @@
+{
+    "id": "325c5db4-9344-41f8-b418-cb8972c18907",
+    "name": "Антип",
+    "lastName": "Гуляев",
+    "birthdate": "1995-06-26T10:41:08.381Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 80.4648,
+            "longitude": 17.6859,
+            "district": "Воронежская область",
+            "city": "Новосибирск"
+        },
+        {
+            "latitude": 36.4357,
+            "longitude": 117.9267,
+            "district": "Республика Дагестан",
+            "city": "Охотск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Региональный функциональный консультант",
+            "graduationYear": 2000
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79798816768",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
