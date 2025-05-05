@@ -19,7 +19,7 @@
   * [Запуск в контейнерах Podman (сеть)](#запуск-в-контейнерах-podman-сеть)
   * [Просмотр отчетов](#просмотр-отчетов)
 * [Тестирование с Моками](#тестирование-с-моками)
-* [CI/CD](#cicd)
+* [CI/CD](#инструменты-контроля-качества)
 * [Планы и улучшения](#планы-и-улучшения)
 
 ## Основные возможности и покрытие
@@ -247,17 +247,20 @@
 * **Структура:** Инфраструктура для моков (фикстуры, данные, обработчики) находится в папке `tests/mocks/`. Тестовые файлы с моками (например, `test_user_api_mocked.py`) располагаются рядом с соответствующими интеграционными тестами.
 * **Запуск:** Мок-тесты помечены маркером `mocked` (`pytest -m mocked`).
 
-## CI/CD
+## Инструменты контроля качества
 
 Проект использует GitHub Actions для автоматической проверки качества кода (linting, formatting, type checking) и запуска тестов при каждом пуше. Используется Podman для запуска интеграционных тестов в контейнеризованном окружении. Результаты тестов и отчет о покрытии загружаются автоматически. Allure отчет генерируется и деплоится на GitHub Pages.
 
-* **Allure отчёт:**
-  * ![Allure All Tests](./attachment/allure-all-tests.png)
-  * ![Allure Report](./attachment/allure-report.png)
+**Интеграция в рабочий процесс разработки**
+![Интеграция](./attachment/integretion.png)
 
-* **Покрытие тестами:**
-  * ![Codecov Coverage](./attachment/codecov.png)
-  * ![Codecov Coverege](./attachment/codecov_05-05-2025.png)
+**Allure отчёт**
+![Allure All Tests](./attachment/allure-all-tests.png)
+![Allure Report](./attachment/allure-report.png)
+
+**Покрытие тестами**
+![Codecov Coverage](./attachment/codecov.png)
+![Codecov Coverage](./attachment/codecov_05-05-2025.png)
 
 ## Планы и улучшения
 
