@@ -1,0 +1,40 @@
+{
+    "id": "9f272bad-3889-459a-846b-39654de52ce2",
+    "name": "Еремей",
+    "lastName": "Абрамов",
+    "birthdate": "2006-09-26T15:31:17.340Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -31.0672,
+            "longitude": 175.855,
+            "district": "Республика Адыгея (Адыгея)",
+            "city": "Пинега"
+        },
+        {
+            "latitude": -22.0011,
+            "longitude": 144.2846,
+            "district": "Республика Тыва",
+            "city": "Гусь-Хрустальный"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Главный страховой планировщик",
+            "graduationYear": 2010
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79178103843",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

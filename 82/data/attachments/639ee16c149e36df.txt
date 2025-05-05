@@ -1,7 +1,0 @@
-2025-04-30 23:03:06 [INFO] core.mock_http_client: MockHTTPClient ID 139828810711120 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-04-30 23:03:06 [INFO] tests.auth.test_auth_mocked: Тест: Успешная авторизация (Мок Factory) [test_auth_mocked.py:39]
-2025-04-30 23:03:06 [INFO] core.mock_http_client: MockHTTPClient ID 139828810711120 установил мок для: 'POST:/api/auth' (Статус: 200). Текущие моки: ['POST:/api/auth'] [mock_http_client.py:108]
-2025-04-30 23:03:06 [INFO] core.mock_http_client: MockHTTPClient ID 139828810711120 ищет мок для ключа: 'POST:/api/auth'. Текущие моки: ['POST:/api/auth'] [mock_http_client.py:36]
-2025-04-30 23:03:06 [INFO] core.mock_http_client: Найден и возвращен мок для: POST:/api/auth [mock_http_client.py:44]
-2025-04-30 23:03:06 [INFO] tests.auth.test_auth_mocked: Мок-токен успешно получен и провалидирован. [test_auth_mocked.py:52]
-2025-04-30 23:03:06 [INFO] core.mock_http_client: MockHTTPClient ID 139828810711120 очищает моки. Было: ['POST:/api/auth'] [mock_http_client.py:118]
