@@ -1,0 +1,8 @@
+2025-05-05 21:41:14 [INFO] core.mock_http_client: MockHTTPClient ID 139791702872208 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-05-05 21:41:14 [INFO] tests.request.test_request_api_mocked: Тест: Успешное получение деталей запроса (GET /api/request/{id}) - MOK Factory [test_request_api_mocked.py:97]
+2025-05-05 21:41:14 [INFO] core.mock_http_client: MockHTTPClient ID 139791702872208 установил мок для: 'GET:/api/request/mock-factory-request-789' (Статус: 200). Текущие моки: ['GET:/api/request/mock-factory-request-789'] [mock_http_client.py:108]
+2025-05-05 21:41:14 [INFO] api.request.client: Вызов GET /api/request/mock-factory-request-789 [client.py:63]
+2025-05-05 21:41:14 [INFO] core.mock_http_client: MockHTTPClient ID 139791702872208 ищет мок для ключа: 'GET:/api/request/mock-factory-request-789'. Текущие моки: ['GET:/api/request/mock-factory-request-789'] [mock_http_client.py:36]
+2025-05-05 21:41:14 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/request/mock-factory-request-789 [mock_http_client.py:44]
+2025-05-05 21:41:14 [INFO] tests.request.test_request_api_mocked: Мок-детали запроса успешно получены и проверены. [test_request_api_mocked.py:110]
+2025-05-05 21:41:14 [INFO] core.mock_http_client: MockHTTPClient ID 139791702872208 очищает моки. Было: ['GET:/api/request/mock-factory-request-789'] [mock_http_client.py:118]
