@@ -45,7 +45,7 @@
 * **HTTP Клиент:** Playwright (APIRequestContext)
 * **Валидация данных:** Pydantic
 * **Отчетность:** Allure Report
-* **Мокирование:** Playwright (`BrowserContext.route`, `route.fulfill`)
+* **Мокирование:** Stubbing с использованием библиотеки unittest.mock
 * **Менеджер пакетов:** uv
 * **Контейнеризация:** Podman
 * **CI/CD:** GitHub Actions
