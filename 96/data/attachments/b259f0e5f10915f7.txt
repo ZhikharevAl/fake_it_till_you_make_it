@@ -1,0 +1,5 @@
+2025-05-05 21:05:38 [INFO] tests.conftest: Создание UserClient... [conftest.py:67]
+2025-05-05 21:05:38 [INFO] tests.user.test_user_api: Тест: Удаление из избранного без авторизации (DELETE ...) [test_user_api.py:135]
+2025-05-05 21:05:38 [INFO] api.user.client: Вызов DELETE /api/user/favourites/any-id [client.py:80]
+2025-05-05 21:05:38 [INFO] core.http_client: Sending DELETE request to /api/user/favourites/any-id [http_client.py:131]
+2025-05-05 21:05:38 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/user/favourites/any-id [http_client.py:135]

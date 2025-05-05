@@ -1,0 +1,40 @@
+{
+    "id": "60257635-1693-4f9f-ae6d-b7f27306f4c9",
+    "name": "Евграф",
+    "lastName": "Миронов",
+    "birthdate": "1995-03-25T22:06:19.191Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 21.3394,
+            "longitude": 8.2058,
+            "district": "Владимирская область",
+            "city": "Вытегра"
+        },
+        {
+            "latitude": -78.4789,
+            "longitude": -144.866,
+            "district": "Карачаево - Черкесская Республика",
+            "city": "Йошкар-Ола"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Международный операционный инженер",
+            "graduationYear": 2010
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79275066676",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
