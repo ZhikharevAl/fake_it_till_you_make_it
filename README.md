@@ -54,21 +54,21 @@
 
 ```bash
 .
+├── .github/          # Настройки CI/CD (GitHub Actions)
+│   ├── actions/      # Reusable actions (setup, run-linters)
+│   └── workflows/    # Пайплайны CI/CD
 ├── api/              # Клиенты API и модели данных (Pydantic)
 │   ├── auth/
 │   ├── request/
 │   └── user/
 ├── config/           # Конфигурационные файлы (базовый URL, таймауты)
-├── core/             # Базовые компоненты фреймворка (HTTP клиент)
+├── core/             # Базовые компоненты фреймворка (HTTP клиент, Mock Http клиент)
 ├── tests/            # Тестовые сценарии pytest
 │   ├── auth/         # Тесты аутентификации (+ test_auth_api_mocked.py)
 │   ├── mocks/        # Инфраструктура для мок-тестов (фикстуры, хендлеры, данные)
 │   ├── request/      # Тесты запросов помощи (+ test_request_api_mocked.py)
 │   └── user/         # Тесты пользователя (+ test_user_api_mocked.py)
 ├── utils/            # Вспомогательные утилиты (Allure, хелперы)
-├── .github/          # Настройки CI/CD (GitHub Actions)
-│   ├── actions/      # Reusable actions (setup, run-linters)
-│   └── workflows/    # Пайплайны CI/CD
 ├── .env.example      # Пример файла с переменными окружения
 ├── .gitignore
 ├── Containerfile        # Containerfile для сборки образа тестов
