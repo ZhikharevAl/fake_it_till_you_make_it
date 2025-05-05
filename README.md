@@ -1,6 +1,6 @@
-[![Python Code Quality Checks](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml/badge.svg)](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml)
-
 # Проект автоматизации тестирования API "Charity Event"
+
+[![Code Quality](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml/badge.svg)](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml) ![Codecov](https://img.shields.io/codecov/c/github/ZhikharevAl/fake_it_till_you_make_it) ![Ruff](https://img.shields.io/badge/linting-Ruff-323330?logo=ruff) ![uv](https://img.shields.io/badge/dependencies-uv-FFA500) ![Pyright](https://img.shields.io/badge/typing-Pyright-007ACC) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Описание
 
@@ -45,7 +45,7 @@
 * **HTTP Клиент:** Playwright (APIRequestContext)
 * **Валидация данных:** Pydantic
 * **Отчетность:** Allure Report
-* **Мокирование:** Stubbing с использованием библиотеки unittest.mock
+* **Мокирование:** `unittest.mock` (через `MockHTTPClient` и `MockFactory`)
 * **Менеджер пакетов:** uv
 * **Контейнеризация:** Podman
 * **CI/CD:** GitHub Actions
@@ -62,13 +62,13 @@
 │   ├── request/
 │   └── user/
 ├── config/           # Конфигурационные файлы (базовый URL, таймауты)
-├── core/             # Базовые компоненты фреймворка (HTTP клиент, Mock Http клиент)
+├── core/             # Базовые компоненты фреймворка (HTTP клиент, MockHTTPClient)
 ├── tests/            # Тестовые сценарии pytest
 │   ├── auth/         # Тесты аутентификации (+ test_auth_api_mocked.py)
 │   ├── mocks/        # Инфраструктура для мок-тестов (фикстуры, хендлеры, данные)
 │   ├── request/      # Тесты запросов помощи (+ test_request_api_mocked.py)
 │   └── user/         # Тесты пользователя (+ test_user_api_mocked.py)
-├── utils/            # Вспомогательные утилиты (Allure, хелперы)
+├── utils/            # Вспомогательные утилиты (Allure, хелперы, MockFactory)
 ├── .env.example      # Пример файла с переменными окружения
 ├── .gitignore
 ├── Containerfile        # Containerfile для сборки образа тестов
@@ -243,8 +243,8 @@
 
 В проекте реализованы мок-тесты для изоляции от реального бэкенда и обеспечения стабильности и скорости CI.
 
-* **Подход:** Используется встроенный механизм мокирования **Playwright**. Для `APIRequestContext`, используемого в тестах, настраивается маршрутизация (`BrowserContext.route()`). Специальные функции-обработчики (в `tests/mocks/handlers.py`) перехватывают исходящие запросы и возвращают заранее определенные ответы с помощью `route.fulfill()`, имитируя поведение реального API.
-* **Структура:** Инфраструктура для моков (фикстуры, данные, обработчики) находится в папке `tests/mocks/`. Тестовые файлы с моками (например, `test_user_api_mocked.py`) располагаются рядом с соответствующими интеграционными тестами.
+* **Подход:** Используется **мокирование на уровне Python клиента** с помощью библиотеки `unittest.mock`. Создан специальный класс `MockHTTPClient` (`core/mock_http_client.py`), который наследуется от реального `HTTPClient`, но перехватывает вызовы методов (`get`, `post` и т.д.) и возвращает заранее настроенные ответы (`unittest.mock.Mock`), имитирующие `APIResponse`. Для удобной настройки этих мок-ответов используется класс-фабрика `MockFactory` (`utils/mock_factory.py`).
+* **Структура:** Инфраструктура для моков (фикстуры для `MockHTTPClient` и `MockFactory`, мок-данные) находится в папке `tests/mocks/`. Тестовые файлы с моками (например, `test_auth_api_mocked.py`) используют фикстуры мокированных API клиентов (например, `mock_auth_client`) и `MockFactory` для настройки ожидаемых ответов перед вызовом методов клиента.
 * **Запуск:** Мок-тесты помечены маркером `mocked` (`pytest -m mocked`).
 
 ## Инструменты контроля качества
