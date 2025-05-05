@@ -1,5 +1,0 @@
-2025-04-29 23:33:11 [INFO] tests.request.conftest: Создание UserClient... [conftest.py:14]
-2025-04-29 23:33:11 [INFO] tests.request.test_request_api: Тест: Получение деталей запроса c невалидным ID (GET /api/request/invalid-id-format) [test_request_api.py:172]
-2025-04-29 23:33:11 [INFO] api.request.client: Вызов GET /api/request/invalid-id-format [client.py:63]
-2025-04-29 23:33:11 [INFO] core.http_client: Sending GET request to /api/request/invalid-id-format with params: None [http_client.py:44]
-2025-04-29 23:33:11 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/invalid-id-format [http_client.py:48]

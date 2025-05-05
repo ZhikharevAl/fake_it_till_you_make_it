@@ -1,0 +1,8 @@
+INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 140613963187776 инициализирован. Mocks: {}
+INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:87 Тест: Успешное добавление в избранное (POST /api/user/favourites) - MOK Factory
+INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 140613963187776 установил мок для: 'POST:/api/user/favourites' (Статус: 200). Текущие моки: ['POST:/api/user/favourites']
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='new-mock-id-fd9d17ac-6023-40ff-b5c6-75629db611ac'
+INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 140613963187776 ищет мок для ключа: 'POST:/api/user/favourites'. Текущие моки: ['POST:/api/user/favourites']
+INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: POST:/api/user/favourites
+INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:96 Мок-ответ o успешном добавлении получен.
+INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 140613963187776 очищает моки. Было: ['POST:/api/user/favourites']
