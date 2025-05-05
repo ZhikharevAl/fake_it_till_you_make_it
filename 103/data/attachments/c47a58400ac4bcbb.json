@@ -1,0 +1,40 @@
+{
+  "id": "1758591f-9f72-4152-bbd6-b93743d9897e",
+  "name": "Аверьян",
+  "last_name": "Фомин",
+  "birthdate": "1997-11-24T23:23:04.630000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 82.668,
+      "longitude": 46.0218,
+      "district": "Пензенская область",
+      "city": "Махачкала"
+    },
+    {
+      "latitude": 30.5739,
+      "longitude": -25.195,
+      "district": "Ярославская область",
+      "city": "Александровск-Сахалинский"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Главный страховой менеджер",
+      "graduation_year": 2012
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79335313512",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
