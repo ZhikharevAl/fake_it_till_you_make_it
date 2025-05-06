@@ -1,0 +1,40 @@
+{
+    "id": "727c2bf7-1820-411c-bf15-9f6f6ee58f4b",
+    "name": "Максимильян",
+    "lastName": "Гордеев",
+    "birthdate": "1994-08-06T12:44:35.595Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -48.3885,
+            "longitude": -1.2287,
+            "district": "Сахалинская область",
+            "city": "Великий Устюг"
+        },
+        {
+            "latitude": 63.4239,
+            "longitude": -109.5934,
+            "district": "Ямало-ненецкий автономный округ",
+            "city": "Макушино"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Центральный оптимизационный разработчик",
+            "graduationYear": 2015
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79327917806",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
