@@ -1,0 +1,40 @@
+{
+    "id": "a01e9931-0c21-49f0-9615-504b66290ab2",
+    "name": "Боян",
+    "lastName": "Комаров",
+    "birthdate": "2002-12-01T08:19:27.452Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -60.1751,
+            "longitude": -57.7838,
+            "district": "Сахалинская область",
+            "city": "Гатчина"
+        },
+        {
+            "latitude": 12.9828,
+            "longitude": 123.203,
+            "district": "Тамбовская область",
+            "city": "Кашира"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Районный функциональный инженер",
+            "graduationYear": 2018
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79088827077",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

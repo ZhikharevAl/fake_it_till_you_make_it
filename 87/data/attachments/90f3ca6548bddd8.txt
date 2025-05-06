@@ -1,4 +1,0 @@
-2025-05-02 22:15:42 [INFO] tests.user.test_user_favourites_api: Тест: Получение избранного без авторизации (GET /api/user/favourites) [test_user_favourites_api.py:57]
-2025-05-02 22:15:42 [INFO] core.http_client: Sending GET request to /api/user/favourites with params: None [http_client.py:44]
-2025-05-02 22:15:42 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/user/favourites [http_client.py:48]
-2025-05-02 22:15:42 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
