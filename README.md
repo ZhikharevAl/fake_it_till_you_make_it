@@ -255,7 +255,7 @@
 ![Интеграция](./attachment/integretion.png)
 
 **Allure отчёт**
-![Allure All Tests](./attachment/allure-all-tests.png)
+![Allure All Tests](./attachment/allure-all-test-06-05-2025.png)
 ![Allure Report](./attachment/allure-report.png)
 
 **Покрытие тестами**
