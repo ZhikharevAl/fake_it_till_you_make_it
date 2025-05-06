@@ -1,3 +1,0 @@
-2025-05-01 23:39:12 [INFO] tests.auth.test_auth_api: Тест: Пустое тело запроса [test_auth_api.py:134]
-2025-05-01 23:39:12 [INFO] core.http_client: Sending POST request to APIEndpoints.AUTH [http_client.py:73]
-2025-05-01 23:39:12 [INFO] core.http_client: Received response 403 from http://localhost:4040/APIEndpoints.AUTH [http_client.py:80]
