@@ -1,0 +1,40 @@
+{
+    "id": "c4b2bb36-4bd5-47f1-a2b2-104555b5569c",
+    "name": "Андрей",
+    "lastName": "Дементьев",
+    "birthdate": "1999-05-04T13:24:03.081Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 16.0046,
+            "longitude": -3.2489,
+            "district": "Алтайский край",
+            "city": "Ачинск"
+        },
+        {
+            "latitude": -22.0204,
+            "longitude": 178.8961,
+            "district": "Нижегородская область",
+            "city": "Нерчинск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Международный страховой координатор",
+            "graduationYear": 2004
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79215596843",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
