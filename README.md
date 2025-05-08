@@ -1,6 +1,6 @@
 # Проект автоматизации тестирования API "Charity Event"
 
-[![Code Quality](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml/badge.svg)](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml) ![Codecov](https://img.shields.io/codecov/c/github/ZhikharevAl/fake_it_till_you_make_it) ![Ruff](https://img.shields.io/badge/linting-Ruff-323330?logo=ruff) ![uv](https://img.shields.io/badge/dependencies-uv-FFA500) ![Pyright](https://img.shields.io/badge/typing-Pyright-007ACC) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![Code Quality](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml/badge.svg)](https://github.com/ZhikharevAl/fake_it_till_you_make_it/actions/workflows/code-quality.yaml) ![Codecov](https://img.shields.io/codecov/c/github/ZhikharevAl/fake_it_till_you_make_it) ![Ruff](https://img.shields.io/badge/linting-Ruff-323330?logo=ruff) ![uv](https://img.shields.io/badge/dependencies-uv-FFA500) ![Pyright](https://img.shields.io/badge/typing-Pyright-007ACC) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ZhikharevAl/fake_it_till_you_make_it) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Описание
 
