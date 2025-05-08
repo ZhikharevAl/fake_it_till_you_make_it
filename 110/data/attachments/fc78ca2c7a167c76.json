@@ -1,0 +1,40 @@
+{
+  "id": "b568743d-70ca-4a45-be1d-ca578552721b",
+  "name": "Изяслав",
+  "last_name": "Евсеев",
+  "birthdate": "1994-08-29T15:52:10.908000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 63.3157,
+      "longitude": -132.72,
+      "district": "Карачаево - Черкесская Республика",
+      "city": "Луховицы"
+    },
+    {
+      "latitude": -48.8239,
+      "longitude": 51.7156,
+      "district": "Пермский край",
+      "city": "Терней"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Глобальный операционный специалист",
+      "graduation_year": 2017
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79320155141",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}

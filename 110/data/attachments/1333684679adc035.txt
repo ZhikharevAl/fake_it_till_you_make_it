@@ -1,0 +1,8 @@
+2025-05-08 20:50:25 [INFO] core.mock_http_client: MockHTTPClient ID 139687919674832 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-05-08 20:50:25 [INFO] tests.user.test_user_api_mocked: Тест: Получение данных пользователя без авторизации (GET /api/user) - MOK 401 [test_user_api_mocked.py:78]
+2025-05-08 20:50:25 [INFO] core.mock_http_client: MockHTTPClient ID 139687919674832 установил мок для: 'GET:/api/user' (Статус: 401). Текущие моки: ['GET:/api/user'] [mock_http_client.py:108]
+2025-05-08 20:50:25 [INFO] api.user.client: Вызов GET /api/user [client.py:99]
+2025-05-08 20:50:25 [INFO] core.mock_http_client: MockHTTPClient ID 139687919674832 ищет мок для ключа: 'GET:/api/user'. Текущие моки: ['GET:/api/user'] [mock_http_client.py:36]
+2025-05-08 20:50:25 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/user [mock_http_client.py:44]
+2025-05-08 20:50:25 [INFO] tests.user.test_user_api_mocked: Мок-ответ 401 успешно обработан [test_user_api_mocked.py:93]
+2025-05-08 20:50:25 [INFO] core.mock_http_client: MockHTTPClient ID 139687919674832 очищает моки. Было: ['GET:/api/user'] [mock_http_client.py:118]
