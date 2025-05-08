@@ -1,0 +1,40 @@
+{
+  "id": "39364137-6914-4f59-8cc3-48d8528dbe58",
+  "name": "Афиноген",
+  "last_name": "Зуев",
+  "birthdate": "2005-10-07T03:22:57.096000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 71.4647,
+      "longitude": 91.3069,
+      "district": "Хабаровский край",
+      "city": "Снежногорск (Мурм.)"
+    },
+    {
+      "latitude": 51.92,
+      "longitude": 68.8828,
+      "district": "Кемеровская область - Кузбасс",
+      "city": "Йошкар-Ола"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Генеральный маркетинговый координатор",
+      "graduation_year": 2017
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79869214164",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}

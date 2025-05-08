@@ -1,0 +1,36 @@
+INFO     tests.conftest:conftest.py:78 Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)...
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/auth
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:78 Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)...
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
+INFO     core.http_client:http_client.py:80 Received response 200 from http://localhost:4040/api/auth
+INFO     tests.conftest:conftest.py:97 Сессионный логин успешен.
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_api:test_user_api.py:35 Тест: Успешное получение данных пользователя (GET /api/user)
+INFO     api.user.client:client.py:99 Вызов GET /api/user
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user with params: None
+INFO     core.http_client:http_client.py:48 Received response 200 from http://localhost:4040/api/user
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_api:test_user_api.py:35 Тест: Успешное получение данных пользователя (GET /api/user)
+INFO     api.user.client:client.py:99 Вызов GET /api/user
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user with params: None
+INFO     core.http_client:http_client.py:48 Received response 200 from http://localhost:4040/api/user
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_api:test_user_api.py:35 Тест: Успешное получение данных пользователя (GET /api/user)
+INFO     api.user.client:client.py:99 Вызов GET /api/user
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user with params: None
+INFO     core.http_client:http_client.py:48 Received response 200 from http://localhost:4040/api/user
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_api:test_user_api.py:35 Тест: Успешное получение данных пользователя (GET /api/user)
+INFO     api.user.client:client.py:99 Вызов GET /api/user
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/user with params: None
+INFO     core.http_client:http_client.py:48 Received response 200 from http://localhost:4040/api/user
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...

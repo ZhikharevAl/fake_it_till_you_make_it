@@ -1,0 +1,6 @@
+2025-05-08 20:46:45 [INFO] tests.request.conftest: Создание UserClient... [conftest.py:14]
+2025-05-08 20:46:45 [INFO] tests.request.test_request_api: Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-8cda3d3c-b392-4cec-a467-41c30acf27ad/contribution) [test_request_api.py:220]
+2025-05-08 20:46:45 [INFO] api.request.client: Вызов POST /api/request/non-existent-8cda3d3c-b392-4cec-a467-41c30acf27ad/contribution [client.py:79]
+2025-05-08 20:46:45 [INFO] core.http_client: Sending POST request to /api/request/non-existent-8cda3d3c-b392-4cec-a467-41c30acf27ad/contribution [http_client.py:73]
+2025-05-08 20:46:45 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/request/non-existent-8cda3d3c-b392-4cec-a467-41c30acf27ad/contribution [http_client.py:80]
+2025-05-08 20:46:45 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
