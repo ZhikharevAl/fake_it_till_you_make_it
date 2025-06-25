@@ -1,0 +1,40 @@
+{
+    "id": "fa16bddd-ba8d-45ca-9ee6-e2713e969678",
+    "name": "Олег",
+    "lastName": "Макаров",
+    "birthdate": "1989-10-04T01:42:02.689Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 6.4396,
+            "longitude": 122.3253,
+            "district": "Калининградская область",
+            "city": "Снежногорск (Мурм.)"
+        },
+        {
+            "latitude": -73.993,
+            "longitude": -167.4029,
+            "district": "Ростовская область",
+            "city": "Александровск-Сахалинский"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Ведущий функциональный техник",
+            "graduationYear": 2013
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79161483250",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

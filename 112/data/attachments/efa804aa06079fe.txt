@@ -1,0 +1,14 @@
+INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution
+INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-c2beb87d-557b-4b90-9480-f9bb5be1930b/contribution

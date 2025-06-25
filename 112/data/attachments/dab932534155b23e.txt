@@ -1,0 +1,8 @@
+INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 139732342321424 инициализирован. Mocks: {}
+INFO     tests.user.test_user_api_mocked:test_user_api_mocked.py:153 Тест: Удаление из избранного без авторизации (DELETE ...) - MOK 401
+INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 139732342321424 установил мок для: 'DELETE:/api/user/favourites/any-id' (Статус: 401). Текущие моки: ['DELETE:/api/user/favourites/any-id']
+INFO     api.user.client:client.py:80 Вызов DELETE /api/user/favourites/any-id
+INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 139732342321424 ищет мок для ключа: 'DELETE:/api/user/favourites/any-id'. Текущие моки: ['DELETE:/api/user/favourites/any-id']
+INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: DELETE:/api/user/favourites/any-id
+INFO     tests.user.test_user_api_mocked:test_user_api_mocked.py:164 Мок-ответ 401 для DELETE favourites успешно обработан.
+INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 139732342321424 очищает моки. Было: ['DELETE:/api/user/favourites/any-id']
