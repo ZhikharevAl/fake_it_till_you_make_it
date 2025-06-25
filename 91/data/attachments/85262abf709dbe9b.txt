@@ -1,8 +1,0 @@
-2025-05-04 21:44:03 [INFO] core.mock_http_client: MockHTTPClient ID 140684465911840 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-04 21:44:03 [INFO] tests.request.test_request_api_mocked: Тест: Успешное внесение вклада (POST ...) - MOK Factory [test_request_api_mocked.py:151]
-2025-05-04 21:44:03 [INFO] core.mock_http_client: MockHTTPClient ID 140684465911840 установил мок для: 'POST:/api/request/mock-factory-request-789/contribution' (Статус: 200). Текущие моки: ['POST:/api/request/mock-factory-request-789/contribution'] [mock_http_client.py:108]
-2025-05-04 21:44:03 [INFO] api.request.client: Вызов POST /api/request/mock-factory-request-789/contribution [client.py:79]
-2025-05-04 21:44:03 [INFO] core.mock_http_client: MockHTTPClient ID 140684465911840 ищет мок для ключа: 'POST:/api/request/mock-factory-request-789/contribution'. Текущие моки: ['POST:/api/request/mock-factory-request-789/contribution'] [mock_http_client.py:36]
-2025-05-04 21:44:03 [INFO] core.mock_http_client: Найден и возвращен мок для: POST:/api/request/mock-factory-request-789/contribution [mock_http_client.py:44]
-2025-05-04 21:44:03 [INFO] tests.request.test_request_api_mocked: Мок-ответ o успешном вкладе получен. [test_request_api_mocked.py:160]
-2025-05-04 21:44:03 [INFO] core.mock_http_client: MockHTTPClient ID 140684465911840 очищает моки. Было: ['POST:/api/request/mock-factory-request-789/contribution'] [mock_http_client.py:118]

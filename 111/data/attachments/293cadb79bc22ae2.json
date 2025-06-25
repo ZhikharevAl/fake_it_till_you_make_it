@@ -1,0 +1,40 @@
+{
+    "id": "4622a3d3-7413-41c2-b9af-78bca058da87",
+    "name": "Виталий",
+    "lastName": "Романов",
+    "birthdate": "1991-09-21T19:31:11.678Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -58.399,
+            "longitude": 84.6931,
+            "district": "Пензенская область",
+            "city": "Холмск"
+        },
+        {
+            "latitude": -84.1797,
+            "longitude": -109.0613,
+            "district": "Томская область",
+            "city": "Уфа"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Центральный коммуникационный помощник",
+            "graduationYear": 2017
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79776121273",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
