@@ -1,7 +1,0 @@
-2025-05-04 22:39:05 [INFO] core.mock_http_client: MockHTTPClient ID 140028572093648 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-04 22:39:05 [INFO] tests.auth.test_auth_mocked: Тест: Неверный логин (Мок Factory) [test_auth_mocked.py:97]
-2025-05-04 22:39:05 [INFO] core.mock_http_client: MockHTTPClient ID 140028572093648 установил мок для: 'POST:/api/auth' (Статус: 400). Текущие моки: ['POST:/api/auth'] [mock_http_client.py:108]
-2025-05-04 22:39:05 [INFO] core.mock_http_client: MockHTTPClient ID 140028572093648 ищет мок для ключа: 'POST:/api/auth'. Текущие моки: ['POST:/api/auth'] [mock_http_client.py:36]
-2025-05-04 22:39:05 [INFO] core.mock_http_client: Найден и возвращен мок для: POST:/api/auth [mock_http_client.py:44]
-2025-05-04 22:39:05 [INFO] tests.auth.test_auth_mocked: Мок-ответ 400 (неверные креды) успешно обработан. [test_auth_mocked.py:113]
-2025-05-04 22:39:05 [INFO] core.mock_http_client: MockHTTPClient ID 140028572093648 очищает моки. Было: ['POST:/api/auth'] [mock_http_client.py:118]

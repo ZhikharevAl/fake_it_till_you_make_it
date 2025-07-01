@@ -1,8 +1,0 @@
-2025-05-04 22:39:06 [INFO] core.mock_http_client: MockHTTPClient ID 139676241248976 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-04 22:39:06 [INFO] tests.request.test_request_api_mocked: Тест: Ошибка сервера при получении всех запросов (GET /api/request) - MOK 500 [test_request_api_mocked.py:72]
-2025-05-04 22:39:06 [INFO] core.mock_http_client: MockHTTPClient ID 139676241248976 установил мок для: 'GET:/api/request' (Статус: 500). Текущие моки: ['GET:/api/request'] [mock_http_client.py:108]
-2025-05-04 22:39:06 [INFO] api.request.client: Вызов GET /api/request [client.py:28]
-2025-05-04 22:39:06 [INFO] core.mock_http_client: MockHTTPClient ID 139676241248976 ищет мок для ключа: 'GET:/api/request'. Текущие моки: ['GET:/api/request'] [mock_http_client.py:36]
-2025-05-04 22:39:06 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/request [mock_http_client.py:44]
-2025-05-04 22:39:06 [INFO] tests.request.test_request_api_mocked: Мок-ответ 500 для GET /api/request обработан. [test_request_api_mocked.py:84]
-2025-05-04 22:39:06 [INFO] core.mock_http_client: MockHTTPClient ID 139676241248976 очищает моки. Было: ['GET:/api/request'] [mock_http_client.py:118]

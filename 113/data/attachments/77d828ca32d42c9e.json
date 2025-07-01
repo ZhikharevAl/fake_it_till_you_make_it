@@ -1,0 +1,40 @@
+{
+    "id": "4b61929e-60c5-4f4d-b54c-1104552bd8ec",
+    "name": "Пахом",
+    "lastName": "Горбачев",
+    "birthdate": "2002-10-10T12:24:45.064Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 35.1273,
+            "longitude": -2.9674,
+            "district": "Камчатский край",
+            "city": "Агата"
+        },
+        {
+            "latitude": -13.184,
+            "longitude": 6.8337,
+            "district": "Рязанская область",
+            "city": "Чайковский"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Районный интеграционный архитектор",
+            "graduationYear": 2008
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79858933531",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
