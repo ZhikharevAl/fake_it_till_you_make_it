@@ -1,8 +1,0 @@
-2025-05-04 22:42:07 [INFO] core.mock_http_client: MockHTTPClient ID 140082333523472 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-04 22:42:07 [INFO] tests.user.test_user_api_mocked: Тест: Успешное получение данных пользователя (GET /api/user) - MOK Factory [test_user_api_mocked.py:55]
-2025-05-04 22:42:07 [INFO] core.mock_http_client: MockHTTPClient ID 140082333523472 установил мок для: 'GET:/api/user' (Статус: 200). Текущие моки: ['GET:/api/user'] [mock_http_client.py:108]
-2025-05-04 22:42:07 [INFO] api.user.client: Вызов GET /api/user [client.py:99]
-2025-05-04 22:42:07 [INFO] core.mock_http_client: MockHTTPClient ID 140082333523472 ищет мок для ключа: 'GET:/api/user'. Текущие моки: ['GET:/api/user'] [mock_http_client.py:36]
-2025-05-04 22:42:07 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/user [mock_http_client.py:44]
-2025-05-04 22:42:07 [INFO] tests.user.test_user_api_mocked: Мок-данные пользователя успешно получены: ID=mock-user-factory-456 [test_user_api_mocked.py:64]
-2025-05-04 22:42:07 [INFO] core.mock_http_client: MockHTTPClient ID 140082333523472 очищает моки. Было: ['GET:/api/user'] [mock_http_client.py:118]

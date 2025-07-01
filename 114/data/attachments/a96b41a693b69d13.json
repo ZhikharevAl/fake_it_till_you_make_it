@@ -1,0 +1,40 @@
+{
+    "id": "25dd44f7-ea61-4fc6-b8d5-f1aa73235f9d",
+    "name": "Руслан",
+    "lastName": "Большаков",
+    "birthdate": "1995-06-26T18:17:27.250Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 55.7876,
+            "longitude": -128.7393,
+            "district": "Брянская область",
+            "city": "Семлячики"
+        },
+        {
+            "latitude": 30.906,
+            "longitude": 10.9613,
+            "district": "Нижегородская область",
+            "city": "Асино"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Центральный функциональный агент",
+            "graduationYear": 2011
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79902106275",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
