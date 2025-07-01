@@ -51,8 +51,8 @@ class MockHTTPClient(HTTPClient):
     def get(
         self,
         endpoint: str,
-        headers: dict[str, Any] | None = None,  # noqa: ARG002
-        params: dict[str, Any] | None = None,  # noqa: ARG002
+        headers: dict[str, Any] | None = None,
+        params: dict[str, Any] | None = None,
         **kwargs: dict,
     ) -> APIResponse:
         """Перехватывает GET запросы и возвращает мок-ответ."""
@@ -61,9 +61,9 @@ class MockHTTPClient(HTTPClient):
     def post(
         self,
         endpoint: str,
-        headers: dict[str, Any] | None = None,  # noqa: ARG002
-        data: dict[str, Any] | str | bytes | None = None,  # noqa: ARG002
-        json: dict[str, Any] | None = None,  # noqa: ARG002
+        headers: dict[str, Any] | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: dict[str, Any] | None = None,
         **kwargs: dict,
     ) -> APIResponse:
         """Перехватывает POST запросы и возвращает мок-ответ."""
@@ -72,9 +72,9 @@ class MockHTTPClient(HTTPClient):
     def put(
         self,
         endpoint: str,
-        headers: dict[str, Any] | None = None,  # noqa: ARG002
-        data: dict[str, Any] | str | bytes | None = None,  # noqa: ARG002
-        json: dict[str, Any] | None = None,  # noqa: ARG002
+        headers: dict[str, Any] | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: dict[str, Any] | None = None,
         **kwargs: dict,
     ) -> APIResponse:
         """Перехватывает PUT запросы и возвращает мок-ответ."""
@@ -83,8 +83,8 @@ class MockHTTPClient(HTTPClient):
     def delete(
         self,
         endpoint: str,
-        headers: dict[str, Any] | None = None,  # noqa: ARG002
-        params: dict[str, Any] | None = None,  # noqa: ARG002
+        headers: dict[str, Any] | None = None,
+        params: dict[str, Any] | None = None,
         **kwargs: dict,
     ) -> APIResponse:
         """Перехватывает DELETE запросы и возвращает мок-ответ."""
@@ -93,9 +93,9 @@ class MockHTTPClient(HTTPClient):
     def patch(
         self,
         endpoint: str,
-        headers: dict[str, Any] | None = None,  # noqa: ARG002
-        data: dict[str, Any] | str | bytes | None = None,  # noqa: ARG002
-        json: dict[str, Any] | None = None,  # noqa: ARG002
+        headers: dict[str, Any] | None = None,
+        data: dict[str, Any] | str | bytes | None = None,
+        json: dict[str, Any] | None = None,
         **kwargs: dict,
     ) -> APIResponse:
         """Перехватывает PATCH запросы и возвращает мок-ответ."""
