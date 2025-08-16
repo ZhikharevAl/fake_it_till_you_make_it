@@ -1,0 +1,40 @@
+{
+    "id": "ce339ded-1371-43c7-ac8c-98394c73f39a",
+    "name": "Платон",
+    "lastName": "Елисеев",
+    "birthdate": "1997-05-04T02:09:35.268Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 52.0315,
+            "longitude": -136.6872,
+            "district": "Хабаровский край",
+            "city": "Котельнич"
+        },
+        {
+            "latitude": 34.6566,
+            "longitude": 136.7817,
+            "district": "Нижегородская область",
+            "city": "Дудинка"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Ведущий операционный администратор",
+            "graduationYear": 2015
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79525410468",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

@@ -1,0 +1,8 @@
+2025-08-16 19:38:40 [INFO] tests.request.test_request_api: Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5) [test_request_api.py:148]
+2025-08-16 19:38:40 [INFO] api.request.client: Вызов GET /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 [client.py:63]
+2025-08-16 19:38:40 [INFO] core.http_client: Sending GET request to /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 with params: None [http_client.py:44]
+2025-08-16 19:38:40 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 [http_client.py:48]
+2025-08-16 19:38:40 [INFO] tests.request.test_request_api: Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5) [test_request_api.py:148]
+2025-08-16 19:38:40 [INFO] api.request.client: Вызов GET /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 [client.py:63]
+2025-08-16 19:38:40 [INFO] core.http_client: Sending GET request to /api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 with params: None [http_client.py:44]
+2025-08-16 19:38:40 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-f174dde8-ff99-4318-a7f3-36f2dac486f5 [http_client.py:48]

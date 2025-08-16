@@ -1,0 +1,7 @@
+2025-08-16 19:38:41 [INFO] core.mock_http_client: MockHTTPClient ID 139703584419440 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-08-16 19:38:41 [INFO] tests.user.test_user_favourites_api_mocked: Тест: Успешное получение избранного (GET /api/user/favourites) - MOK Factory [test_user_favourites_api_mocked.py:44]
+2025-08-16 19:38:41 [INFO] core.mock_http_client: MockHTTPClient ID 139703584419440 установил мок для: 'GET:/api/user/favourites' (Статус: 200). Текущие моки: ['GET:/api/user/favourites'] [mock_http_client.py:108]
+2025-08-16 19:38:41 [INFO] core.mock_http_client: MockHTTPClient ID 139703584419440 ищет мок для ключа: 'GET:/api/user/favourites'. Текущие моки: ['GET:/api/user/favourites'] [mock_http_client.py:36]
+2025-08-16 19:38:41 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/user/favourites [mock_http_client.py:44]
+2025-08-16 19:38:41 [INFO] tests.user.test_user_favourites_api_mocked: Мок-список избранного получен: ['factory-req-1', 'factory-req-2'] [test_user_favourites_api_mocked.py:50]
+2025-08-16 19:38:41 [INFO] core.mock_http_client: MockHTTPClient ID 139703584419440 очищает моки. Было: ['GET:/api/user/favourites'] [mock_http_client.py:118]
