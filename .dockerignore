@@ -41,3 +41,8 @@ build/
 
 # Другие специфичные для проекта исключения
 # node_modules/
+
+
+charity-api.tar
+charity-tests.tar
+charity-tests.log
