@@ -13,6 +13,11 @@ wheels/
 
 # Test reports
 allure-results
+allure-report
 
 # VS Code settings
 .vscode/
+
+charity-api.tar
+charity-tests.tar
+charity-tests.log
