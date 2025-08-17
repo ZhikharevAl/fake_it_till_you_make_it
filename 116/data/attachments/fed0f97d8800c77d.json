@@ -1,0 +1,40 @@
+{
+    "id": "cbefdbd5-1f1c-4b79-a90e-a59d68783770",
+    "name": "Тимофей",
+    "lastName": "Кондратьев",
+    "birthdate": "1999-07-20T10:37:43.639Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 0.0333,
+            "longitude": 150.9885,
+            "district": "г. Москва",
+            "city": "Кулунда"
+        },
+        {
+            "latitude": -83.3591,
+            "longitude": -102.3389,
+            "district": "Калужская область",
+            "city": "Обоянь"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Ведущий операционный дизайнер",
+            "graduationYear": 2002
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79770291951",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

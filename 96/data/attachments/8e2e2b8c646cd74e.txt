@@ -1,5 +1,0 @@
-2025-05-05 21:05:36 [INFO] tests.request.conftest: Создание UserClient... [conftest.py:14]
-2025-05-05 21:05:36 [INFO] tests.request.test_request_api: Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-2be6b7b9-ba4e-4263-a792-eea3057d991b/contribution) [test_request_api.py:220]
-2025-05-05 21:05:36 [INFO] api.request.client: Вызов POST /api/request/non-existent-2be6b7b9-ba4e-4263-a792-eea3057d991b/contribution [client.py:79]
-2025-05-05 21:05:36 [INFO] core.http_client: Sending POST request to /api/request/non-existent-2be6b7b9-ba4e-4263-a792-eea3057d991b/contribution [http_client.py:73]
-2025-05-05 21:05:36 [INFO] core.http_client: Received response 403 from http://localhost:4040/api/request/non-existent-2be6b7b9-ba4e-4263-a792-eea3057d991b/contribution [http_client.py:80]
