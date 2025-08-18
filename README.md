@@ -17,8 +17,10 @@
 * [Запуск тестов](#запуск-тестов)
   * [Локальный запуск pytest](#локальный-запуск-pytest)
   * [Запуск в контейнерах Podman (сеть)](#запуск-в-контейнерах-podman-сеть)
+  * [Развертывание в Kubernetes](#развертывание-в-kubernetes)
   * [Просмотр отчетов](#просмотр-отчетов)
 * [Тестирование с Моками](#тестирование-с-моками)
+* [Мониторинг и наблюдаемость](#мониторинг-и-наблюдаемость)
 * [CI/CD](#инструменты-контроля-качества)
 * [Планы и улучшения](#планы-и-улучшения)
 
@@ -47,7 +49,9 @@
 * **Отчетность:** Allure Report
 * **Мокирование:** `unittest.mock` (через `MockHTTPClient` и `MockFactory`)
 * **Менеджер пакетов:** uv
-* **Контейнеризация:** Podman
+* **Контейнеризация:** Podman / Docker
+* **Оркестрация:** Kubernetes
+* **Мониторинг:** Prometheus + Grafana
 * **CI/CD:** GitHub Actions
 
 ## Структура проекта
@@ -63,6 +67,16 @@
 │   └── user/
 ├── config/           # Конфигурационные файлы (базовый URL, таймауты)
 ├── core/             # Базовые компоненты фреймворка (HTTP клиент, MockHTTPClient)
+├── infra/            # Инфраструктурные конфигурации
+│   ├── k8s/          # Kubernetes манифесты и Helm чарт
+│   │   ├── Chart.yaml                      # Helm чарт для Charity API
+│   │   ├── charity-api-deployment.yaml     # Deployment и Service для API
+│   │   ├── charity-api-servicemonitor.yaml # ServiceMonitor для Prometheus
+│   │   ├── charity-tests-job.yaml          # Job для запуска тестов в K8s
+│   │   └── prometheus-rbac.yaml            # RBAC для Prometheus
+│   └── monitoring/   # Конфигурации мониторинга
+│       ├── values-grafana.yaml             # Helm values для Grafana
+│       └── values-prometheus.yaml          # Helm values для Prometheus
 ├── tests/            # Тестовые сценарии pytest
 │   ├── auth/         # Тесты аутентификации (+ test_auth_api_mocked.py)
 │   ├── mocks/        # Инфраструктура для мок-тестов (фикстуры, хендлеры, данные)
@@ -109,7 +123,7 @@
 
 6. **Настроить окружение:**
     * Создайте файл `.env` из `.env.example` (если его нет).
-    * Заполните `.env` необходимыми значениями: `API_BASE_URL`, `TEST_USER_LOGIN`, `TEST_USER_PASSWORD`, `INVALID_USER_PASSWORD`. **Примечание:** `API_BASE_URL` будет разным для локального запуска и запуска в Podman (см. ниже).
+    * Заполните `.env` необходимыми значениями: `API_BASE_URL`, `TEST_USER_LOGIN`, `TEST_USER_PASSWORD`, `INVALID_USER_PASSWORD`. **Примечание:** `API_BASE_URL` будет разным для локального запуска, запуска в Podman и Kubernetes (см. ниже).
 
 ## Запуск тестов
 
@@ -172,23 +186,11 @@
     podman run -d --rm --network my-test-net --name api-server api-server-image:local
     ```
 
-    * `-d`: фоновый режим.
-    * `--rm`: удалить контейнер после остановки.
-    * `--network my-test-net`: подключить к сети.
-    * `--name api-server`: дать имя контейнеру (важно для `API_BASE_URL`).
-    * `api-server-image:local`: **Замените** на имя и тег вашего локально собранного образа сервера.
-    * *(Опционально)* Добавьте `-p 4040:4040`, если хотите иметь доступ к API и с хост-машины.
-
 4. **Запустите контейнер с тестами** в той же сети, передав `.env` файл:
 
     ```bash
     podman run --rm --network my-test-net --env-file .env charity-tests-runner:local
     ```
-
-    * `--network my-test-net`: подключить к той же сети.
-    * `--env-file .env`: передать переменные из `.env` файла.
-    * `charity-tests-runner:local`: **Замените** на имя и тег вашего локально собранного образа тестов.
-    * *(Опционально)* Добавьте `-v $(pwd)/allure-results:/app/allure-results`, чтобы сохранить Allure результаты на хост.
 
 5. **Остановите контейнер сервера** после завершения тестов:
 
@@ -196,32 +198,102 @@
     podman stop api-server
     ```
 
-<pre lang="markdown">
-┌────────────────────────────┐
-│    Podman Network:         │
-│      my-test-net           │
-│                            │
-│  ┌──────────────────────┐  │
-│  │  Container:          │  │
-│  │  api-server          │  │
-│  │  Image:              │  │
-│  │  api-server-image:   │  │
-│  │  local               │  │
-│  │  Port: 4040          │  │
-│  └──────────────────────┘  │
-│              ▲             │
-│              │             │  HTTP Requests
-│              ▼             │
-│  ┌──────────────────────┐  │
-│  │  Container:          │  │
-│  │  charity-tests-runner│  │
-│  │  Image:              │  │
-│  │  charity-tests-runner│  │
-│  │  :local              │  │
-│  └──────────────────────┘  │
-│                            │
-└────────────────────────────┘
-</pre>
+### Развертывание в Kubernetes
+
+Проект поддерживает развертывание в кластере Kubernetes с полным стеком мониторинга.
+
+**Предварительные требования:**
+
+* Установлен `kubectl` и настроен доступ к кластеру Kubernetes
+* Установлен Helm 3
+* Собраны Docker образы для API и тестов:
+
+  ```bash
+  # Соберите образ API (в репозитории API)
+  docker build -t localhost/charity-api:latest .
+
+  # Соберите образ тестов (в этом репозитории)
+  docker build -t localhost/charity-tests:latest -f Containerfile .
+  ```
+
+**Развертывание API:**
+
+1. **Примените манифесты для API:**
+
+    ```bash
+    kubectl apply -f infra/k8s/charity-api-deployment.yaml
+    ```
+
+2. **Создайте секрет для тестовых данных:**
+
+    ```bash
+    kubectl create secret generic charity-tests-secret \
+      --from-literal=TEST_USER_LOGIN="your_test_user" \
+      --from-literal=TEST_USER_PASSWORD="your_test_password" \
+      --from-literal=INVALID_USER_PASSWORD="invalid_password"
+    ```
+
+3. **Запустите тесты как Job:**
+
+    ```bash
+    kubectl apply -f infra/k8s/charity-tests-job.yaml
+    ```
+
+4. **Проверьте результаты тестов:**
+
+    ```bash
+    kubectl logs job/charity-tests
+    ```
+
+**Развертывание мониторинга:**
+
+1. **Установите kube-prometheus-stack:**
+
+    ```bash
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    helm repo update
+
+    # Установка Prometheus
+    helm install kp-stack prometheus-community/kube-prometheus-stack \
+      -f infra/monitoring/values-prometheus.yaml \
+      --namespace monitoring --create-namespace
+
+    # Установка Grafana (опционально, если не входит в kube-prometheus-stack)
+    helm install grafana grafana/grafana \
+      -f infra/monitoring/values-grafana.yaml \
+      --namespace monitoring
+    ```
+
+2. **Примените RBAC для Prometheus:**
+
+    ```bash
+    kubectl apply -f infra/k8s/prometheus-rbac.yaml
+    ```
+
+3. **Активируйте мониторинг API:**
+
+    ```bash
+    kubectl apply -f infra/k8s/charity-api-servicemonitor.yaml
+    ```
+
+4. **Получите доступ к Grafana:**
+
+    ```bash
+    kubectl port-forward -n monitoring svc/grafana 3000:80
+    # Откройте http://localhost:3000 в браузере
+    # Логин: admin, пароль: см. в секрете grafana
+    ```
+
+**Использование Helm Chart:**
+
+Альтернативно, вы можете использовать Helm Chart:
+
+```bash
+# Установка API через Helm
+helm install charity-api ./infra/k8s \
+  --set image.tag=latest \
+  --set image.repository=localhost/charity-api
+```
 
 ### Просмотр отчетов
 
@@ -247,6 +319,46 @@
 * **Структура:** Инфраструктура для моков (фикстуры для `MockHTTPClient` и `MockFactory`, мок-данные) находится в папке `tests/mocks/`. Тестовые файлы с моками (например, `test_auth_api_mocked.py`) используют фикстуры мокированных API клиентов (например, `mock_auth_client`) и `MockFactory` для настройки ожидаемых ответов перед вызовом методов клиента.
 * **Запуск:** Мок-тесты помечены маркером `mocked` (`pytest -m mocked`).
 
+## Мониторинг и наблюдаемость
+
+Проект включает полный стек мониторинга для отслеживания производительности API и результатов тестирования:
+
+### Компоненты мониторинга
+
+* **Prometheus**: Сбор метрик из API приложения через endpoint `/metrics`
+* **Grafana**: Визуализация метрик и создание дашбордов
+* **ServiceMonitor**: Автоматическое обнаружение сервисов для мониторинга
+
+### Настройка мониторинга
+
+1. **Метрики API**: API должен экспортировать метрики на endpoint `/metrics` (Prometheus format)
+2. **ServiceMonitor**: Автоматически обнаруживает API сервис и настраивает сбор метрик каждые 15 секунд
+3. **Health checks**: Kubernetes проверяет здоровье API через endpoint `/health`
+
+### Доступ к мониторингу
+
+* **Prometheus UI**: `kubectl port-forward -n monitoring svc/kp-stack-kube-prometheus-s-prometheus 9090:9090`
+* **Grafana UI**: `kubectl port-forward -n monitoring svc/grafana 3000:80`
+* **API Metrics**: `kubectl port-forward svc/charity-api 4040:4040` → `http://localhost:4040/metrics`
+
+### Пример метрик для мониторинга
+
+```prometheus
+# Количество HTTP запросов
+http_requests_total{method="GET",status="200",endpoint="/api/user"}
+
+# Время отклика API
+http_request_duration_seconds{method="POST",endpoint="/api/auth"}
+
+# Активные соединения
+active_connections
+
+# Ошибки аутентификации
+auth_failures_total
+```
+
+![Grafana Dashboard](./attachment/grafana.png)
+
 ## Инструменты контроля качества
 
 Проект использует GitHub Actions для автоматической проверки качества кода (linting, formatting, type checking) и запуска тестов при каждом пуше. Используется Podman для запуска интеграционных тестов в контейнеризованном окружении. Результаты тестов и отчет о покрытии загружаются автоматически. Allure отчет генерируется и деплоится на GitHub Pages.
@@ -262,9 +374,45 @@
 ![Codecov Coverage](./attachment/codecov.png)
 ![Codecov Coverage](./attachment/codecov_05-05-2025.png)
 
+## Архитектура развертывания
+
+```mermaid
+graph TB
+    subgraph "Kubernetes Cluster"
+        subgraph "default namespace"
+            API[charity-api<br/>Deployment]
+            SVC[charity-api<br/>Service]
+            JOB[charity-tests<br/>Job]
+        end
+
+        subgraph "monitoring namespace"
+            PROM[Prometheus<br/>Server]
+            GRAF[Grafana<br/>Dashboard]
+            SM[ServiceMonitor<br/>charity-api]
+        end
+
+        API --> SVC
+        JOB -.->|HTTP Tests| SVC
+        SM -.->|Scrape /metrics| SVC
+        PROM -.->|Pull metrics| SM
+        GRAF -.->|Query data| PROM
+    end
+
+    subgraph "External"
+        DEV[Developer]
+        CI[GitHub Actions]
+    end
+
+    DEV -.->|kubectl apply| API
+    DEV -.->|helm install| PROM
+    CI -.->|Deploy & Test| JOB
+```
+
 ## Планы и улучшения
 
 * **Стабилизация API:** Основная цель — добиться стабильной работы реального API сервера, чтобы убрать метки `xfail` из интеграционных тестов.
 * **Расширение покрытия:** Добавить больше негативных тестов, тестов на граничные значения для всех эндпоинтов (как интеграционных, так и моков).
 * **Улучшение обработки данных:** Использовать фабрики данных или `faker` для генерации тестовых данных, особенно в моках.
-* **Визуализация результатов:** Рассмотреть интеграцию с Grafana (через TSDB или Allure TestOps) для отслеживания динамики качества тестов.
+* **Автоскейлинг:** Настройка HPA (Horizontal Pod Autoscaler) для API при увеличении нагрузки.
+* **Безопасность:** Добавление Network Policies и Pod Security Standards.
+* **Helm Charts:** Развитие Helm Chart для упрощения развертывания всего стека.
