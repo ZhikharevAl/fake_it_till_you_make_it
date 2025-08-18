@@ -1,0 +1,20 @@
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-32c138d8-551b-4d53-b8ee-33f7333f0abf

@@ -1,0 +1,12 @@
+INFO     tests.conftest:conftest.py:78 Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)...
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
+INFO     core.http_client:http_client.py:80 Received response 200 from http://localhost:4040/api/auth
+INFO     tests.conftest:conftest.py:97 Сессионный логин успешен.
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.test_user_api:test_user_api.py:153 Тест: Удаление несуществующего ID из избранного (DELETE .../non-existent-1389eea3-7a59-43d0-b78a-ce58701555d9)
+INFO     api.user.client:client.py:80 Вызов DELETE /api/user/favourites/non-existent-1389eea3-7a59-43d0-b78a-ce58701555d9
+INFO     core.http_client:http_client.py:131 Sending DELETE request to /api/user/favourites/non-existent-1389eea3-7a59-43d0-b78a-ce58701555d9
+INFO     core.http_client:http_client.py:135 Received response 200 from http://localhost:4040/api/user/favourites/non-existent-1389eea3-7a59-43d0-b78a-ce58701555d9
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...

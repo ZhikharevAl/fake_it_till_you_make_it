@@ -1,0 +1,40 @@
+{
+    "id": "7a008a66-7ab2-4b76-9e21-1a0af8a85325",
+    "name": "Серафим",
+    "lastName": "Зуев",
+    "birthdate": "2007-09-11T22:31:45.385Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -89.9033,
+            "longitude": -164.0251,
+            "district": "Республика Бурятия",
+            "city": "Байкальск"
+        },
+        {
+            "latitude": -79.1303,
+            "longitude": 105.6024,
+            "district": "Приморский край",
+            "city": "Владимир"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Главный коммуникационный менеджер",
+            "graduationYear": 2011
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79120611779",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "mock-user-factory-456",
+  "name": "Фабрика",
+  "last_name": "Моков",
+  "birthdate": "2025-08-18T10:06:25.218288Z",
+  "status": "Опытный",
+  "base_locations": [],
+  "educations": [],
+  "additional_info": "Инфо (мок Factory)",
+  "contacts": {
+    "email": "factory@example.com",
+    "phone": "+79994445566",
+    "social": {
+      "telegram": null,
+      "whatsapp": null,
+      "vk": null
+    }
+  },
+  "favourite_requests": [
+    "factory-req-1"
+  ]
+}

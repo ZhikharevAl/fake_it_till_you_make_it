@@ -1,0 +1,7 @@
+2025-08-18 10:06:27 [INFO] core.mock_http_client: MockHTTPClient ID 140372452115728 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-08-18 10:06:27 [INFO] tests.user.test_user_api_mocked: Тест: Удаление несуществующего ID из избранного (DELETE ...) - MOK 400 [test_user_api_mocked.py:128]
+2025-08-18 10:06:27 [INFO] core.mock_http_client: MockHTTPClient ID 140372452115728 установил мок для: 'DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71' (Статус: 400). Текущие моки: ['DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71'] [mock_http_client.py:108]
+2025-08-18 10:06:27 [INFO] api.user.client: Вызов DELETE /api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71 [client.py:80]
+2025-08-18 10:06:27 [INFO] core.mock_http_client: MockHTTPClient ID 140372452115728 ищет мок для ключа: 'DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71'. Текущие моки: ['DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71'] [mock_http_client.py:36]
+2025-08-18 10:06:27 [INFO] core.mock_http_client: Найден и возвращен мок для: DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71 [mock_http_client.py:44]
+2025-08-18 10:06:27 [INFO] core.mock_http_client: MockHTTPClient ID 140372452115728 очищает моки. Было: ['DELETE:/api/user/favourites/non-existent-fav-c3c1c3ea-bdfa-49d9-89f8-c2919ffcde71'] [mock_http_client.py:118]
