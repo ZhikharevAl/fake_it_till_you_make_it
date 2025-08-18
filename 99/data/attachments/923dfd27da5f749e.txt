@@ -1,4 +1,0 @@
-INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-21116e98-3d71-4e31-93a9-75e323c42fff/contribution)
-INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-21116e98-3d71-4e31-93a9-75e323c42fff/contribution
-INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-21116e98-3d71-4e31-93a9-75e323c42fff/contribution
-INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-21116e98-3d71-4e31-93a9-75e323c42fff/contribution

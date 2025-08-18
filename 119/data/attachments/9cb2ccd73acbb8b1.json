@@ -1,0 +1,40 @@
+{
+    "id": "f87ff806-cdbd-494d-bfc8-e94fb1ff5157",
+    "name": "Святослав",
+    "lastName": "Александров",
+    "birthdate": "1991-09-04T08:52:42.822Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -60.3781,
+            "longitude": 88.6534,
+            "district": "Республика Марий Эл",
+            "city": "Калининград"
+        },
+        {
+            "latitude": 6.4209,
+            "longitude": 50.4373,
+            "district": "Ульяновская область",
+            "city": "Щельяюр"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Центральный страховой руководитель",
+            "graduationYear": 2012
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79424445982",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
