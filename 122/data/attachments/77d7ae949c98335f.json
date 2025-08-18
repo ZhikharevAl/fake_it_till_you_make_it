@@ -1,0 +1,40 @@
+{
+    "id": "08413a10-ee51-4186-bf1a-5155f7b2602b",
+    "name": "Порфирий",
+    "lastName": "Кабанов",
+    "birthdate": "1998-05-10T15:41:33.961Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 38.2033,
+            "longitude": 169.2913,
+            "district": "Орловская область",
+            "city": "Щельяюр"
+        },
+        {
+            "latitude": 71.4595,
+            "longitude": -105.3267,
+            "district": "Ульяновская область",
+            "city": "Нязепетровск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Генеральный оптимизационный планировщик",
+            "graduationYear": 2010
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79824323500",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
