@@ -1,0 +1,29 @@
+# prometheus-rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: prometheus-charity-api
+rules:
+- apiGroups: [""]
+  resources:
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["monitoring.coreos.com"]
+  resources:
+  - servicemonitors
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus-charity-api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus-charity-api
+subjects:
+- kind: ServiceAccount
+  name: kp-stack-kube-prometheus-s-prometheus
+  namespace: monitoring

@@ -1,0 +1,19 @@
+# values-prometheus.yaml
+prometheus:
+  prometheusSpec:
+    # Разрешает поиск ServiceMonitor во всех namespace
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+    retention: 15d
+    retentionSize: 50GiB
+
+    resources:
+      requests:
+        memory: 2Gi
+        cpu: 1000m
+      limits:
+        memory: 4Gi
+        cpu: 2000m
+
+    additionalScrapeConfigs: []

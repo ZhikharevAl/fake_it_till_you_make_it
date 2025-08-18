@@ -15,4 +15,4 @@ RUN uv venv && \
 
 COPY . .
 
-CMD ["/app/.venv/bin/python", "-m", "pytest"]
+CMD ["/app/.venv/bin/python","-m","pytest","-v","--tb=short"]
