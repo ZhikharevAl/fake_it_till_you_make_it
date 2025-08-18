@@ -1,4 +1,3 @@
-# values-prometheus.yaml
 prometheus:
   prometheusSpec:
     # Разрешает поиск ServiceMonitor во всех namespace
