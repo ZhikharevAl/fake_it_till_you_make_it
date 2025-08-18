@@ -1,0 +1,26 @@
+INFO     tests.conftest:conftest.py:78 Попытка логина для получения сессионного токена (пользователь: testUser4@test.com)...
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/auth
+INFO     core.http_client:http_client.py:80 Received response 200 from http://localhost:4040/api/auth
+INFO     tests.conftest:conftest.py:97 Сессионный логин успешен.
+INFO     tests.conftest:conftest.py:125 
+[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)...
+INFO     tests.user.conftest:conftest.py:17 Setup: Добавление test-fav-e38f3e63-5dd9-4054-952c-0b319cdf6abd в избранное...
+INFO     api.user.client:client.py:61 Вызов POST /api/user/favourites c payload: request_id='test-fav-e38f3e63-5dd9-4054-952c-0b319cdf6abd'
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/user/favourites
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/user/favourites
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+ERROR    tests.user.conftest:conftest.py:25 Setup: He удалось добавить элемент test-fav-e38f3e63-5dd9-4054-952c-0b319cdf6abd в избранное
+Traceback (most recent call last):
+  File "/app/tests/user/conftest.py", line 20, in setup_favourite
+    response = authenticated_user_client.add_to_favourites(payload=payload, expected_status=200)  # type: ignore
+  File "/app/.venv/lib/python3.13/site-packages/allure_commons/_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "/app/api/user/client.py", line 63, in add_to_favourites
+    processed_response = self._handle_response(response, expected_status)
+  File "/app/api/base_api.py", line 69, in _handle_response
+    assert response.status == expected_status, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: The status was pending 200, but received 500. URL: http://localhost:4040/api/user/favourites
+Body of the answer:
+Planned Server Error
+INFO     tests.conftest:conftest.py:133 [Fixture] Уничтожение авторизованного APIRequestContext...

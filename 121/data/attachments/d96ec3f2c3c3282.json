@@ -1,0 +1,40 @@
+{
+  "id": "27edb077-8a93-4e69-a33f-4c770a0285b3",
+  "name": "Панфил",
+  "last_name": "Архипов",
+  "birthdate": "1990-10-12T19:47:13.034000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -70.5684,
+      "longitude": -117.3811,
+      "district": "Республика Татарстан",
+      "city": "Сибай"
+    },
+    {
+      "latitude": 85.3627,
+      "longitude": 69.9277,
+      "district": "Краснодарский край",
+      "city": "Вологда"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Региональный интеграционный руководитель",
+      "graduation_year": 2000
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79475679195",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}

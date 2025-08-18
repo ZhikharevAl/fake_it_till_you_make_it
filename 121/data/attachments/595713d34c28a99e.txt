@@ -1,0 +1,13 @@
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674 with params: None
+INFO     core.http_client:http_client.py:48 Received response 500 from http://localhost:4040/api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-c74de1fa-a915-4940-b6d2-54d8a5042674
