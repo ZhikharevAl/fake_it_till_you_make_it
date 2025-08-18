@@ -1,9 +1,0 @@
-INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
-INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution)
-INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution
-INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution
-INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution
-INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution)
-INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution
-INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution
-INFO     core.http_client:http_client.py:80 Received response 403 from http://localhost:4040/api/request/non-existent-d1e20479-6714-4b26-a25e-46624a941c01/contribution

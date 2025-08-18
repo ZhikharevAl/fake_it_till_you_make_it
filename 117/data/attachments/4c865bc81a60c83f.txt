@@ -1,0 +1,5 @@
+INFO     tests.request.test_request_api:test_request_api.py:220 Тест: Внесение вклада в несуществующий запрос (POST /api/request/non-existent-e74d0ee4-03b7-43b9-9536-ccceab04456c/contribution)
+INFO     api.request.client:client.py:79 Вызов POST /api/request/non-existent-e74d0ee4-03b7-43b9-9536-ccceab04456c/contribution
+INFO     core.http_client:http_client.py:73 Sending POST request to /api/request/non-existent-e74d0ee4-03b7-43b9-9536-ccceab04456c/contribution
+INFO     core.http_client:http_client.py:80 Received response 500 from http://localhost:4040/api/request/non-existent-e74d0ee4-03b7-43b9-9536-ccceab04456c/contribution
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.

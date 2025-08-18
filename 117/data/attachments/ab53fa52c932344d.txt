@@ -1,0 +1,8 @@
+2025-08-18 08:51:05 [INFO] core.mock_http_client: MockHTTPClient ID 140282770293424 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-08-18 08:51:05 [INFO] tests.user.test_user_api_mocked: Тест: Успешное удаление из избранного (DELETE ...) - MOK [test_user_api_mocked.py:106]
+2025-08-18 08:51:05 [INFO] core.mock_http_client: MockHTTPClient ID 140282770293424 установил мок для: 'DELETE:/api/user/favourites/factory-req-1' (Статус: 200). Текущие моки: ['DELETE:/api/user/favourites/factory-req-1'] [mock_http_client.py:108]
+2025-08-18 08:51:05 [INFO] api.user.client: Вызов DELETE /api/user/favourites/factory-req-1 [client.py:80]
+2025-08-18 08:51:05 [INFO] core.mock_http_client: MockHTTPClient ID 140282770293424 ищет мок для ключа: 'DELETE:/api/user/favourites/factory-req-1'. Текущие моки: ['DELETE:/api/user/favourites/factory-req-1'] [mock_http_client.py:36]
+2025-08-18 08:51:05 [INFO] core.mock_http_client: Найден и возвращен мок для: DELETE:/api/user/favourites/factory-req-1 [mock_http_client.py:44]
+2025-08-18 08:51:05 [INFO] tests.user.test_user_api_mocked: Мок-ответ o успешном удалении получен. [test_user_api_mocked.py:115]
+2025-08-18 08:51:05 [INFO] core.mock_http_client: MockHTTPClient ID 140282770293424 очищает моки. Было: ['DELETE:/api/user/favourites/factory-req-1'] [mock_http_client.py:118]
