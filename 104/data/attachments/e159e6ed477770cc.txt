@@ -1,7 +1,0 @@
-2025-05-05 23:40:04 [INFO] core.mock_http_client: MockHTTPClient ID 140412583904528 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-05 23:40:04 [INFO] tests.request.test_request_api_mocked: Тест: Получение деталей несуществующего запроса (GET /api/request/{id}) - MOK 404 [test_request_api_mocked.py:123]
-2025-05-05 23:40:04 [INFO] core.mock_http_client: MockHTTPClient ID 140412583904528 установил мок для: 'GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9' (Статус: 404). Текущие моки: ['GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9'] [mock_http_client.py:108]
-2025-05-05 23:40:04 [INFO] api.request.client: Вызов GET /api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9 [client.py:63]
-2025-05-05 23:40:04 [INFO] core.mock_http_client: MockHTTPClient ID 140412583904528 ищет мок для ключа: 'GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9'. Текущие моки: ['GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9'] [mock_http_client.py:36]
-2025-05-05 23:40:04 [INFO] core.mock_http_client: Найден и возвращен мок для: GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9 [mock_http_client.py:44]
-2025-05-05 23:40:04 [INFO] core.mock_http_client: MockHTTPClient ID 140412583904528 очищает моки. Было: ['GET:/api/request/non-existent-req-c0dad9df-c1ea-42a0-becf-ddf376a91ec9'] [mock_http_client.py:118]

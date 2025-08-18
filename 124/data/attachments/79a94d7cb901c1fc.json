@@ -1,0 +1,40 @@
+{
+  "id": "e25c84c5-b5c1-4162-89dc-696d944b6f2d",
+  "name": "Аникита",
+  "last_name": "Рогов",
+  "birthdate": "1988-12-26T03:43:24.916000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": 3.5141,
+      "longitude": 85.2705,
+      "district": "Ненецкий автономный округ",
+      "city": "Сухиничи"
+    },
+    {
+      "latitude": -14.7373,
+      "longitude": 30.4199,
+      "district": "Липецкая область",
+      "city": "Калязин"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Национальный операционный архитектор",
+      "graduation_year": 2000
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79059054595",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
