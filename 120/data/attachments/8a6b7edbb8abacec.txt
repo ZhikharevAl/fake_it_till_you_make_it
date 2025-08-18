@@ -1,0 +1,8 @@
+2025-08-18 09:09:56 [INFO] core.mock_http_client: MockHTTPClient ID 139767393054672 инициализирован. Mocks: {} [mock_http_client.py:24]
+2025-08-18 09:09:56 [INFO] tests.request.test_request_api_mocked: Тест: Внесение вклада в несуществующий запрос (POST ...) - MOK 404 [test_request_api_mocked.py:173]
+2025-08-18 09:09:56 [INFO] core.mock_http_client: MockHTTPClient ID 139767393054672 установил мок для: 'POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution' (Статус: 404). Текущие моки: ['POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution'] [mock_http_client.py:108]
+2025-08-18 09:09:56 [INFO] api.request.client: Вызов POST /api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution [client.py:79]
+2025-08-18 09:09:56 [INFO] core.mock_http_client: MockHTTPClient ID 139767393054672 ищет мок для ключа: 'POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution'. Текущие моки: ['POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution'] [mock_http_client.py:36]
+2025-08-18 09:09:56 [INFO] core.mock_http_client: Найден и возвращен мок для: POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution [mock_http_client.py:44]
+2025-08-18 09:09:56 [INFO] tests.request.test_request_api_mocked: Мок-ответ 404 (Not Found) для вклада успешно обработан. [test_request_api_mocked.py:186]
+2025-08-18 09:09:56 [INFO] core.mock_http_client: MockHTTPClient ID 139767393054672 очищает моки. Было: ['POST:/api/request/non-existent-req-fa270f94-7f8a-4b23-9ec3-86ab0062829b/contribution'] [mock_http_client.py:118]

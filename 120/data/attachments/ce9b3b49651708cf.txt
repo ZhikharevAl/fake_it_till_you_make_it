@@ -1,0 +1,8 @@
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8
+INFO     tests.request.test_request_api:test_request_api.py:148 Тест: Получение деталей несуществующего запроса (GET /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8 with params: None
+INFO     core.http_client:http_client.py:48 Received response 403 from http://localhost:4040/api/request/non-existent-bed9aef2-8690-4ad7-9926-257e1a03dcf8

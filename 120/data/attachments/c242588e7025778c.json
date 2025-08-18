@@ -1,0 +1,40 @@
+{
+  "id": "c5cf735a-b776-45ad-9ef0-06d700ef9a90",
+  "name": "Демьян",
+  "last_name": "Дорофеев",
+  "birthdate": "2005-06-15T03:47:05.329000Z",
+  "status": "Опытный",
+  "base_locations": [
+    {
+      "latitude": -18.2557,
+      "longitude": 166.2948,
+      "district": "Карачаево - Черкесская Республика",
+      "city": "Владимир"
+    },
+    {
+      "latitude": -63.6897,
+      "longitude": 153.3456,
+      "district": "Псковская область",
+      "city": "Сасово"
+    }
+  ],
+  "educations": [
+    {
+      "organization_name": "НПГУ ДПИ",
+      "level": "Высшее",
+      "specialization": "Районный маркетинговый разработчик",
+      "graduation_year": 2000
+    }
+  ],
+  "additional_info": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+  "contacts": {
+    "email": "test@test.com",
+    "phone": "+79482238442",
+    "social": {
+      "telegram": "@test",
+      "whatsapp": "@test",
+      "vk": "test@test.com"
+    }
+  },
+  "favourite_requests": []
+}
