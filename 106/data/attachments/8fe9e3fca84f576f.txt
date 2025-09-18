@@ -1,7 +1,0 @@
-2025-05-06 10:02:37 [INFO] core.mock_http_client: MockHTTPClient ID 139971103306896 инициализирован. Mocks: {} [mock_http_client.py:24]
-2025-05-06 10:02:37 [INFO] tests.auth.test_auth_mocked: Тест: Серверная ошибка (Мок Factory) [test_auth_mocked.py:126]
-2025-05-06 10:02:37 [INFO] core.mock_http_client: MockHTTPClient ID 139971103306896 установил мок для: 'POST:/api/auth' (Статус: 500). Текущие моки: ['POST:/api/auth'] [mock_http_client.py:108]
-2025-05-06 10:02:37 [INFO] core.mock_http_client: MockHTTPClient ID 139971103306896 ищет мок для ключа: 'POST:/api/auth'. Текущие моки: ['POST:/api/auth'] [mock_http_client.py:36]
-2025-05-06 10:02:37 [INFO] core.mock_http_client: Найден и возвращен мок для: POST:/api/auth [mock_http_client.py:44]
-2025-05-06 10:02:37 [INFO] tests.auth.test_auth_mocked: Мок-ответ 500 (серверная ошибка) успешно обработан. [test_auth_mocked.py:142]
-2025-05-06 10:02:37 [INFO] core.mock_http_client: MockHTTPClient ID 139971103306896 очищает моки. Было: ['POST:/api/auth'] [mock_http_client.py:118]

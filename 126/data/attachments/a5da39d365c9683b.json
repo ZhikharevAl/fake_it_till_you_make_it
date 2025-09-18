@@ -1,0 +1,40 @@
+{
+    "id": "1dd1ae04-e0a4-4e82-80d5-7389567289c6",
+    "name": "Ананий",
+    "lastName": "Молчанов",
+    "birthdate": "2003-03-15T23:07:43.815Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 62.2512,
+            "longitude": 96.5767,
+            "district": "г. Санкт - Петербург",
+            "city": "Троицк (Моск.)"
+        },
+        {
+            "latitude": -88.3274,
+            "longitude": 97.9694,
+            "district": "Курганская область",
+            "city": "Валаам"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Главный операционный помощник",
+            "graduationYear": 2001
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79831689370",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
