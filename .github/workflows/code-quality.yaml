@@ -129,7 +129,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage-results/coverage.xml
-          slug: ZhikharevAl/fake_it_till_you_make_it
+          slug: ${{ github.repository }}
 
       - name: Upload Allure Results
         if: always()
