@@ -1,0 +1,5 @@
+2025-09-18 21:40:43 [INFO] tests.request.test_request_api: Тест: Успешное внесение вклада (POST /api/request/request-id-1/contribution) [test_request_api.py:190]
+2025-09-18 21:40:43 [INFO] api.request.client: Вызов POST /api/request/request-id-1/contribution [client.py:79]
+2025-09-18 21:40:43 [INFO] core.http_client: Sending POST request to /api/request/request-id-1/contribution [http_client.py:73]
+2025-09-18 21:40:43 [INFO] core.http_client: Received response 500 from http://localhost:4040/api/request/request-id-1/contribution [http_client.py:80]
+2025-09-18 21:40:43 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]

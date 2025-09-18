@@ -1,0 +1,40 @@
+{
+    "id": "d1c0a9dd-2e47-4420-a901-f211d1870ac3",
+    "name": "Аким",
+    "lastName": "Михеев",
+    "birthdate": "1999-10-06T01:06:34.057Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": 82.5968,
+            "longitude": 139.0292,
+            "district": "Московская область",
+            "city": "Новороссийка"
+        },
+        {
+            "latitude": 58.1733,
+            "longitude": 14.7436,
+            "district": "Орловская область",
+            "city": "Лабытнанги"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Национальный страховой помощник",
+            "graduationYear": 2007
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79774544729",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

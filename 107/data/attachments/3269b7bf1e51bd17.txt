@@ -1,7 +1,0 @@
-INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 139858237762576 инициализирован. Mocks: {}
-INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:62 Тест: Получение избранного без авторизации (GET /api/user/favourites) - MOK 401
-INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 139858237762576 установил мок для: 'GET:/api/user/favourites' (Статус: 401). Текущие моки: ['GET:/api/user/favourites']
-INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 139858237762576 ищет мок для ключа: 'GET:/api/user/favourites'. Текущие моки: ['GET:/api/user/favourites']
-INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: GET:/api/user/favourites
-INFO     tests.user.test_user_favourites_api_mocked:test_user_favourites_api_mocked.py:75 Мок-ответ 401 для GET favourites успешно обработан.
-INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 139858237762576 очищает моки. Было: ['GET:/api/user/favourites']
