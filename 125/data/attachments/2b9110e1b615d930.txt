@@ -1,0 +1,6 @@
+2025-09-18 21:20:34 [INFO] tests.auth.test_auth_api: Тест: Отсутствует поле password [test_auth_api.py:134]
+2025-09-18 21:20:34 [INFO] core.http_client: Sending POST request to APIEndpoints.AUTH [http_client.py:73]
+2025-09-18 21:20:34 [INFO] core.http_client: Received response 403 from http://localhost:4040/APIEndpoints.AUTH [http_client.py:80]
+2025-09-18 21:20:34 [INFO] tests.auth.test_auth_api: Тест: Отсутствует поле password [test_auth_api.py:134]
+2025-09-18 21:20:34 [INFO] core.http_client: Sending POST request to APIEndpoints.AUTH [http_client.py:73]
+2025-09-18 21:20:34 [INFO] core.http_client: Received response 403 from http://localhost:4040/APIEndpoints.AUTH [http_client.py:80]

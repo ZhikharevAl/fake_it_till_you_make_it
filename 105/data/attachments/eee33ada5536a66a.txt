@@ -1,8 +1,0 @@
-INFO     core.mock_http_client:mock_http_client.py:24 MockHTTPClient ID 139730807560208 инициализирован. Mocks: {}
-INFO     tests.request.test_request_api_mocked:test_request_api_mocked.py:151 Тест: Успешное внесение вклада (POST ...) - MOK Factory
-INFO     core.mock_http_client:mock_http_client.py:108 MockHTTPClient ID 139730807560208 установил мок для: 'POST:/api/request/mock-factory-request-789/contribution' (Статус: 200). Текущие моки: ['POST:/api/request/mock-factory-request-789/contribution']
-INFO     api.request.client:client.py:79 Вызов POST /api/request/mock-factory-request-789/contribution
-INFO     core.mock_http_client:mock_http_client.py:36 MockHTTPClient ID 139730807560208 ищет мок для ключа: 'POST:/api/request/mock-factory-request-789/contribution'. Текущие моки: ['POST:/api/request/mock-factory-request-789/contribution']
-INFO     core.mock_http_client:mock_http_client.py:44 Найден и возвращен мок для: POST:/api/request/mock-factory-request-789/contribution
-INFO     tests.request.test_request_api_mocked:test_request_api_mocked.py:160 Мок-ответ o успешном вкладе получен.
-INFO     core.mock_http_client:mock_http_client.py:118 MockHTTPClient ID 139730807560208 очищает моки. Было: ['POST:/api/request/mock-factory-request-789/contribution']

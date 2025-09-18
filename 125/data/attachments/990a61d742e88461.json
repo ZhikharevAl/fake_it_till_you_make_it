@@ -1,0 +1,40 @@
+{
+    "id": "c0e0f32e-507a-48b9-b6f5-6793213b0b10",
+    "name": "Игнатий",
+    "lastName": "Миронов",
+    "birthdate": "1990-09-18T07:42:51.967Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -25.9125,
+            "longitude": -92.8697,
+            "district": "Чеченская Республика",
+            "city": "Йошкар-Ола"
+        },
+        {
+            "latitude": -25.9327,
+            "longitude": -175.7734,
+            "district": "Республика Бурятия",
+            "city": "Ачинск"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Районный оптимизационный инженер",
+            "graduationYear": 2013
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79016689052",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}
