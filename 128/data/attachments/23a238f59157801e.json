@@ -1,0 +1,40 @@
+{
+    "id": "f1c54817-1b32-42cc-9067-4f06ae12b5b9",
+    "name": "Павел",
+    "lastName": "Ермаков",
+    "birthdate": "1999-06-23T21:40:11.431Z",
+    "status": "Опытный",
+    "baseLocations": [
+        {
+            "latitude": -44.1497,
+            "longitude": -0.7439,
+            "district": "Республика Саха (Якутия)",
+            "city": "Юровск"
+        },
+        {
+            "latitude": -38.144,
+            "longitude": -122.2785,
+            "district": "Республика Адыгея (Адыгея)",
+            "city": "Находка"
+        }
+    ],
+    "educations": [
+        {
+            "organizationName": "НПГУ ДПИ",
+            "level": "Высшее",
+            "specialization": "Региональный маркетинговый аналитик",
+            "graduationYear": 2015
+        }
+    ],
+    "additionalInfo": "Очень хороший человек. Добрый, отзывчивый, честный и замечательный",
+    "contacts": {
+        "email": "test@test.com",
+        "phone": "+79180202793",
+        "social": {
+            "telegram": "@test",
+            "whatsapp": "@test",
+            "vk": "test@test.com"
+        }
+    },
+    "favouriteRequests": []
+}

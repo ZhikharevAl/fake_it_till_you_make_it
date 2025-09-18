@@ -1,3 +1,0 @@
-2025-05-06 19:21:52 [INFO] tests.auth.test_auth_api: Тест: Неверный логин, корректный пароль [test_auth_api.py:71]
-2025-05-06 19:21:52 [INFO] core.http_client: Sending POST request to /api/auth [http_client.py:73]
-2025-05-06 19:21:52 [INFO] core.http_client: Received response 400 from http://localhost:4040/api/auth [http_client.py:80]

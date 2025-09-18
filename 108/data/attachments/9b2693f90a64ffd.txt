@@ -1,8 +1,0 @@
-2025-05-06 19:21:55 [INFO] tests.conftest: 
-[Fixture] Создание авторизованного APIRequestContext (токен: eyJhb...)... [conftest.py:125]
-2025-05-06 19:21:55 [INFO] tests.user.test_user_api: Тест: Удаление несуществующего ID из избранного (DELETE .../non-existent-b8c7baf6-49e4-4676-8bbe-03153cf92ee9) [test_user_api.py:153]
-2025-05-06 19:21:55 [INFO] api.user.client: Вызов DELETE /api/user/favourites/non-existent-b8c7baf6-49e4-4676-8bbe-03153cf92ee9 [client.py:80]
-2025-05-06 19:21:55 [INFO] core.http_client: Sending DELETE request to /api/user/favourites/non-existent-b8c7baf6-49e4-4676-8bbe-03153cf92ee9 [http_client.py:131]
-2025-05-06 19:21:55 [INFO] core.http_client: Received response 200 from http://localhost:4040/api/user/favourites/non-existent-b8c7baf6-49e4-4676-8bbe-03153cf92ee9 [http_client.py:135]
-2025-05-06 19:21:55 [WARNING] utils.allure_utils: Ответ не является валидным JSON, аттачим как текст. [allure_utils.py:62]
-2025-05-06 19:21:55 [INFO] tests.conftest: [Fixture] Уничтожение авторизованного APIRequestContext... [conftest.py:133]

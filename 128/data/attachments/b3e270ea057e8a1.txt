@@ -1,0 +1,6 @@
+INFO     tests.request.conftest:conftest.py:14 Создание UserClient...
+INFO     tests.request.test_request_api:test_request_api.py:72 Тест: Успешное получение деталей запроса (GET /api/request/request-id-1)
+INFO     api.request.client:client.py:63 Вызов GET /api/request/request-id-1
+INFO     core.http_client:http_client.py:44 Sending GET request to /api/request/request-id-1 with params: None
+INFO     core.http_client:http_client.py:48 Received response 500 from http://localhost:4040/api/request/request-id-1
+WARNING  utils.allure_utils:allure_utils.py:62 Ответ не является валидным JSON, аттачим как текст.
